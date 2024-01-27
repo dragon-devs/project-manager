@@ -11,15 +11,16 @@ datasource db {
 }
 
 model Project {
-  id          String   @unique @default(uuid())
+  id          String    @unique @default(uuid())
   name        String
   description String
-  status      String   @default("OPEN")
-  priority    String   @default("NORMAL")
-  owner       String?  @default("Selected User")
-  dueTime     DateTime @updatedAt
-  timeline    DateTime @updatedAt
+  framework   String
+  status      String    @default("OPEN")
+  priority    String    @default("NORMAL")
+  owner       String?   @default("Selected User")
+  dueDate     DateTime?
+  timeline    DateTime? @default(now())
   budget      String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }

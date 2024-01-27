@@ -13,29 +13,29 @@ import {MixIcon} from "@radix-ui/react-icons";
 import Container from "@/components/Container";
 
 const NavBar = () => {
+  const links = [
+    {label: 'Dashboard', href: '/'},
+    {label: 'Projects', href: '/projects'},
+  ]
+
   return (
       <>
         <Container>
-          <div className="flex my-2 mx-5 lg:mx-0 justify-between items-center">
+          <div className="flex my-1 mx-5 lg:mx-0 justify-between items-center">
             <NavigationMenu className="gap-3">
               <Link href="/">
                 <MixIcon/>
               </Link>
               <NavigationMenuList className="p-1">
-                <NavigationMenuItem>
-                  <Link href="/" legacyBehavior passHref>
+                {links.map((link) => (
+                <NavigationMenuItem key={link.href}>
+                  <Link href={link.href} legacyBehavior passHref>
                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Home
+                      {link.label}
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <Link href="/projects" legacyBehavior passHref>
-                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                      Projects
-                    </NavigationMenuLink>
-                  </Link>
-                </NavigationMenuItem>
+              ))}
               </NavigationMenuList>
             </NavigationMenu>
             <ModeToggle/>
