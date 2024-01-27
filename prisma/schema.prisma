@@ -14,7 +14,7 @@ model Project {
   id          String    @unique @default(uuid())
   name        String
   description String
-  framework   String[]
+  framework   String
   status      Status    @default(OPEN)
   priority    Priority  @default(NORMAL)
   owner       String?   @default("Selected User")
