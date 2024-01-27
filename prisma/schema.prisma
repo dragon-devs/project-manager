@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -14,13 +14,26 @@ model Project {
   id          String    @unique @default(uuid())
   name        String
   description String
-  framework   String
-  status      String    @default("OPEN")
-  priority    String    @default("NORMAL")
+  framework   String[]
+  status      Status    @default(OPEN)
+  priority    Priority  @default(NORMAL)
   owner       String?   @default("Selected User")
-  dueDate     DateTime?
-  timeline    DateTime? @default(now())
+  dueDate     DateTime
+  timeline    DateTime?
   budget      String?
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
+}
+
+enum Status {
+  OPEN
+  STUCK
+  IN_PROGRESS
+  FINISHED
+}
+
+enum Priority {
+  LOW
+  NORMAL
+  HIGH
 }
