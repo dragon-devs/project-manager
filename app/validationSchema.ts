@@ -9,5 +9,7 @@ export const projectSchema = z.object({
   framework: z.string().min(1, 'Framework must be selected.').refine(value => allowedFrameworks.includes(value), {
     message: 'Invalid framework. Choose from: React, Angular, Vue, etc.'
   }),
-  dueDate: z.coerce.date()
+  dueDate: z.coerce.date({
+    required_error: "Due date is required.",
+  })
 });
