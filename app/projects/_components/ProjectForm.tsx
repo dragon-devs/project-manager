@@ -40,6 +40,7 @@ export function ProfileForm() {
   async function onSubmit(data: z.infer<typeof projectSchema>) {
     try {
       setIsSubmiting(true)
+      console.log(data)
       await axios.post('/api/projects', data);
       toast.success('issue is successfully created.');
 
@@ -153,10 +154,11 @@ export function ProfileForm() {
                                   <SelectValue placeholder="Select"/>
                                 </SelectTrigger>
                                 <SelectContent position="popper">
-                                  <SelectItem value="0">Today</SelectItem>
                                   <SelectItem value="1">Tomorrow</SelectItem>
                                   <SelectItem value="3">In 3 days</SelectItem>
                                   <SelectItem value="7">In a week</SelectItem>
+                                  <SelectItem value="14">2 a weeks</SelectItem>
+                                  <SelectItem value="30">A month</SelectItem>
                                 </SelectContent>
                               </Select>
                               <div className="rounded-md border">
@@ -167,7 +169,7 @@ export function ProfileForm() {
                                       setDate(newDate);
                                       field.onChange(newDate);
                                     }}
-                                    disabled={(date) => date < new Date()}
+                                    disabled={(date) => date <= new Date()}
                                 />
                               </div>
                             </PopoverContent>

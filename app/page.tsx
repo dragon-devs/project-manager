@@ -2,6 +2,7 @@
 
 import {Button} from "@/components/ui/button";
 import {toast} from "sonner";
+import DueDate from "@/app/projects/_components/DueDate";
 
 export default function Home() {
   return (
