@@ -1,12 +1,12 @@
 // types/project.ts
 
-import {Languages, Priority, Status} from "@prisma/client";
+import {Frameworks, Priority, Status} from "@prisma/client";
 
 export interface Project {
   id: string;
   name: string;
   description: string;
-  frameworks: Languages[];
+  frameworks: Frameworks[];
   timeline: Date[];
   status: Status;
   priority: Priority;

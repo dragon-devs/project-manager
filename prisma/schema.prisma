@@ -11,28 +11,30 @@ datasource db {
 }
 
 model Project {
-  id          String      @unique @default(uuid())
+  id          String       @unique @default(uuid())
   name        String
   description String
-  frameworks  Languages[]
-  status      Status      @default(OPEN)
-  priority    Priority    @default(NORMAL)
-  owner       String?     @default("Selected User")
+  frameworks  Frameworks[]
+  status      Status       @default(NOT_STARTED)
+  priority    Priority     @default(NORMAL)
+  owner       String?      @default("Selected User")
   dueDate     DateTime
   timeline    DateTime[]
   budget      String?
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 }
 
-enum Languages {
+enum Frameworks {
   REACTJS
   NODEJS
-  ANGULAR
-  VUE
-  DOTNET
+  RESTAPI
   NEXTJS
   PYTHON
+  DJANGO
+  FLASK
+  FASTAPI
+  ASPDOTNET
   TYPESCRIPT
   JAVASCRIPT
   CPLUSPLUS
@@ -45,13 +47,20 @@ enum Languages {
   SWIFT
   KOTLIN
   DART
+  ANGULAR
+  VUE
+  DOTNET
 }
 
 enum Status {
-  OPEN
-  STUCK
+  NOT_STARTED
   IN_PROGRESS
-  FINISHED
+  STUCK
+  COMPLETED
+  CANCELLED
+  PENDING
+  OVERDUE
+  REOPENED
 }
 
 enum Priority {

@@ -20,7 +20,6 @@ import {useRouter} from "next/navigation";
 import axios from "axios";
 import {toast} from "sonner";
 import {FancyMultiSelect} from "@/components/MultiSelect";
-import {Languages} from "@prisma/client";
 
 export function ProfileForm() {
   const router = useRouter();

@@ -1,7 +1,7 @@
 import {z} from "zod";
-import {Languages} from '@prisma/client';
+import {Frameworks} from '@prisma/client';
 // Assume you have a set of allowed frameworks
-export const allowedFrameworks = Languages
+export const allowedFrameworks = Frameworks
 
 // Assume you have a set of allowed frameworks
 

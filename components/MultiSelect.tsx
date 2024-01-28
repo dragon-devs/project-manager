@@ -6,11 +6,11 @@ import {X} from "lucide-react";
 import {Badge} from "@/components/ui/badge";
 import {Command, CommandGroup, CommandItem} from "@/components/ui/command";
 import {Command as CommandPrimitive} from "cmdk";
-import {Languages} from "@prisma/client";
+import {Frameworks} from "@prisma/client";
 
 type Framework = Record<"value" | "label", string>;
 
-const languageArray = Object.values(Languages) as string[];
+const languageArray = Object.values(Frameworks) as string[];
 
 const FRAMEWORKS: Framework[] = languageArray.map((language) => ({
   value: language,

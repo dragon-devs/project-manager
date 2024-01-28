@@ -1,7 +1,12 @@
 import React from 'react';
-import {addDays, differenceInDays, differenceInHours, differenceInMinutes, format, isTomorrow} from 'date-fns';
-import {Badge} from "@/components/ui/badge";
-import {QuestionMarkCircledIcon, CrossCircledIcon, ExclamationTriangleIcon} from "@radix-ui/react-icons";
+import {addDays, differenceInDays, differenceInHours, differenceInMinutes, isTomorrow} from 'date-fns';
+import {
+  CountdownTimerIcon,
+  CrossCircledIcon,
+  ExclamationTriangleIcon,
+  QuestionMarkCircledIcon
+} from "@radix-ui/react-icons";
+import {Label} from "@/components/ui/label";
 
 interface MyComponentProps {
   dueDate: Date | string; // Accept Date or string representation
@@ -12,7 +17,6 @@ function DueDate({dueDate}: MyComponentProps) {
   const parsedDueDate = typeof dueDate === 'string' ? new Date(dueDate) : dueDate; // Parse string representation if necessary
   const remainingDays = differenceInDays(parsedDueDate, currentDate);
 
-  const formattedDueDate = format(parsedDueDate, 'MMMM do, yyyy HH:mm:ss');
 
 // Get the end of the current day (beginning of the next day)
   const endOfDay = addDays(new Date(), 1);
@@ -23,40 +27,45 @@ function DueDate({dueDate}: MyComponentProps) {
   const remainingMinutes = differenceInMinutes(endOfDay, currentDate) % 60;
 
 // Format the current date and time
-  const formattedCurrentDateTime = format(currentDate, 'MMMM do, yyyy HH:mm:ss');
 
   let message =
       remainingHours > 1
-          ? `${remainingHours} H & ${remainingMinutes} M remaining`
+          ? `${remainingHours} hours remaining`
           : remainingHours === 1
-              ? `${remainingHours} hour & ${remainingMinutes} minutes remaining`
+              ? `${remainingHours} hour`
               : remainingHours === 0 && remainingMinutes > 0
                   ? `${remainingMinutes} minutes remaining`
                   : `Less than a minute`;
 
   if (isTomorrow(parsedDueDate)) {
-    return (<Badge
-        variant="destructive"
-        className="gap-1 text-white bg-rose-500 dark:bg-rose-700 shadow hover:bg-rose-500/80 dark:hover:bg-rose-700/80"
+    return (<Label
+        className="gap-2 text-xs font-medium flex items-center  text-orange-600 dark:text-orange-500 hover:text-orange-600/80 dark:hover:text-orange-500/80"
     >
-      <ExclamationTriangleIcon/>
       {message}
-    </Badge>)
+      <ExclamationTriangleIcon/>
+    </Label>)
   }
   if (remainingDays === 1) {
-    return <Badge variant="destructive"
-                  className="gap-1 text-white bg-orange-500 dark:bg-orange-700 shadow hover:bg-orange-500/80 dark:hover:bg-orange-700/80">
+    return <Label
+        className="gap-2 text-xs font-medium flex items-center  text-yellow-600 dark:text-yellow-500 hover:text-yellow-600/80 dark:hover:text-yellow-500/80">
+      Tomorrow is the last day
       <QuestionMarkCircledIcon/>
-      Tomorrow is last day
-    </Badge>
+    </Label>
   } else if (remainingDays > 0) {
-    return <Badge>{remainingDays} days remaining</Badge>;
+    return <Label
+        className="gap-2 text-xs font-medium flex items-center "
+    >
+      {remainingDays} days remaining
+      <CountdownTimerIcon/>
+    </Label>;
   } else {
     return (
-        <Badge variant="destructive" className="gap-1">
+        <Label
+            className="gap-2 text-xs font-medium flex items-center text-red-600 dark:text-red-700 hover:text-red-500/80 dark:hover:text-red-700/80"
+        >
+          Overdue Cancel
           <CrossCircledIcon/>
-          Project is Overdue
-        </Badge>
+        </Label>
     );
   }
 }

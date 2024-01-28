@@ -1,8 +1,8 @@
 -- CreateEnum
-CREATE TYPE "Languages" AS ENUM ('REACTJS', 'NODEJS', 'ANGULAR', 'VUE', 'DOTNET', 'NEXTJS', 'PYTHON', 'TYPESCRIPT', 'JAVASCRIPT', 'CPLUSPLUS', 'CSHARP', 'RUST', 'JAVA', 'PHP', 'RUBY', 'GOLANG', 'SWIFT', 'KOTLIN', 'DART');
+CREATE TYPE "Frameworks" AS ENUM ('REACTJS', 'NODEJS', 'RESTAPI', 'NEXTJS', 'PYTHON', 'DJANGO');
 
 -- CreateEnum
-CREATE TYPE "Status" AS ENUM ('OPEN', 'STUCK', 'IN_PROGRESS', 'FINISHED');
+CREATE TYPE "Status" AS ENUM ('NOT_STARTED', 'IN_PROGRESS', 'STUCK', 'COMPLETED', 'CANCELLED');
 
 -- CreateEnum
 CREATE TYPE "Priority" AS ENUM ('LOW', 'NORMAL', 'HIGH');
@@ -12,8 +12,8 @@ CREATE TABLE "Project" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
-    "frameworks" "Languages"[] DEFAULT ARRAY['PYTHON']::"Languages"[],
-    "status" "Status" NOT NULL DEFAULT 'OPEN',
+    "frameworks" "Frameworks"[],
+    "status" "Status" NOT NULL DEFAULT 'NOT_STARTED',
     "priority" "Priority" NOT NULL DEFAULT 'NORMAL',
     "owner" TEXT DEFAULT 'Selected User',
     "dueDate" TIMESTAMP(3) NOT NULL,
