@@ -49,7 +49,9 @@ const ProjectDetailsPage = async ({params}: Props) => {
                   Frameworks
                 </p>
                 <p className="text-sm font-medium">
-                  {project.framework}
+                  {project.frameworks.map((framework, index) => (
+                      <span key={index}>{framework} </span>
+                  ))}
                 </p>
               </div>
               <div className="flex gap-6 sm:gap-10">

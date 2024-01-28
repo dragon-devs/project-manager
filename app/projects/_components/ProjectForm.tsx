@@ -19,6 +19,8 @@ import {addDays, format} from "date-fns"
 import {useRouter} from "next/navigation";
 import axios from "axios";
 import {toast} from "sonner";
+import {FancyMultiSelect} from "@/components/MultiSelect";
+import {Languages} from "@prisma/client";
 
 export function ProfileForm() {
   const router = useRouter();
@@ -29,7 +31,7 @@ export function ProfileForm() {
     defaultValues: {
       name: "",
       description: "",
-      framework: "",
+      timeline: [new Date(), new Date('2024-02-10T12:00:00Z')],
     },
   })
   const [date, setDate] = useState<Date>()
@@ -40,8 +42,7 @@ export function ProfileForm() {
   async function onSubmit(data: z.infer<typeof projectSchema>) {
     try {
       setIsSubmiting(true)
-      console.log(data)
-      await axios.post('/api/projects', data);
+      await axios.post('/api/projects', data)
       toast.success('issue is successfully created.');
 
       router.push('/projects')
@@ -92,23 +93,16 @@ export function ProfileForm() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <FormField
                     control={form.control}
-                    name="framework"
+                    name="frameworks"
                     render={({field}) => (
                         <FormItem>
-                          <FormLabel>Framework</FormLabel>
+                          <FormLabel>Frameworks</FormLabel>
                           <FormControl>
-                            <Select onValueChange={field.onChange} defaultValue={field.value} {...field}>
-                              <SelectTrigger>
-                                <SelectValue placeholder="Select a framework"/>
-                              </SelectTrigger>
-                              <SelectContent>
-                                {allowedFrameworks.map((framework) => (
-                                    <SelectItem key={framework} value={framework}>
-                                      {framework}
-                                    </SelectItem>
-                                ))}
-                              </SelectContent>
-                            </Select>
+                            <FancyMultiSelect
+                                onChange={(values) => {
+                                  field.onChange(values.map(({value}) => value));
+                                }}
+                            />
                           </FormControl>
                           <FormMessage/>
                         </FormItem>

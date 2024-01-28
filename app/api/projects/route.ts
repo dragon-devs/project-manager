@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     data: {
       name: body.name,
       description: body.description,
-      framework: body.framework,
+      frameworks: body.frameworks,
       dueDate: body.dueDate
 
     }

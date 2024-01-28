@@ -11,18 +11,40 @@ datasource db {
 }
 
 model Project {
-  id          String    @unique @default(uuid())
+  id          String      @unique @default(uuid())
   name        String
   description String
-  framework   String
-  status      Status    @default(OPEN)
-  priority    Priority  @default(NORMAL)
-  owner       String?   @default("Selected User")
+  frameworks  Languages[]
+  status      Status      @default(OPEN)
+  priority    Priority    @default(NORMAL)
+  owner       String?     @default("Selected User")
   dueDate     DateTime
-  timeline    DateTime?
+  timeline    DateTime[]
   budget      String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+}
+
+enum Languages {
+  REACTJS
+  NODEJS
+  ANGULAR
+  VUE
+  DOTNET
+  NEXTJS
+  PYTHON
+  TYPESCRIPT
+  JAVASCRIPT
+  CPLUSPLUS
+  CSHARP
+  RUST
+  JAVA
+  PHP
+  RUBY
+  GOLANG
+  SWIFT
+  KOTLIN
+  DART
 }
 
 enum Status {
