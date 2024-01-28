@@ -4,7 +4,7 @@ import {Button} from "@/components/ui/button";
 
 const ProjectDetailsActions = () => {
   return (
-      <div className="md:flex justify-between ">
+      <div className="flex  justify-between ">
         <CardHeader className="p-0 mb-5">
           <CardTitle>Project Details</CardTitle>
           <CardDescription>Here is the full details page for each project.</CardDescription>

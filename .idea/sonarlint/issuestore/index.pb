@@ -112,3 +112,7 @@ M
 components/AspactRatioBox.tsx,3\f\3f9f0aced4a97f0946b0ddff41e899cdf10fcb6b
 [
 +app/projects/[id]/ProjectDetailsActions.tsx,5\4\542fed784ceb0651b4b33974946524a1d32f24f7
+N
+components/ui/aspect-ratio.tsx,d\c\dcc081db92cdb8851536e8ad342daa672ed1ead5
+N
+components/DateTimeCounter.tsx,b\6\b6673a193e835fa19bd12873f9f6af8a648c4073
