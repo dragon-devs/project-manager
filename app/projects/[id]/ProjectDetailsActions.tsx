@@ -4,6 +4,7 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {Project} from "@prisma/client";
 import EditProjectButton from "@/app/projects/[id]/EditProjectButton";
+import DeleteProjectButton from "@/app/projects/[id]/DeleteProjectButton";
 
 const ProjectDetailsActions = ({projectId}: {projectId: string}) => {
   return (
@@ -13,10 +14,8 @@ const ProjectDetailsActions = ({projectId}: {projectId: string}) => {
           <CardDescription>Here is the full details page for each project.</CardDescription>
         </CardHeader>
         <div className="flex gap-3 ">
+          <DeleteProjectButton projectId={projectId} />
           <EditProjectButton projectId={projectId} />
-          <Link href={`/delete/${projectId}`}>
-            <Button variant="destructive">Delete</Button>
-          </Link>
         </div>
       </div>
   );

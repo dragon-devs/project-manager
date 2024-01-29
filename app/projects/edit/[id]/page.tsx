@@ -1,9 +1,21 @@
 import React from 'react';
+import prisma from "@/prisma/client";
+import {notFound} from "next/navigation";
+import {ProjectForm} from "@/app/projects/_components/ProjectForm";
 
-const EditProjectPage = () => {
+interface Props{
+  params: {id: string}
+}
+const EditProjectPage = async ({params}: Props) => {
+  const project = await prisma.project.findUnique({
+    where: {id: params.id}
+  });
+  if (!project)
+    return notFound();
+
   return (
       <div>
-        Edit
+        <ProjectForm project={project}/>
       </div>
   );
 };

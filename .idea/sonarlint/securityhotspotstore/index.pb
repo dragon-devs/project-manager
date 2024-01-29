@@ -116,3 +116,5 @@ O
 app/projects/edit/[id]/page.tsx,4\6\469440d89bf95b8465fe630ae558a1c644cbb9e6
 W
 'app/projects/[id]/EditProjectButton.tsx,5\f\5fe7597595ee929f04870ef630a0470376c9dac8
+Y
+)app/projects/[id]/DeleteProjectButton.tsx,b\4\b4a1e66457d2b15f87c8929c4b7f3f3422d7cf31

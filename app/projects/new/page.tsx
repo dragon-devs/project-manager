@@ -1,10 +1,10 @@
 import React from 'react';
-import {ProfileForm} from "@/app/projects/_components/ProjectForm";
+import {ProjectForm} from "@/app/projects/_components/ProjectForm";
 
 const NewProjectPage = () => {
   return (
       <div>
-        <ProfileForm />
+        <ProjectForm />
       </div>
   );
 };

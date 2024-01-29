@@ -20,18 +20,22 @@ import {useRouter} from "next/navigation";
 import axios from "axios";
 import {toast} from "sonner";
 import {FancyMultiSelect} from "@/components/MultiSelect";
+import {Project} from "@prisma/client";
 
-export function ProfileForm() {
+export function ProjectForm({project}: { project?: Project }) {
   const router = useRouter();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof projectSchema>>({
     resolver: zodResolver(projectSchema),
     defaultValues: {
-      name: "",
-      description: "",
-      timeline: [new Date(), new Date('2024-02-10T12:00:00Z')],
-    },
+      name: project?.name || '',
+      description: project?.description || '',
+      frameworks: project?.frameworks || [],
+      timeline: project?.timeline,
+      dueDate: project?.dueDate,
+
+    }
   })
   const [date, setDate] = useState<Date>()
   const [isSubmiting, setIsSubmiting] = useState(false);
@@ -41,9 +45,13 @@ export function ProfileForm() {
   async function onSubmit(data: z.infer<typeof projectSchema>) {
     try {
       setIsSubmiting(true)
-      await axios.post('/api/projects', data)
-      toast.success('issue is successfully created.');
-
+      if (project) {
+        await axios.patch('/api/projects/' + project.id, data)
+        toast.success('Project is successfully updated.');
+      } else {
+        await axios.post('/api/projects', data)
+        toast.success('Project is successfully created.');
+      }
       router.push('/projects')
       router.refresh()
       setIsSubmiting(false)
@@ -98,6 +106,7 @@ export function ProfileForm() {
                           <FormLabel>Frameworks</FormLabel>
                           <FormControl>
                             <FancyMultiSelect
+                                project={project!}
                                 onChange={(values) => {
                                   field.onChange(values.map(({value}) => value));
                                 }}
