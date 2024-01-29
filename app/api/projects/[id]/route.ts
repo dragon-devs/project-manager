@@ -43,17 +43,7 @@ export async function PATCH(
     }
 
     // Only include non-null and non-undefined properties from the body
-    const updateData: {
-      name?: string;
-      description?: string;
-      frameworks?: Frameworks[];
-      dueDate?: Date;
-      status?: Status;
-      priority?: Priority;
-      timeline?: Date[]; // Replace 'any' with the actual type of your 'timeline' property
-      budget?: number | null;
-      owner?: string;
-    } = {
+    const updateData = {
       name: body.name,
       description: body.description,
       frameworks: body.frameworks,
@@ -65,14 +55,8 @@ export async function PATCH(
       owner: body.owner
     };
 
-    // Remove undefined or null values from the update data
-    // @ts-ignore
-    Object.keys(updateData).forEach(
-        (key) => updateData[key] === undefined && delete updateData[key]
-    );
 
-    // noinspection TypeScriptValidateJSTypes
-    // @ts-ignore
+
     const updatedProject = await prisma.project.update({
       where: {
         id: projectId
@@ -82,7 +66,6 @@ export async function PATCH(
 
     return NextResponse.json(updatedProject, {status: 200});
   } catch (error) {
-    // Handle Prisma validation error
     if (error instanceof PrismaClientValidationError) {
       return NextResponse.json(
           {
