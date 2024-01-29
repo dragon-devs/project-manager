@@ -1,18 +1,9 @@
-'use client';
-
-import {Button} from "@/components/ui/button";
-import {toast} from "sonner";
-import DueDate from "@/app/projects/_components/DueDate";
-import DateTimeCounter from "@/components/DateTimeCounter";
-import TimeElapsedComponent from "@/components/DateTimeCounter";
-import Spinner from "@/components/Spinner";
-import {DrawerDemo} from "@/components/DrawerForMobile";
+import {CardDemo} from "@/components/NotificationsCard";
 
 export default function Home() {
   return (
-    <div>
-      <Spinner />
-      <DrawerDemo />
+    <div className="flex justify-center items-center">
+      <CardDemo />
     </div>
   );
 }

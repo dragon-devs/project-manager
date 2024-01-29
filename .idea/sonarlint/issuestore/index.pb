@@ -124,3 +124,11 @@ F
 components/Spinner.tsx,a\9\a9ab53c4cee805695f1698ab16c1dc37ae81aed5
 N
 components/DrawerForMobile.tsx,2\c\2ca8a90ce802542521b34c8c6d9a34dd2a09f115
+L
+components/HamburgerMenu.tsx,6\1\616a68805ae10a47487f061122fa61422e80989c
+P
+ components/NotificationsCard.tsx,e\2\e2bc245e2474a50d9c93f3e6f6d659f1dcde7837
+H
+components/ui/switch.tsx,d\0\d02de9c08fab766c72e8662937fee6d1eeeef2d8
+H
+components/ui/drawer.tsx,d\5\d5d91063bcad6125b535bf065ba5d72a87b43d50
