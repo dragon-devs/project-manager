@@ -118,3 +118,7 @@ W
 'app/projects/[id]/EditProjectButton.tsx,5\f\5fe7597595ee929f04870ef630a0470376c9dac8
 Y
 )app/projects/[id]/DeleteProjectButton.tsx,b\4\b4a1e66457d2b15f87c8929c4b7f3f3422d7cf31
+N
+components/ui/alert-dialog.tsx,8\d\8d4b4fae996b505e54f4fc0cf242ecd6b0487ead
+F
+components/Spinner.tsx,a\9\a9ab53c4cee805695f1698ab16c1dc37ae81aed5

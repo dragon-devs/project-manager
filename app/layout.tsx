@@ -29,7 +29,7 @@ export default function RootLayout({children,}: Readonly<{
         <main className="p-5">
           <Container>{children}</Container>
         </main>
-        <Toaster/>
+        <Toaster position="top-center"/>
       </ThemeProvider>
       </body>
       </html>

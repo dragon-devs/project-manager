@@ -66,11 +66,13 @@ export async function PATCH(
     };
 
     // Remove undefined or null values from the update data
+    // @ts-ignore
     Object.keys(updateData).forEach(
         (key) => updateData[key] === undefined && delete updateData[key]
     );
 
     // noinspection TypeScriptValidateJSTypes
+    // @ts-ignore
     const updatedProject = await prisma.project.update({
       where: {
         id: projectId
@@ -101,4 +103,22 @@ export async function PATCH(
         {status: 500}
     );
   }
+}
+
+export async function DELETE(
+    request: NextRequest,
+    {params}: { params: { id: string } }) {
+
+  const project = await prisma.project.findUnique({
+    where: {id: params.id}
+  });
+
+  if (!project)
+    return NextResponse.json({error: "Invalid project"}, {status: 404});
+
+  await prisma.project.delete({
+    where: {id: project.id}
+  });
+
+  return NextResponse.json({})
 }

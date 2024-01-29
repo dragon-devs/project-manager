@@ -21,6 +21,7 @@ import axios from "axios";
 import {toast} from "sonner";
 import {FancyMultiSelect} from "@/components/MultiSelect";
 import {Project} from "@prisma/client";
+import Spinner from "@/components/Spinner";
 
 export function ProjectForm({project}: { project?: Project }) {
   const router = useRouter();
@@ -181,7 +182,10 @@ export function ProjectForm({project}: { project?: Project }) {
                     )}
                 />
               </div>
-              <Button className="w-full" type="submit">Add New Project</Button>
+              <Button className="w-full gap-2" type="submit" disabled={isSubmiting}>
+                {project ? "Update Project" : "Submit New Project"}{" "}
+                {isSubmiting && <Spinner />}
+              </Button>
             </form>
           </Form>
         </CardContent>
