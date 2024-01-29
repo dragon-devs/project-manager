@@ -106,11 +106,13 @@ I
 components/ui/command.tsx,7\4\74fdabb969c5f8845c199a44dc3e51cb1de9aabd
 S
 #app/projects/_components/Status.tsx,3\5\35dcc9d0693a9071d161e743017e5c6a56c2f4c1
-f
-6prisma/migrations/20240128181528_initial/migration.sql,0\c\0c668864d70597585086a7cfc377cabc14d35510
 I
 components/ui/tooltip.tsx,d\6\d6dae9b4cbb605940c61e7348f2b0a6b41ae2435
 _
 /prisma/migrations/20240128185438_/migration.sql,5\5\55cc555579140b29fa0bc878e4f46e09681ab3f1
 h
 8prisma/migrations/20240128190348_reupdated/migration.sql,9\e\9ee6ad3c43ec5b0805190db7fc574605eef2b14f
+O
+app/projects/edit/[id]/page.tsx,4\6\469440d89bf95b8465fe630ae558a1c644cbb9e6
+W
+'app/projects/[id]/EditProjectButton.tsx,5\f\5fe7597595ee929f04870ef630a0470376c9dac8

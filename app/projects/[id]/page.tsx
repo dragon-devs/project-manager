@@ -16,10 +16,9 @@ const ProjectDetailsPage = async ({params}: Props) => {
   if (!project)
     return notFound();
 
-
   return (
       <div className="">
-        <ProjectDetailsActions/>
+        <ProjectDetailsActions projectId={project.id}/>
         <Card className="md:grid grid-cols-3">
           <Card className="h-[12rem] m-5 md:w-full md:h-auto bg-muted">
 
@@ -95,6 +94,14 @@ const ProjectDetailsPage = async ({params}: Props) => {
                   </p>
                 </div>
               </div>
+              <div>
+                  <p className="text-sm text-muted-foreground">
+                    Updated
+                  </p>
+                  <p className="text-sm font-medium">
+                    {`${project.updatedAt.toDateString()} - ${project.updatedAt.toLocaleTimeString()}`}
+                  </p>
+                </div>
             </div>
 
           </CardContent>

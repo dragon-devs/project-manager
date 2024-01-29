@@ -18,11 +18,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project}) => {
             <CardDescription className="mr-14 truncate ...">{project.description}</CardDescription>
             <Avatar className="absolute right-5 top-5">
               <AvatarFallback>
-                DRH
               </AvatarFallback>
             </Avatar>
           </CardHeader>
-          <CardContent>
+          <CardContent> 
             {project.frameworks.map((framework, index) => (
                 <span key={index}>{framework} </span>
             ))}</CardContent>
