@@ -6,7 +6,7 @@ import {Pencil2Icon} from "@radix-ui/react-icons";
 const EditProjectButton = ({projectId}: { projectId: string }) => {
   return (
       <Link href={`/projects/edit/${projectId}`}>
-        <Button variant="outline" className="gap-1 ">
+        <Button variant="outline" className="gap-1 w-full">
           Edit
           <Pencil2Icon/>
         </Button>

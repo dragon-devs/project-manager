@@ -21,12 +21,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project}) => {
               </AvatarFallback>
             </Avatar>
           </CardHeader>
-          <CardContent> 
+          <CardContent>
             {project.frameworks.map((framework, index) => (
                 <span key={index}>{framework} </span>
             ))}</CardContent>
           <CardFooter className="gap-1 justify-between">
-            <Statues status={project.status}/>
+            <Statues className="text-xs" status={project.status}/>
             <DueDate dueDate={project.dueDate}/>
           </CardFooter>
         </Card>

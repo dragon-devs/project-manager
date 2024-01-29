@@ -66,8 +66,8 @@ export function ProjectForm({project}: { project?: Project }) {
   return (
       <Card>
         <CardHeader>
-          <CardTitle>Create project</CardTitle>
-          <CardDescription>Include a new project in your roster.</CardDescription>
+          <CardTitle>{project ? "Update Project" : "Create project"}</CardTitle>
+          <CardDescription>{project ? "Incorporate the latest updates to your project roster." : "Include a new project in your roster."} </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>

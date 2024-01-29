@@ -3,6 +3,7 @@ import prisma from "@/prisma/client";
 import {notFound} from "next/navigation";
 import {Card, CardContent} from "@/components/ui/card";
 import ProjectDetailsActions from "@/app/projects/[id]/ProjectDetailsActions";
+import Statues from "@/app/projects/_components/Status";
 
 interface Props {
   params: { id: string }
@@ -23,7 +24,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
           <Card className="h-[12rem] m-5 md:w-full md:h-auto bg-muted">
 
           </Card>
-          <CardContent className="mt-6 md:ml-6">
+          <CardContent className="mt-6 col-span-2 md:ml-6">
 
             <div className="grid gap-3">
               <div>
@@ -53,7 +54,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                   ))}
                 </p>
               </div>
-              <div className="flex gap-6 sm:gap-10">
+              <div className="flex gap-10">
                 <div>
                   <p className="text-sm text-muted-foreground">
                     Priority
@@ -71,18 +72,13 @@ const ProjectDetailsPage = async ({params}: Props) => {
                   </p>
                 </div>
               </div>
-              <div className="flex gap-6 sm:gap-10">
+              <div className="flex flex-col gap-3 sm:flex-row sm:gap-10">
                 <div className="">
                   <p className="text-sm text-muted-foreground">
                     Status
                   </p>
-                  <p className="text-sm font-medium flex gap-2 items-center">
-                    <span className="relative flex h-3 w-3">
-                      <span
-                          className=" animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-                      <span className=" relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
-                    </span>
-                    {project.status}
+                  <p className="text-md font-medium flex gap-2 items-center">
+                    <Statues className="text-md dark:text-white" status={project.status}/>
                   </p>
                 </div>
                 <div>

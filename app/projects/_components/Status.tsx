@@ -82,8 +82,9 @@ const projectStatuses: ProjectStatus[] = [
 
 interface StatuesProps {
   status: Status; // Assuming that the 'status' prop is of type Status
+  className?: string;
 }
-const Statues: React.FC<StatuesProps> = ({ status }) => {
+const Statues: React.FC<StatuesProps> = ({ className, status }) => {
   // Find the corresponding project status based on the 'status' prop
   const currentStatus = projectStatuses.find((projectStatus) => projectStatus.value === status);
 
@@ -94,7 +95,7 @@ const Statues: React.FC<StatuesProps> = ({ status }) => {
   return (
     <TooltipProvider>
       <Tooltip>
-        <TooltipTrigger className={`${currentStatus.className} flex gap-1 border-none text-xs font-medium`}>
+        <TooltipTrigger className={` ${className} ${currentStatus.className} flex gap-1 border-none items-center font-medium`}>
           {currentStatus.label}
           {currentStatus.icon}
         </TooltipTrigger>

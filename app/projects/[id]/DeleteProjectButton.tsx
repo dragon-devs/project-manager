@@ -40,7 +40,7 @@ const DeleteProjectButton = ({projectId}: { projectId: string }) => {
           <Button
               disabled={deleting}
               variant="destructive"
-              className="gap-1"
+              className="gap-1 w-full"
           >
             Delete <TrashIcon/>
             {deleting && <Spinner />}

@@ -6,11 +6,13 @@ import DueDate from "@/app/projects/_components/DueDate";
 import DateTimeCounter from "@/components/DateTimeCounter";
 import TimeElapsedComponent from "@/components/DateTimeCounter";
 import Spinner from "@/components/Spinner";
+import {DrawerDemo} from "@/components/DrawerForMobile";
 
 export default function Home() {
   return (
     <div>
       <Spinner />
+      <DrawerDemo />
     </div>
   );
 }
