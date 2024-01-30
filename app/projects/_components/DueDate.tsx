@@ -32,7 +32,7 @@ function DueDate({dueDate}: MyComponentProps) {
       remainingHours > 1
           ? `${remainingHours} hours remaining`
           : remainingHours === 1
-              ? `${remainingHours} hour`
+              ? `2 hours remaining`
               : remainingHours === 0 && remainingMinutes > 0
                   ? `${remainingMinutes} minutes remaining`
                   : `Less than a minute`;

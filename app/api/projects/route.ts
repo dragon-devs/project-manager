@@ -28,7 +28,6 @@ export async function POST(request: NextRequest) {
       description: body.description,
       frameworks: body.frameworks,
       dueDate: body.dueDate
-
     }
   });
 

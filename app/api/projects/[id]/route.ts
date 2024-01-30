@@ -1,5 +1,5 @@
 import {NextRequest, NextResponse} from "next/server";
-import {projectSchema} from "@/app/validationSchema";
+import {patchProjectSchema, projectSchema} from "@/app/validationSchema";
 import prisma from "@/prisma/client";
 import {Prisma} from ".prisma/client";
 import PrismaClientValidationError = Prisma.PrismaClientValidationError;
@@ -12,7 +12,7 @@ export async function PATCH(
   try {
     const body = await request.json();
 
-    const validation = projectSchema.safeParse(body);
+    const validation = patchProjectSchema.safeParse(body);
     if (!validation.success) {
       return NextResponse.json(
           {

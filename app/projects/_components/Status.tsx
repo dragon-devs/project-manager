@@ -26,22 +26,22 @@ const projectStatuses: ProjectStatus[] = [
     value: 'NOT_STARTED',
     label: 'Not Started',
     description: 'The task or project has been created but has not yet begun.',
-    icon: <ResumeIcon />,
+    icon: <ResumeIcon className="animate-pulse"/>,
     className: "text-slate-600 dark:text-slate-400"
   },
   {
     value: 'IN_PROGRESS',
     label: 'In Progress',
     description: 'Work on the task or project has started and is currently ongoing.',
-    icon: <SymbolIcon />,
-    className: "text-slate-600 dark:text-slate-400"
+    icon: <SymbolIcon className="animate-spin" />,
+    className: "text-green-600 dark:text-green-400"
   },
   {
     value: 'STUCK',
     label: 'Stuck',
     description: 'Progress on the task or project is impeded due to an issue or dependency.',
-    icon: <LinkBreak2Icon />,
-    className: "text-slate-600 dark:text-slate-400"
+    icon: <LinkBreak2Icon className="motion-safe:animate-bounce" />,
+    className: "text-rose-600 dark:text-rose-400"
 
   },
   {
@@ -49,35 +49,35 @@ const projectStatuses: ProjectStatus[] = [
     label: 'Completed',
     description: 'The task or project has been finished successfully.',
     icon: <CheckCircledIcon />,
-    className: "text-slate-600 dark:text-slate-400"
+    className: "text-lime-600 dark:text-lime-400"
   },
   {
     value: 'CANCELLED',
     label: 'Cancelled',
     description: 'The task or project has been abandoned or terminated before completion.',
     icon: <FileMinusIcon />,
-    className: "text-slate-600 dark:text-slate-400"
+    className: "text-amber-600 dark:text-amber-400"
   },
   {
     value: 'PENDING',
     label: 'Pending',
     description: 'The task or project has been completed and is awaiting review or approval.',
-    icon: <CircleBackslashIcon />,
-    className: "text-slate-600 dark:text-slate-400"
+    icon: <CircleBackslashIcon className="animate-spin" />,
+    className: "text-orange-600 dark:text-orange-400"
   },
   {
     value: 'OVERDUE',
     label: 'Overdue',
     description: 'The task or project has passed its due date without completion.',
     icon: <CrumpledPaperIcon />,
-    className: "text-slate-600 dark:text-slate-400"
+    className: "text-red-600 dark:text-red-700"
   },
   {
     value: 'REOPENED',
     label: 'Reopened',
     description: 'A previously completed task or project has been reopened for additional work or revisions.',
-    icon: <ReloadIcon />,
-    className: "text-slate-600 dark:text-slate-400"
+    icon: <ReloadIcon className="animate-spin" />,
+    className: "text-purple-600 dark:text-purple-400"
   },
 ];
 
@@ -100,7 +100,7 @@ const Statues: React.FC<StatuesProps> = ({ className, status }) => {
           {currentStatus.icon}
         </PopoverTrigger>
         <PopoverContent className="w-[70%] mx-3 sm:w-auto p-2  text-xs">
-          <p>{currentStatus.description}</p>
+          <div>{currentStatus.description}</div>
         </PopoverContent>
       </Popover>
   );
