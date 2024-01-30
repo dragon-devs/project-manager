@@ -1,15 +1,16 @@
 import React, {ReactNode} from 'react';
 import {Status} from "@prisma/client";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 import {
   CheckCircledIcon,
-  CircleBackslashIcon, CrumpledPaperIcon,
+  CircleBackslashIcon,
+  CrumpledPaperIcon,
   FileMinusIcon,
-  LinkBreak2Icon, ReloadIcon,
+  LinkBreak2Icon,
+  ReloadIcon,
   ResumeIcon,
   SymbolIcon
 } from "@radix-ui/react-icons";
-import {FileMinus} from "lucide-react";
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 
 interface ProjectStatus {
   value: Status;
@@ -93,17 +94,15 @@ const Statues: React.FC<StatuesProps> = ({ className, status }) => {
   }
 
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger className={` ${className} ${currentStatus.className} flex gap-1 border-none items-center font-medium`}>
+      <Popover>
+        <PopoverTrigger className={` ${className} ${currentStatus.className} flex gap-1 border-none items-center font-medium`}>
           {currentStatus.label}
           {currentStatus.icon}
-        </TooltipTrigger>
-        <TooltipContent>
+        </PopoverTrigger>
+        <PopoverContent className="w-[70%] mx-3 sm:w-auto p-2  text-xs">
           <p>{currentStatus.description}</p>
-        </TooltipContent>
-      </Tooltip>
-    </TooltipProvider>
+        </PopoverContent>
+      </Popover>
   );
 };
 

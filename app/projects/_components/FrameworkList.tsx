@@ -1,17 +1,31 @@
 import React from 'react';
 import {
   AngularjsPlain,
-  CplusplusPlain, CsharpPlain, DartPlain,
-  DeviconsReactOriginal,
-  DjangoPlain, DotnetcorePlain, DotNetPlain, FastapiOriginal,
-  FastapiPlain, FlaskOriginal, GoPlain, JavaPlain, JavascriptPlain, KotlinPlain,
+  CplusplusPlain,
+  CsharpPlain,
+  DartPlain,
+  DjangoPlain,
+  DotnetcorePlain,
+  DotNetPlain,
+  FastapiOriginal,
+  FastapiPlain,
+  FlaskOriginal,
+  GoPlain,
+  JavaPlain,
+  JavascriptPlain,
+  KotlinPlain,
   NextjsLine,
-  NodejsPlain, PhpPlain,
+  NodejsPlain,
+  PhpPlain,
   PythonPlain,
-  ReactOriginal, RubyPlain, RustPlain, SwiftPlain, TypescriptPlain, VuejsLine, VuejsOriginal, VuejsPlain
+  ReactOriginal,
+  RubyPlain,
+  RustPlain,
+  SwiftPlain,
+  TypescriptPlain,
+  VuejsOriginal
 } from "devicons-react";
-import {Avatar, AvatarFallback} from "@/components/ui/avatar";
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 
 interface Framework {
   value: string;
@@ -60,20 +74,37 @@ const FrameworkList: React.FC<FrameworkProps> = ({ frameworks }) => {
     <div className="framework-list">
       <div className="flex -space-x-1 overflow-hidden">
         {filteredFrameworks.map((framework) => (
-          <TooltipProvider key={framework.value}>
-            <Tooltip>
-              <TooltipTrigger>
+          <Popover key={framework.value}>
+              <PopoverTrigger>
                 <div
                   className="flex items-center justify-center bg-foreground w-8 h-8 items-center rounded-full ring-2 ring-background"
                 >
                   {framework.icon}
                 </div>
-              </TooltipTrigger>
-              <TooltipContent>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-2 font-light text-xs">
                 <p>{framework.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          </TooltipProvider>
+              </PopoverContent>
+          </Popover>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export const FrameworkDetailsList: React.FC<FrameworkProps> = ({ frameworks }) => {
+  // Filter the list of allFrameworks based on the provided values
+  const filteredFrameworks: Framework[] = allFrameworks.filter((framework) =>
+    frameworks.includes(framework.value)
+  );
+
+  return (
+    <div className="framework-list">
+      <div className="flex gap-3 flex-wrap leading-none mt-1">
+        {filteredFrameworks.map((framework) => (
+            <div key={framework.value}>
+              {framework.label}
+            </div>
         ))}
       </div>
     </div>

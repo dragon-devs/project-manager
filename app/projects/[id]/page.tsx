@@ -4,6 +4,7 @@ import {notFound} from "next/navigation";
 import {Card, CardContent} from "@/components/ui/card";
 import ProjectDetailsActions from "@/app/projects/[id]/ProjectDetailsActions";
 import Statues from "@/app/projects/_components/Status";
+import FrameworkList, {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
 
 interface Props {
   params: { id: string }
@@ -49,9 +50,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                   Frameworks
                 </p>
                 <p className="text-sm font-medium">
-                  {project.frameworks.map((framework, index) => (
-                      <span key={index}>{framework} </span>
-                  ))}
+                  <FrameworkDetailsList frameworks={project.frameworks} />
                 </p>
               </div>
               <div className="flex gap-10">
