@@ -132,3 +132,7 @@ H
 components/ui/switch.tsx,d\0\d02de9c08fab766c72e8662937fee6d1eeeef2d8
 H
 components/ui/drawer.tsx,d\5\d5d91063bcad6125b535bf065ba5d72a87b43d50
+Z
+*app/projects/_components/FrameworkIcon.tsx,1\f\1f71a9865ee14827e905008a5ae7241cecc05a8a
+Z
+*app/projects/_components/FrameworkList.tsx,1\6\16666ff084dcc7dbd449ce4964d6e2cfacefc8d6

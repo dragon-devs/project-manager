@@ -15,9 +15,7 @@ const ProjectPage = async () => {
         ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {projects.map(project => (
-                  <Link key={project.id} href={`/projects/${project.id}`}>
-                    <ProjectCard  project={project}/>
-                  </Link>
+                    <ProjectCard key={project.id} project={project}/>
               ))}
             </div>
         )}
