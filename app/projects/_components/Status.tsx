@@ -34,14 +34,14 @@ const projectStatuses: ProjectStatus[] = [
     label: 'In Progress',
     description: 'Work on the task or project has started and is currently ongoing.',
     icon: <SymbolIcon className="animate-spin" />,
-    className: "text-green-600 dark:text-green-400"
+    className: "text-lime-600 dark:text-lime-500"
   },
   {
     value: 'STUCK',
     label: 'Stuck',
     description: 'Progress on the task or project is impeded due to an issue or dependency.',
     icon: <LinkBreak2Icon className="motion-safe:animate-bounce" />,
-    className: "text-rose-600 dark:text-rose-400"
+    className: "text-orange-600 dark:text-orange-400"
 
   },
   {
@@ -49,21 +49,21 @@ const projectStatuses: ProjectStatus[] = [
     label: 'Completed',
     description: 'The task or project has been finished successfully.',
     icon: <CheckCircledIcon />,
-    className: "text-lime-600 dark:text-lime-400"
+    className: "text-green-600 dark:text-green-400"
   },
   {
     value: 'CANCELLED',
     label: 'Cancelled',
     description: 'The task or project has been abandoned or terminated before completion.',
     icon: <FileMinusIcon />,
-    className: "text-amber-600 dark:text-amber-400"
+    className: "text-rose-700 dark:text-rose-500"
   },
   {
     value: 'PENDING',
     label: 'Pending',
     description: 'The task or project has been completed and is awaiting review or approval.',
     icon: <CircleBackslashIcon className="animate-spin" />,
-    className: "text-orange-600 dark:text-orange-400"
+    className: "text-amber-600 dark:text-amber-400"
   },
   {
     value: 'OVERDUE',

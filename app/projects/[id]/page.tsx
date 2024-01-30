@@ -21,12 +21,9 @@ const ProjectDetailsPage = async ({params}: Props) => {
   return (
       <div className="">
         <ProjectDetailsActions projectId={project.id}/>
-        <Card className="md:grid grid-cols-3">
-          <Card className="h-[12rem] m-5 md:w-full md:h-auto bg-muted">
-
-          </Card>
-          <CardContent className="mt-6 col-span-2 md:ml-6">
-
+        <Card className="md:grid grid-cols-3 ">
+          <Card className="h-[12rem] m-5 md:w-full md:h-auto bg-muted" />
+          <CardContent className="p-5 ml-0 pt-0 sm:pt-5 sm:ml-5 col-span-2">
             <div className="grid gap-3">
               <div>
                 <p className="text-sm text-muted-foreground">
@@ -49,9 +46,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                 <p className="text-sm text-muted-foreground">
                   Frameworks
                 </p>
-                <p className="text-sm font-medium">
-                  <FrameworkDetailsList frameworks={project.frameworks} />
-                </p>
+                <FrameworkDetailsList frameworks={project.frameworks} />
               </div>
               <div className="flex gap-10">
                 <div>
@@ -76,9 +71,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                   <p className="text-sm text-muted-foreground">
                     Status
                   </p>
-                  <p className="text-md font-medium flex gap-2 items-center">
-                    <Statues className="text-md dark:text-white" status={project.status}/>
-                  </p>
+                  <Statues className="text-md" status={project.status}/>
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">

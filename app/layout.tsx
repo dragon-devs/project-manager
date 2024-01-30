@@ -26,7 +26,7 @@ export default function RootLayout({children,}: Readonly<{
           disableTransitionOnChange
       >
         <NavBar/>
-        <main className="p-5">
+        <main className="sm:p-5 p-3">
           <Container>{children}</Container>
         </main>
         <Toaster position="top-center"/>

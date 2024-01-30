@@ -136,3 +136,9 @@ Z
 *app/projects/_components/FrameworkIcon.tsx,1\f\1f71a9865ee14827e905008a5ae7241cecc05a8a
 Z
 *app/projects/_components/FrameworkList.tsx,1\6\16666ff084dcc7dbd449ce4964d6e2cfacefc8d6
+\
+,app/projects/_components/PrioritySignals.jsx,9\4\94bca525063d66607b060371324259cf46b1b7a7
+\
+,app/projects/_components/PrioritySignals.tsx,7\4\74b336ccc17a6263fa736a341786c85367511027
+Ž
+^prisma/migrations/20240130205601_adding_new_frameworks_and_add_priority_critical/migration.sql,2\7\277970cf7dac3eadd40e569bf55d3cfabb2bbdcf

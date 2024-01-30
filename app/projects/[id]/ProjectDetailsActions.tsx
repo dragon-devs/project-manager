@@ -17,8 +17,8 @@ import {DotsHorizontalIcon, DotsVerticalIcon} from "@radix-ui/react-icons";
 
 const ProjectDetailsActions = ({projectId}: { projectId: string }) => {
   return (
-      <div className="flex  justify-between ">
-        <CardHeader className="p-0 mb-5">
+      <div className="flex justify-between items-center">
+        <CardHeader className="p-0 my-5">
           <CardTitle>Project Details</CardTitle>
           <CardDescription>Explore detailed project information.</CardDescription>
         </CardHeader>

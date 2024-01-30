@@ -48,7 +48,7 @@ function DueDate({dueDate}: MyComponentProps) {
   if (remainingDays === 1) {
     return <Label
         className="gap-2 text-xs font-medium flex items-center  text-yellow-600 dark:text-yellow-500 hover:text-yellow-600/80 dark:hover:text-yellow-500/80">
-      Tomorrow is the last day
+      Tomorrow last day
       <QuestionMarkCircledIcon/>
     </Label>
   } else if (remainingDays > 0) {

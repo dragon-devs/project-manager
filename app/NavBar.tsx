@@ -21,7 +21,7 @@ const NavBar = () => {
   return (
       <>
         <Container>
-          <div className="flex my-1 mx-5 lg:mx-0 justify-between items-center">
+          <div className="flex my-1 sm:mx-5 mx-3 lg:mx-0 justify-between items-center">
             <NavigationMenu className="gap-3">
               <Link href="/">
                 <MixIcon/>
