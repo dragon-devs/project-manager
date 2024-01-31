@@ -2,7 +2,6 @@ import React from 'react';
 import prisma from "@/prisma/client";
 import {notFound} from "next/navigation";
 import {ProjectForm} from "@/app/projects/_components/ProjectForm";
-import delay from "delay";
 
 interface Props{
   params: {id: string}
@@ -13,7 +12,6 @@ const EditProjectPage = async ({params}: Props) => {
   });
   if (!project)
     return notFound();
-  await delay(2000)
   return (
       <div>
         <ProjectForm project={project}/>
