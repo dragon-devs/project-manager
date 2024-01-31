@@ -14,20 +14,20 @@ import { Switch } from "@/components/ui/switch"
 
 const notifications = [
   {
-    title: "Redesigned the projects cards.",
-    description: "2 day ago",
-  },
-  {
-    title: "Added project details page.",
+    title: "Updating frameworks icons.",
     description: "1 day ago",
   },
   {
-    title: "Added project update & edit page.",
-    description: "14 hours ago",
+    title: "Fixing tap tooltip tap on anything.",
+    description: "17 day ago",
   },
   {
-    title: "Added delete project functions.",
-    description: "5 hours ago",
+    title: "Added Priorities Signals.",
+    description: "8 hours ago",
+  },
+  {
+    title: "Added Skeletons to all pages.",
+    description: "2 hours ago",
   },
 ];
 
@@ -57,7 +57,7 @@ export function CardDemo({ className, ...props }: CardProps) {
         <div>
           {notifications.map((notification, index) => (
             <div
-              key={index}
+              key={notification.title}
               className="mb-4 grid grid-cols-[25px_1fr] items-start pb-4 last:mb-0 last:pb-0"
             >
               <span className="flex h-2 w-2 translate-y-1 rounded-full bg-sky-500" />
