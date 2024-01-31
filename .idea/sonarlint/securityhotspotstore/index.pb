@@ -142,3 +142,5 @@ H
 app/projects/loading.tsx,a\e\aed962ba46ad7bde58bb007059535671d6f0bd6d
 J
 components/ui/skeleton.tsx,d\e\de28cd1b1ac5e3ff0738d08dee81d88143b05dff
+L
+app/projects/new/loading.tsx,d\3\d3cf3fad62f95d12f989a5dfd08cdd162af82e23
