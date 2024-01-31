@@ -2,7 +2,6 @@ import React from 'react';
 import prisma from "@/prisma/client";
 import ProjectActions from "@/app/projects/ProjectActions";
 import ProjectCard from "@/app/projects/ProjectCard";
-import Link from "next/link";
 
 const ProjectPage = async () => {
   const projects = await prisma.project.findMany();

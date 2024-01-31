@@ -9,7 +9,7 @@ import {
   DotNetPlain,
   FastapiOriginal,
   FastapiPlain,
-  FlaskOriginal, GithubOriginal,
+  FlaskOriginal,
   GoPlain,
   JavaPlain,
   JavascriptPlain,
@@ -104,7 +104,7 @@ export const FrameworkDetailsList: React.FC<FrameworkProps> = ({ frameworks }) =
     <div className="framework-list">
       <div className="flex flex-wrap">
         {filteredFrameworks.map((framework) => (
-            <div key={framework.value} className="mr-2">
+            <div key={framework.value} className="mr-2 font-medium">
               <p>{framework.label}</p>
             </div>
         ))}
