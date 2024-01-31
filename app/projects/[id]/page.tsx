@@ -5,7 +5,6 @@ import {Card, CardContent} from "@/components/ui/card";
 import ProjectDetailsActions from "@/app/projects/[id]/ProjectDetailsActions";
 import Statues from "@/app/projects/_components/Status";
 import {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
-import delay from "delay";
 
 interface Props {
   params: { id: string }
@@ -19,7 +18,6 @@ const ProjectDetailsPage = async ({params}: Props) => {
   if (!project)
     return notFound();
 
-  await delay(2000)
   return (
       <div className="">
         <ProjectDetailsActions projectId={project.id}/>
