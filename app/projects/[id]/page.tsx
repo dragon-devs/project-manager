@@ -4,7 +4,8 @@ import {notFound} from "next/navigation";
 import {Card, CardContent} from "@/components/ui/card";
 import ProjectDetailsActions from "@/app/projects/[id]/ProjectDetailsActions";
 import Statues from "@/app/projects/_components/Status";
-import FrameworkList, {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
+import {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
+import delay from "delay";
 
 interface Props {
   params: { id: string }
@@ -18,12 +19,13 @@ const ProjectDetailsPage = async ({params}: Props) => {
   if (!project)
     return notFound();
 
+  await delay(2000)
   return (
       <div className="">
         <ProjectDetailsActions projectId={project.id}/>
         <Card className="md:grid grid-cols-3 ">
           <Card className="h-[12rem] m-5 md:w-full md:h-auto bg-muted" />
-          <CardContent className="p-5 ml-0 pt-0 sm:pt-5 sm:ml-5 col-span-2">
+          <CardContent className="p-5 ml-0 pt-0 sm:pt-5 md:ml-5 col-span-2">
             <div className="grid gap-3">
               <div>
                 <p className="text-sm text-muted-foreground">

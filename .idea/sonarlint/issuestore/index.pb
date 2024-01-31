@@ -144,3 +144,5 @@ J
 components/ui/skeleton.tsx,d\e\de28cd1b1ac5e3ff0738d08dee81d88143b05dff
 L
 app/projects/new/loading.tsx,d\3\d3cf3fad62f95d12f989a5dfd08cdd162af82e23
+M
+app/projects/[id]/loading.tsx,3\8\38925a1f9c0e9d1c2f084a0d5253247eb86a7fdb
