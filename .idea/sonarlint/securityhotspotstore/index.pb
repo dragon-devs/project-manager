@@ -9,8 +9,6 @@ I
 app/api/projects/route.ts,6\d\6df5772567120733995c79a80161e18a7fa8fa45
 @
 prisma/client.ts,3\0\30ca7d87e0acf06355e9d970e5585c8483b2109f
-E
-app/projects/page.tsx,e\9\e91daf149f019f144bdbd2ea383c699f5d6c518c
 ?
 components.json,c\7\c77795c1a93b077ad2aef052b6a976d9dc92f5b8
 B
@@ -52,8 +50,6 @@ H
 components/ui/button.tsx,3\4\3458df31a91148610907473abf3c4992d53d9bae
 G
 components/ui/badge.tsx,5\1\51d0133b3984736f1b50ddfa14b8f3b952e27825
-O
-app/projects/ProjectActions.tsx,1\d\1db938f5b357623ad09cb47ebed2fab4e7287e2e
 I
 app/projects/new/page.tsx,4\8\4828f4983e141d5aeeeb0f4a582e2d8fe4216c53
 G
@@ -84,8 +80,6 @@ G
 components/ui/label.tsx,9\5\95c3ce8727849be198d1a2ef90c097af3bf72113
 J
 app/projects/[id]/page.tsx,3\0\3059a523d2ba0c56a296e941f386c8dbf2df36ef
-L
-app/projects/ProjectCard.tsx,9\a\9adc9bec29fb542a0c415b60a6dfa1ed0de9a31b
 8
 types.ts,6\f\6fc95ef381ef75980cef1d30517e8a8a5f77c23b
 M
@@ -138,8 +132,6 @@ Z
 ,app/projects/_components/PrioritySignals.tsx,7\4\74b336ccc17a6263fa736a341786c85367511027
 Ž
 ^prisma/migrations/20240130205601_adding_new_frameworks_and_add_priority_critical/migration.sql,2\7\277970cf7dac3eadd40e569bf55d3cfabb2bbdcf
-H
-app/projects/loading.tsx,a\e\aed962ba46ad7bde58bb007059535671d6f0bd6d
 J
 components/ui/skeleton.tsx,d\e\de28cd1b1ac5e3ff0738d08dee81d88143b05dff
 L
@@ -148,3 +140,13 @@ M
 app/projects/[id]/loading.tsx,3\8\38925a1f9c0e9d1c2f084a0d5253247eb86a7fdb
 R
 "app/projects/edit/[id]/loading.tsx,e\0\e067302694623494e942016cb4750d4149300b0c
+J
+app/projects/list/page.tsx,d\6\d6894ebb8cb2ceeaec9c87f76360d08878f0f302
+u
+Eprisma/migrations/20240131121912_adding_more_frameworks/migration.sql,1\7\175c72af5d9ed3bba1ab198cbf5bebaaa3a5ae9e
+Q
+!app/projects/list/ProjectCard.tsx,6\5\6549801795edaaea13df36158526176cf8a7510a
+T
+$app/projects/list/ProjectActions.tsx,7\9\799fec066caa991b3455f2cc8961d2005d398470
+M
+app/projects/list/loading.tsx,e\0\e0a4a4b9f590a61cf4babeef5b27edbd5fe08d29

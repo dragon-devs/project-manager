@@ -4,11 +4,11 @@ import {zodResolver} from "@hookform/resolvers/zod"
 import {useForm} from "react-hook-form"
 import * as z from "zod"
 import {Button} from "@/components/ui/button"
-import {Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage,} from "@/components/ui/form"
+import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage,} from "@/components/ui/form"
 import {Input} from "@/components/ui/input"
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Textarea} from "@/components/ui/textarea";
-import {allowedFrameworks, projectSchema} from "@/app/validationSchema";
+import {projectSchema} from "@/app/validationSchema";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 import {cn} from "@/lib/utils";
@@ -53,7 +53,7 @@ export function ProjectForm({project}: { project?: Project }) {
         await axios.post('/api/projects', data)
         toast.success('Project is successfully created.');
       }
-      router.push('/projects')
+      router.push('/projects/list')
       router.refresh()
       setIsSubmiting(false)
     } catch (error) {

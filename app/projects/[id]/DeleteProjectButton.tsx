@@ -24,9 +24,9 @@ const DeleteProjectButton = ({projectId}: { projectId: string }) => {
   const deleteProject = async () => {
     try {
       setDeleting(true)
-      await axios.delete('/api/projects/' + projectId);
+      await axios.delete('/api/projects/list/' + projectId);
       toast.success("Project is deleted successfully.")
-      router.push('/projects');
+      router.push('/projects/list');
       router.refresh()
     } catch (error) {
       setDeleting(false)

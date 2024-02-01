@@ -27,7 +27,12 @@ export async function POST(request: NextRequest) {
       name: body.name,
       description: body.description,
       frameworks: body.frameworks,
-      dueDate: body.dueDate
+      dueDate: body.dueDate,
+      status: body.status,
+      priority: body.priority,
+      timeline: body.timeline,
+      budget: body.budget,
+      owner: body.owner
     }
   });
 

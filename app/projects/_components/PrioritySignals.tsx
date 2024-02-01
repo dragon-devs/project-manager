@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import {Priority} from "@prisma/client";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
-import {SignalHighIcon, SignalLowIcon, SignalMediumIcon} from "lucide-react";
+import {SignalHighIcon, SignalIcon, SignalLowIcon, SignalMediumIcon} from "lucide-react";
 
 interface ProjectPriority
 {
@@ -34,7 +34,7 @@ const projectPriorities: ProjectPriority[] = [
   {
     value: 'CRITICAL',
     label: 'Critical Priority',
-    icon: <SignalHighIcon className="text-red-600 dark:text-red-500" strokeWidth={3}/>,
+    icon: <SignalIcon className="text-red-600 dark:text-red-500" strokeWidth={3}/>,
     className: ""
   },
 

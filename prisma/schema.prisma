@@ -12,7 +12,7 @@ datasource db {
 
 model Project {
   id          String       @unique @default(uuid())
-  name        String
+  name        String       @unique
   description String
   frameworks  Frameworks[]
   status      Status       @default(NOT_STARTED)
@@ -28,7 +28,6 @@ model Project {
 enum Frameworks {
   REACTJS
   NODEJS
-  RESTAPI
   NEXTJS
   PYTHON
   DJANGO
@@ -48,14 +47,16 @@ enum Frameworks {
   KOTLIN
   DART
   ANGULAR
-  VUE
+  VUEJS
   DOTNET
   HTML
   CSS
   SQL
-  MONGODB
-  POSTGRESQL
   MYSQL
+  POSTGRESQL
+  SQLITE
+  SQLALCHEMY
+  MONGODB
   C
   R
   SWIFTUI
@@ -69,14 +70,16 @@ enum Frameworks {
   GITLAB
   GITHUB
   ANSIBLE
-  ELKSTACK
   PROMETHEUS
   GRAFANA
-  SENTRY
-  BUGSNAG
   AWS
   AZURE
   GOOGLECLOUD
+  EXPRESSJS
+  SPRINGBOOT
+  FLUTTER
+  LARAVEL
+  REACTNATIVE
 }
 
 enum Status {
