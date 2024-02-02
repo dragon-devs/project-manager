@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/select";
 import {useRouter, useSearchParams} from "next/navigation";
 import {Separator} from "@/components/ui/separator";
+import {DotsHorizontalIcon, DotsVerticalIcon} from "@radix-ui/react-icons";
 
 
 const statuses: {
@@ -48,38 +49,41 @@ const ProjectFiltering = () => {
   const filterValue = searchParams.get('filter') || '';
 
   return (
-    <Select
-      onValueChange={(filter) => {
-        const query = filter ? `?filter=${filter}` : 'default';
-        router.push('/projects/grid' + query);
-      }}
-    >
-      <SelectTrigger className="w-32">
-        <SelectValue placeholder={getLabelFromValue(filterValue, [...statuses, ...priorities]) || 'filter by ...'} />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel className="font-bold">
-            Priorities
-            <Separator />
-          </SelectLabel>
-          {priorities.map((priority, index) => (
-            <SelectItem key={index} value={priority.value || 'default'}>
-              {priority.label}
-            </SelectItem>
-          ))}
-          <SelectLabel className="font-bold">
-            Statuses
-            <Separator />
-          </SelectLabel>
-          {statuses.map((status, index) => (
-            <SelectItem key={index} value={status.value || 'default'}>
-              {status.label}
-            </SelectItem>
-          ))}
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+      <Select
+          onValueChange={(filter) => {
+            const query = filter ? `?filter=${filter}` : 'default';
+            router.push('/projects/grid' + query);
+          }}
+      >
+        <SelectTrigger className="sm:flex sm:relative sm:right-0 sm:border-solid absolute right-[4rem] sm:w-36 sm:px-3 w-10 h- border-none focus:ring-0 p-0 m-0">
+          <DotsHorizontalIcon className="w-5 h-5 absolute right-2 hover:text-foreground/80 sm:hidden"/>
+          <div className="hidden sm:block">
+            <SelectValue placeholder={getLabelFromValue(filterValue, [...statuses, ...priorities]) || 'filter by ...'}/>
+          </div>
+        </SelectTrigger>
+        <SelectContent>
+          <SelectGroup>
+            <SelectLabel className="font-bold">
+              Priorities
+              <Separator/>
+            </SelectLabel>
+            {priorities.map((priority, index) => (
+                <SelectItem key={index} value={priority.value || 'default'}>
+                  {priority.label}
+                </SelectItem>
+            ))}
+            <SelectLabel className="font-bold">
+              Statuses
+              <Separator/>
+            </SelectLabel>
+            {statuses.map((status, index) => (
+                <SelectItem key={index} value={status.value || 'default'}>
+                  {status.label}
+                </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
+      </Select>
   );
 };
 

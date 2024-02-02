@@ -176,3 +176,5 @@ f
 6prisma/migrations/20240202094613_initial/migration.sql,d\9\d91a1d1c604c280f89dc776c62d4bc410d1f325d
 V
 &app/projects/grid/ProjectFiltering.tsx,d\5\d5839c838fe01c185a2ff1253d00bda808152c52
+V
+&app/projects/grid/ProjectSearchBar.tsx,c\c\cc42354879d1f650043e23ad444d2f81a92b4c2d
