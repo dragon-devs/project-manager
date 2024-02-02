@@ -2,7 +2,7 @@ import React from 'react';
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {PlusIcon} from "@radix-ui/react-icons";
-import ProjectFiltering from "@/app/projects/grid/ProjectSorting";
+import ProjectFiltering from "@/app/projects/grid/ProjectFiltering";
 
 const ProjectActions = () => {
   return (
