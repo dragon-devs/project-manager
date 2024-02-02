@@ -104,7 +104,7 @@ interface FrameworkProps {
 }
 
 const FrameworkList: React.FC<FrameworkProps> = ({ frameworks }) => {
-  // Filter the list of allFrameworks based on the provided values
+  // Filter the grid of allFrameworks based on the provided values
   const filteredFrameworks: Framework[] = allFrameworks.filter((framework) =>
     frameworks.includes(framework.value)
   );
@@ -132,7 +132,7 @@ const FrameworkList: React.FC<FrameworkProps> = ({ frameworks }) => {
 };
 
 export const FrameworkDetailsList: React.FC<FrameworkProps> = ({ frameworks }) => {
-  // Filter the list of allFrameworks based on the provided values
+  // Filter the grid of allFrameworks based on the provided values
   const filteredFrameworks: Framework[] = allFrameworks.filter((framework) =>
     frameworks.includes(framework.value)
   );

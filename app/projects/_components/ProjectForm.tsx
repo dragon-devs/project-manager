@@ -53,7 +53,7 @@ export function ProjectForm({project}: { project?: Project }) {
         await axios.post('/api/projects', data)
         toast.success('Project is successfully created.');
       }
-      router.push('/projects/list')
+      router.push('/projects/grid')
       router.refresh()
       setIsSubmiting(false)
     } catch (error) {

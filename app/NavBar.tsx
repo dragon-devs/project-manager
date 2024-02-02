@@ -15,7 +15,7 @@ import Container from "@/components/Container";
 const NavBar = () => {
   const links = [
     {label: 'Dashboard', href: '/'},
-    {label: 'Projects', href: '/projects/list'},
+    {label: 'Projects', href: '/projects/grid'},
   ]
 
   return (
