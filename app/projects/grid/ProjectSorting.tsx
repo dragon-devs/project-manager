@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue
 } from "@/components/ui/select";
-import {useRouter} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
 import {Separator} from "@/components/ui/separator";
 
 
@@ -32,21 +32,24 @@ const priorities: {
   label: string,
   value?: Priority
 }[] = [
-  {label: "Default"},
+  {label: "Filter by ..."},
   {label: "Low", value: "LOW"},
   {label: "Normal", value: "NORMAL"},
   {label: "High", value: "HIGH"},
   {label: "Critical", value: "CRITICAL"},
 ]
 const ProjectFiltering = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const searchParams = useSearchParams();
   return (
-      <Select onValueChange={(filter) => {
+      <Select
+          defaultValue={searchParams.get('filter') || 'default'}
+          onValueChange={(filter) => {
         const query = filter ? `?filter=${filter}` : 'default';
         router.push('/projects/grid' + query);
 
       }}>
-        <SelectTrigger className="w-28">
+        <SelectTrigger className="w-32">
           <SelectValue placeholder="Filter by ..."/>
         </SelectTrigger>
         <SelectContent>

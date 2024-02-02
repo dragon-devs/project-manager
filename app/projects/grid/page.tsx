@@ -19,6 +19,9 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
       where: {
         priority: filter as Priority,
       },
+      orderBy: {
+        priority: 'asc',
+      },
     });
   } else if (filter in Status) {
     // Use Prisma to fetch projects based on the filter
@@ -26,9 +29,16 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
       where: {
         status: filter as Status,
       },
+      orderBy: {
+        status: 'asc',
+      },
     });
   } else {
-    projects = await prisma.project.findMany()
+    projects = await prisma.project.findMany({
+      orderBy: {
+        createdAt: 'desc',
+      },
+    })
   }
   return (
       <div className="space-y-3 sm:space-y-5">
