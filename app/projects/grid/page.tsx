@@ -3,6 +3,7 @@ import prisma from "@/prisma/client";
 import ProjectActions from "@/app/projects/grid/ProjectActions";
 import ProjectCard from "@/app/projects/grid/ProjectCard";
 import {Priority, Status} from "@prisma/client";
+import delay from "delay";
 
 interface Props {
   searchParams: {
@@ -37,6 +38,7 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
       },
     });
   } else {
+
     projects = await prisma.project.findMany({
           where: q
               ? {
@@ -62,7 +64,6 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
         }
     );
   }
-
   return (
       <div className="space-y-3 sm:space-y-5">
         <ProjectActions/>

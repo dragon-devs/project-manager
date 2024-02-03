@@ -11,7 +11,7 @@ const ProjectActions = () => {
         <ProjectSearchBar />
         <ProjectFiltering />
         <Link href="/projects/new">
-          <Button className="hidden sm:flex gap-2">New Project <PlusIcon/></Button>
+          <Button className="hidden w-auto sm:flex gap-2">New Project <PlusIcon/></Button>
           <Button className="p-3 block sm:hidden"><PlusIcon/></Button>
         </Link>
       </div>

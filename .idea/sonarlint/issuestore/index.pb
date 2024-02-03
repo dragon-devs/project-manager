@@ -102,10 +102,6 @@ S
 #app/projects/_components/Status.tsx,3\5\35dcc9d0693a9071d161e743017e5c6a56c2f4c1
 I
 components/ui/tooltip.tsx,d\6\d6dae9b4cbb605940c61e7348f2b0a6b41ae2435
-_
-/prisma/migrations/20240128185438_/migration.sql,5\5\55cc555579140b29fa0bc878e4f46e09681ab3f1
-h
-8prisma/migrations/20240128190348_reupdated/migration.sql,9\e\9ee6ad3c43ec5b0805190db7fc574605eef2b14f
 O
 app/projects/edit/[id]/page.tsx,4\6\469440d89bf95b8465fe630ae558a1c644cbb9e6
 W
@@ -130,8 +126,6 @@ Z
 *app/projects/_components/FrameworkList.tsx,1\6\16666ff084dcc7dbd449ce4964d6e2cfacefc8d6
 \
 ,app/projects/_components/PrioritySignals.tsx,7\4\74b336ccc17a6263fa736a341786c85367511027
-Ž
-^prisma/migrations/20240130205601_adding_new_frameworks_and_add_priority_critical/migration.sql,2\7\277970cf7dac3eadd40e569bf55d3cfabb2bbdcf
 J
 components/ui/skeleton.tsx,d\e\de28cd1b1ac5e3ff0738d08dee81d88143b05dff
 L
@@ -140,24 +134,6 @@ M
 app/projects/[id]/loading.tsx,3\8\38925a1f9c0e9d1c2f084a0d5253247eb86a7fdb
 R
 "app/projects/edit/[id]/loading.tsx,e\0\e067302694623494e942016cb4750d4149300b0c
-J
-app/projects/list/page.tsx,d\6\d6894ebb8cb2ceeaec9c87f76360d08878f0f302
-u
-Eprisma/migrations/20240131121912_adding_more_frameworks/migration.sql,1\7\175c72af5d9ed3bba1ab198cbf5bebaaa3a5ae9e
-Q
-!app/projects/list/ProjectCard.tsx,6\5\6549801795edaaea13df36158526176cf8a7510a
-T
-$app/projects/list/ProjectActions.tsx,7\9\799fec066caa991b3455f2cc8961d2005d398470
-M
-app/projects/list/loading.tsx,e\0\e0a4a4b9f590a61cf4babeef5b27edbd5fe08d29
-S
-#app/projects/list/ProjectFilter.tsx,3\0\3064eae371153ad573d3871e83e5a76caa22b565
-T
-$app/projects/list/ProjectSorting.tsx,d\9\d903bd51f1b0b10620864f77743449e566a40be9
-M
-app/api/projects/[orderBy].ts,e\7\e73f7460f21865fb69ce8238cda1fff32f17b3cf
-T
-$app/projects/grid/ProjectSorting.tsx,b\d\bd48a7ae4fce6d7406539824fd41b956c052b0a7
 J
 app/projects/grid/page.tsx,3\4\349689a4dc1d5901dc29a054f17f672cf6899b54
 T
@@ -168,10 +144,6 @@ K
 components/ui/separator.tsx,4\0\406e493f7d0a05c2bf4bdf138a23a45e96828b1f
 M
 app/projects/grid/loading.tsx,a\2\a2057da99b8060d626055a777c0e60a0a037eef1
-_
-/prisma/migrations/20240131232936_/migration.sql,0\7\076c2aa07cb69e8a8ee66845d8c9b11c3509273b
-r
-Bprisma/migrations/20240201124032_name_must_be_unique/migration.sql,0\4\04071756803000e201823166e654c185008125a2
 f
 6prisma/migrations/20240202094613_initial/migration.sql,d\9\d91a1d1c604c280f89dc776c62d4bc410d1f325d
 V
