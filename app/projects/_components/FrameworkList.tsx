@@ -44,7 +44,7 @@ interface Framework {
   icon: React.ReactNode;
 }
 
-const allFrameworks: Framework[] = [
+export const allFrameworks: Framework[] = [
   {value: 'REACTJS', label: 'React.js', icon: <ReactOriginalWordmark size={15} color="slategrey"/>},
   {value: 'NODEJS', label: 'Node.js', icon: <NodejsPlain size={15} color="slategrey"/>},
   {value: 'NEXTJS', label: 'Next.js', icon: <NextjsLine size={15} color="slategrey"/>},

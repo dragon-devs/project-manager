@@ -5,7 +5,7 @@ import {Avatar} from "@/components/ui/avatar";
 import {SignalHighIcon} from "lucide-react";
 
 const ProjectPageSkeleton = () => {
-  const skeletonCount = 9; // Number of skeletons to display
+  const skeletonCount = 6; // Number of skeletons to display
 
   const renderSkeletons = () => {
     const skeletons = [];
@@ -54,6 +54,9 @@ const ProjectPageSkeleton = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {renderSkeletons()}
+        </div>
+        <div className="flex justify-center">
+          <Skeleton className="h-9 w-[20rem]" />
         </div>
       </div>
   );

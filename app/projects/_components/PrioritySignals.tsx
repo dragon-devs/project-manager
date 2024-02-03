@@ -12,7 +12,7 @@ interface ProjectPriority
 }
 
 
-const projectPriorities: ProjectPriority[] = [
+export const projectPriorities: ProjectPriority[] = [
   {
     value: 'LOW',
     label: 'Low Priority',

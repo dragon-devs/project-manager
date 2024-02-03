@@ -21,7 +21,7 @@ interface ProjectStatus {
 }
 
 
-const projectStatuses: ProjectStatus[] = [
+export const projectStatuses: ProjectStatus[] = [
   {
     value: 'NOT_STARTED',
     label: 'Not Started',

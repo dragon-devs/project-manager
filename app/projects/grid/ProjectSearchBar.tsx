@@ -13,12 +13,12 @@ const ProjectSearchBar = () => {
   const router = useRouter();
 
 
-  const handleSearch = async () => {
+  const handleSearch = () => {
     try {
       setLoading(true);
       const query = searchQuery ? `?q=${searchQuery}` : '';
       router.push('/projects/grid' + query);
-
+      setLoading(false);
     } catch (e) {
       toast.error("Something went wrong...")
     } finally {
@@ -28,7 +28,6 @@ const ProjectSearchBar = () => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      setLoading(true);
       handleSearch();
     }
   };
