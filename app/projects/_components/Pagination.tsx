@@ -1,7 +1,7 @@
 'use client'
 import React from 'react';
 import {
-  Pagination,
+  Pagination as PaginationPage,
   PaginationContent,
   PaginationEllipsis,
   PaginationItem,
@@ -28,7 +28,7 @@ interface Props {
 }
 
 
-const PaginationPage = ({itemCount, pageSize, currentPage}: Props) => {
+const Pagination = ({itemCount, pageSize, currentPage}: Props) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -43,10 +43,9 @@ const PaginationPage = ({itemCount, pageSize, currentPage}: Props) => {
 
   return (
       <div>
-        <Pagination>
-          <PaginationContent className="flex justify-between gap-5">
-            <PaginationItem>Page {currentPage} of {pageCount}</PaginationItem>
-            <PaginationItem className="flex gap-1">
+          <PaginationContent className="flex justify-between text-sm gap-5">
+            <div className="">Page {currentPage} of {pageCount}</div>
+            <div className="flex gap-1 text-sm">
               <Button
                   variant={"outline"}
                   disabled={currentPage === 1}
@@ -68,11 +67,10 @@ const PaginationPage = ({itemCount, pageSize, currentPage}: Props) => {
                   onClick={() => changePage(pageCount)}
               ><DoubleArrowRightIcon/>
               </Button>
-            </PaginationItem>
+            </div>
           </PaginationContent>
-        </Pagination>
       </div>
   );
 };
 
-export default PaginationPage;
+export default Pagination;

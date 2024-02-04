@@ -160,3 +160,9 @@ W
 'app/projects/_components/Pagination.tsx,f\0\f07b5c29977f3362e28412174f2e483b9c376b64
 L
 components/ui/pagination.tsx,0\9\09a7f145ff42e95766c70b7bdf5c377a8f7d36f9
+>
+app/Footer.tsx,d\b\db42a2575757a1af1d452e70c99b6334fed96619
+K
+components/WhatsappLink.tsx,f\8\f8f1fdb4b70c910c6fd4904a2cac0fb2021d8432
+I
+components/GithubLink.tsx,4\0\40d47e2244b8d92a8a21fa40f953e313af2900c3

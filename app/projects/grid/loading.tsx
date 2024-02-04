@@ -55,8 +55,10 @@ const ProjectPageSkeleton = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {renderSkeletons()}
         </div>
-        <div className="flex justify-center">
-          <Skeleton className="h-9 w-[20rem]" />
+        <div className="flex justify-between items-center ">
+          <Skeleton className="h-5 w-20" />
+          <Skeleton className="h-9 w-[12.9rem]" />
+
         </div>
       </div>
   );

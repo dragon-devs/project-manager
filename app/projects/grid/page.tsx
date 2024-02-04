@@ -5,6 +5,7 @@ import ProjectCard from "@/app/projects/grid/ProjectCard";
 import {Priority, Status} from "@prisma/client";
 import PaginationPage from "@/app/projects/_components/Pagination";
 import delay from "delay";
+import Pagination from "@/app/projects/_components/Pagination";
 
 interface Props {
   searchParams: {
@@ -44,7 +45,7 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
               ))}
             </div>
         )}
-        <PaginationPage itemCount={projectCount} pageSize={pageSize} currentPage={page}/>
+        <Pagination itemCount={projectCount} pageSize={pageSize} currentPage={page}/>
 
       </div>
   );
@@ -57,7 +58,7 @@ const getPriorityProjects = async (priority: Priority, page: number, pageSize: n
       priority,
     },
     orderBy: {
-      priority: 'asc',
+      priority: 'desc',
     },
     skip,
     take: pageSize,
@@ -71,7 +72,7 @@ const getPriorityProjects = async (priority: Priority, page: number, pageSize: n
         priority,
       },
       orderBy: {
-        priority: 'asc',
+        priority: 'desc',
       },
       skip: skip + pageSize, // Skip the projects already retrieved
       take: remainingProjects,
@@ -91,7 +92,7 @@ const getStatusProjects = async (status: Status, page: number, pageSize: number)
       status,
     },
     orderBy: {
-      status: 'asc',
+      status: 'desc',
     },
     skip,
     take: pageSize,
@@ -105,7 +106,7 @@ const getStatusProjects = async (status: Status, page: number, pageSize: number)
         status,
       },
       orderBy: {
-        status: 'asc',
+        status: 'desc',
       },
       skip: skip + pageSize, // Skip the projects already retrieved
       take: remainingProjects,
