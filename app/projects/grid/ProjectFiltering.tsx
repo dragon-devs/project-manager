@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, {useTransition} from 'react';
 import {Priority, Status} from "@prisma/client";
 import {
   Select,
@@ -12,7 +12,8 @@ import {
 } from "@/components/ui/select";
 import {useRouter, useSearchParams} from "next/navigation";
 import {Separator} from "@/components/ui/separator";
-import {DotsHorizontalIcon, DotsVerticalIcon} from "@radix-ui/react-icons";
+import {DotsHorizontalIcon} from "@radix-ui/react-icons";
+import Spinner from "@/components/Spinner";
 
 
 const statuses: {
@@ -46,20 +47,30 @@ const getLabelFromValue = (value: string, options: { label: string; value?: stri
 const ProjectFiltering = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const filterValue = searchParams.get('filter') || '';
+  const filterValue = searchParams.get('filter') ?? '';
+  const [loading, startTransition] = useTransition();
+
 
   return (
       <Select
           onValueChange={(filter) => {
             const query = filter ? `?filter=${filter}` : 'default';
-            router.push('/projects/grid' + query);
+            startTransition(() => {
+              router.push('/projects/grid' + query);
+            })
           }}
       >
-        <SelectTrigger className="sm:flex sm:relative sm:right-0 sm:border-solid absolute right-[4rem] sm:w-36 sm:px-3 w-10 h- border-none focus:ring-0 p-0 m-0">
-          <DotsHorizontalIcon className="w-5 h-5 absolute right-2 hover:text-foreground/80 sm:hidden"/>
-          <div className="hidden sm:block">
-            <SelectValue placeholder={getLabelFromValue(filterValue, [...statuses, ...priorities]) || 'filter by ...'}/>
-          </div>
+        <SelectTrigger
+            className="sm:flex sm:relative sm:right-0 sm:border-solid absolute right-[4rem] sm:w-36 sm:px-3 w-10 h- border-none focus:ring-0 p-0 m-0">
+          {loading ? <Spinner className="absolute right-2"/> :
+              <div>
+                <DotsHorizontalIcon
+                    className="w-5 h-5  absolute bottom-1.5 right-2 hover:text-foreground/80 sm:hidden"/>
+                <div className="hidden sm:block">
+                  <SelectValue
+                      placeholder={getLabelFromValue(filterValue, [...statuses, ...priorities]) ?? 'filter by ...'}/>
+                </div>
+              </div>}
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
@@ -67,8 +78,8 @@ const ProjectFiltering = () => {
               Priorities
               <Separator/>
             </SelectLabel>
-            {priorities.map((priority, index) => (
-                <SelectItem key={index} value={priority.value || 'default'}>
+            {priorities.map((priority) => (
+                <SelectItem key={priority.label} value={priority.value ?? 'default'}>
                   {priority.label}
                 </SelectItem>
             ))}
@@ -76,8 +87,8 @@ const ProjectFiltering = () => {
               Statuses
               <Separator/>
             </SelectLabel>
-            {statuses.map((status, index) => (
-                <SelectItem key={index} value={status.value || 'default'}>
+            {statuses.map((status ) => (
+                <SelectItem key={status.label} value={status.value ?? 'default'}>
                   {status.label}
                 </SelectItem>
             ))}

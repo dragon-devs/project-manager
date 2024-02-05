@@ -1,10 +1,8 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import prisma from "@/prisma/client";
 import ProjectActions from "@/app/projects/grid/ProjectActions";
 import ProjectCard from "@/app/projects/grid/ProjectCard";
 import {Priority, Status} from "@prisma/client";
-import PaginationPage from "@/app/projects/_components/Pagination";
-import delay from "delay";
 import Pagination from "@/app/projects/_components/Pagination";
 
 interface Props {
@@ -32,6 +30,7 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
   } else {
     projects = await getSearchProjects(q, page, pageSize);
   }
+
 
   return (
       <div className="space-y-3 sm:space-y-5">
@@ -64,7 +63,6 @@ const getPriorityProjects = async (priority: Priority, page: number, pageSize: n
     take: pageSize,
   });
 
-  // If there are fewer projects than the pageSize, adjust the take value
   const remainingProjects = pageSize - projects.length;
   if (remainingProjects > 0) {
     const additionalProjects = await prisma.project.findMany({
@@ -74,7 +72,7 @@ const getPriorityProjects = async (priority: Priority, page: number, pageSize: n
       orderBy: {
         priority: 'desc',
       },
-      skip: skip + pageSize, // Skip the projects already retrieved
+      skip: skip + pageSize,
       take: remainingProjects,
     });
 
@@ -108,7 +106,7 @@ const getStatusProjects = async (status: Status, page: number, pageSize: number)
       orderBy: {
         status: 'desc',
       },
-      skip: skip + pageSize, // Skip the projects already retrieved
+      skip: skip + pageSize,
       take: remainingProjects,
     });
 
