@@ -52,10 +52,10 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
 
 const getPriorityProjects = async (priority: Priority, page: number, pageSize: number) => {
   const skip = (page - 1) * pageSize;
+  const where = {priority}
+
   const projects = await prisma.project.findMany({
-    where: {
-      priority,
-    },
+    where,
     orderBy: {
       priority: 'desc',
     },
@@ -66,9 +66,7 @@ const getPriorityProjects = async (priority: Priority, page: number, pageSize: n
   const remainingProjects = pageSize - projects.length;
   if (remainingProjects > 0) {
     const additionalProjects = await prisma.project.findMany({
-      where: {
-        priority,
-      },
+      where,
       orderBy: {
         priority: 'desc',
       },
@@ -85,10 +83,10 @@ const getPriorityProjects = async (priority: Priority, page: number, pageSize: n
 
 const getStatusProjects = async (status: Status, page: number, pageSize: number) => {
   const skip = (page - 1) * pageSize;
+  const where = {status}
+
   const projects = await prisma.project.findMany({
-    where: {
-      status,
-    },
+    where,
     orderBy: {
       status: 'desc',
     },
@@ -96,7 +94,6 @@ const getStatusProjects = async (status: Status, page: number, pageSize: number)
     take: pageSize,
   });
 
-  // If there are fewer projects than the pageSize, adjust the take value
   const remainingProjects = pageSize - projects.length;
   if (remainingProjects > 0) {
     const additionalProjects = await prisma.project.findMany({
@@ -145,6 +142,8 @@ const getSearchProjects = async (q: string, page: number, pageSize: number) => {
 };
 
 const getProjectCount = async (filter: Priority | Status, q: string) => {
+
+
   if (Object.values(Priority).includes(filter as Priority)) {
     return prisma.project.count({
       where: {

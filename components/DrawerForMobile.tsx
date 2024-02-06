@@ -1,8 +1,5 @@
 import * as React from "react"
-import {BorderDottedIcon, DotsHorizontalIcon, MinusIcon, PlusIcon} from "@radix-ui/react-icons"
-import { Bar, BarChart, ResponsiveContainer } from "recharts"
-
-import { Button } from "@/components/ui/button"
+import {DotsHorizontalIcon} from "@radix-ui/react-icons"
 import {
   Drawer,
   DrawerClose,
