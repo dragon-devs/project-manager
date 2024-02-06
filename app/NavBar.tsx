@@ -14,14 +14,26 @@ import Container from "@/components/Container";
 import {Badge} from "@/components/ui/badge";
 import {version} from '../package.json';
 import {usePathname} from "next/navigation";
+import {useSession} from "next-auth/react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import {Skeleton} from "@/components/ui/skeleton";
 
 const NavBar = () => {
+  const currentPath = usePathname();
+  const {status, data: session} = useSession();
+
   const links = [
     {label: 'Dashboard', href: '/'},
     {label: 'Projects', href: '/projects/grid'},
   ];
 
-  const currentPath = usePathname();
 
   return (
     <div className="border-b">
@@ -54,6 +66,22 @@ const NavBar = () => {
               v{version}
             </Badge>
             <ModeToggle/>
+            {status === 'loading' &&  <Skeleton className="h-5 w-[2.25rem]"/>}
+            {status === 'authenticated' && (
+                <DropdownMenu>
+                  <DropdownMenuTrigger>
+                    <Avatar className="w-9 h-9 border">
+                      <AvatarImage src={session.user!.image!} alt="profile_picture"/>
+                      <AvatarFallback>pic</AvatarFallback>
+                    </Avatar>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    <DropdownMenuLabel className="text-muted-foreground">{session?.user!.email}</DropdownMenuLabel>
+                    <DropdownMenuItem><Link className="w-full" href="/api/auth/signout">Log out</Link></DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+            )}
+            {status === "unauthenticated" && <Link className="text-sm -ml-[0.02rem]" href="/api/auth/signin">Login</Link>}
           </div>
         </div>
       </Container>

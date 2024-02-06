@@ -176,3 +176,7 @@ F
 app/changelog/page.tsx,7\f\7f71d7d3d9719baa26fb45b6b99b23cb78479a2c
 S
 #app/api/auth/[...nextauth]/route.ts,b\5\b5525e88675781f6170fcf71bc017d2497318972
+E
+app/auth/Provider.tsx,2\a\2a291453b0a0db8442ba3520b64179a571bc3b6e
+n
+>prisma/migrations/20240206150905_add_user_models/migration.sql,9\5\95495b251891a3beb9abfe9a426ac3d8e4f8d98b
