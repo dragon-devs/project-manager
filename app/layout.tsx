@@ -7,6 +7,7 @@ import Container from "@/components/Container";
 import {Toaster} from "@/components/ui/sonner";
 import Footer from "@/app/Footer";
 import AuthProvider from "@/app/auth/Provider";
+import localFont from "next/font/local";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -15,12 +16,15 @@ export const metadata: Metadata = {
   description: "Empower yourself with an application designed for efficient project management tailored to your unique requirements.",
 };
 
+const inter_font = localFont({
+  src: "../public/fonts/Inter-Regular.ttf"
+})
 export default function RootLayout({children,}: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
       <html lang="en">
-      <body className={inter.className}>
+      <body className={inter_font.className}>
       <AuthProvider>
         <ThemeProvider
             attribute="class"

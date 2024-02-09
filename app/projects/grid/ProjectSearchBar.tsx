@@ -27,14 +27,15 @@ const ProjectSearchBar = () => {
       handleSearch();
     }
   };
+
   return (
       <div className="relative w-full">
         {isPending ? (
             <Spinner
-                className="absolute cursor-pointer hover:text-foreground w-5 h-5 top-0 bottom-0 my-auto text-gray-500 mx-2"/>
+                className="absolute cursor-pointer hover:text-foreground top-0 w-5 h-5 bottom-0 my-auto mx-2"/>
         ) : (
             <SearchIcon onClick={handleSearch}
-                        className="absolute cursor-pointer hover:text-foreground top-0 bottom-0 w-6 h-6 my-auto text-gray-500 mx-2"/>
+                        className="absolute cursor-pointer hover:text-foreground top-0 bottom-0 w-5 h-5 my-auto mx-2"/>
         )}
         <Input
             type="text"

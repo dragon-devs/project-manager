@@ -72,7 +72,7 @@ const NavBar = () => {
                   <DropdownMenuTrigger>
                     <Avatar className="w-9 h-9 border">
                       <AvatarImage src={session.user!.image!} alt="profile_picture"/>
-                      <AvatarFallback>pic</AvatarFallback>
+                      <AvatarFallback className="text-xs">DP</AvatarFallback>
                     </Avatar>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>

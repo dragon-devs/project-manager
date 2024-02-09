@@ -61,8 +61,8 @@ const ProjectFiltering = () => {
           }}
       >
         <SelectTrigger
-            className="sm:flex sm:relative sm:right-0 sm:border-solid absolute right-[4rem] sm:w-36 sm:px-3 w-10 h- border-none focus:ring-0 p-0 m-0">
-          {loading ? <Spinner className="absolute right-2"/> :
+            className="sm:flex sm:relative sm:right-0 sm:border-solid absolute right-[4rem] sm:w-36 sm:px-3 w-10 border-none focus:ring-0 p-0 m-0">
+          {loading ? <Spinner className="absolute right-2 w-5 h-5"/> :
               <div>
                 <DotsHorizontalIcon
                     className="w-5 h-5  absolute bottom-1.5 right-2 hover:text-foreground/80 sm:hidden"/>

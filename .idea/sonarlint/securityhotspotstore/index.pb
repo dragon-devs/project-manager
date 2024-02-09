@@ -164,16 +164,6 @@ I
 components/GithubLink.tsx,4\0\40d47e2244b8d92a8a21fa40f953e313af2900c3
 <
 CHANGELOG.md,a\b\ab09011fa121d0a2bb9fa4ca76094f2482b902b7
-N
-components/ChangeLogViewer.tsx,4\e\4ee8aaa984132a4873809d1d065912835c1814e8
-F
-utilities/changelog.ts,7\2\7262ae9b86e227c6ee8b97664fa2241096b23ca3
-=
-app/changelog,2\2\220cbe11703e58c5a5bfcee2b6b860347b2b66d9
-A
-app/changelog.tsx,5\6\565358d95890316fe3c18e9ef85113b7a868addd
-F
-app/changelog/page.tsx,7\f\7f71d7d3d9719baa26fb45b6b99b23cb78479a2c
 S
 #app/api/auth/[...nextauth]/route.ts,b\5\b5525e88675781f6170fcf71bc017d2497318972
 E

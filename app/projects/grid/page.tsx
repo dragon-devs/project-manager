@@ -4,6 +4,7 @@ import ProjectActions from "@/app/projects/grid/ProjectActions";
 import ProjectCard from "@/app/projects/grid/ProjectCard";
 import {Priority, Status} from "@prisma/client";
 import Pagination from "@/app/projects/_components/Pagination";
+import delay from "delay";
 
 interface Props {
   searchParams: {
@@ -31,6 +32,7 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
     projects = await getSearchProjects(q, page, pageSize);
   }
 
+  await delay(2000)
 
   return (
       <div className="space-y-3 sm:space-y-5">
