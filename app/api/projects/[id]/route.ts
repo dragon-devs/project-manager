@@ -4,11 +4,17 @@ import prisma from "@/prisma/client";
 import {Prisma} from ".prisma/client";
 import PrismaClientValidationError = Prisma.PrismaClientValidationError;
 import {Frameworks, Priority, Status} from "@prisma/client";
+import {getServerSession} from "next-auth";
+import authOptions from "@/app/auth/authOptions";
 
 export async function PATCH(
     request: NextRequest,
     {params}: { params: { id: string } }
 ) {
+  const session = await getServerSession(authOptions)
+  if (!session)
+    return NextResponse.json({}, {status: 401})
+
   try {
     const body = await request.json();
 
@@ -56,7 +62,6 @@ export async function PATCH(
     };
 
 
-
     const updatedProject = await prisma.project.update({
       where: {
         id: projectId
@@ -91,6 +96,9 @@ export async function PATCH(
 export async function DELETE(
     request: NextRequest,
     {params}: { params: { id: string } }) {
+  const session = await getServerSession(authOptions)
+  if (!session)
+    return NextResponse.json({}, {status: 401})
 
   const project = await prisma.project.findUnique({
     where: {id: params.id}

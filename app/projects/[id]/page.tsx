@@ -10,8 +10,8 @@ interface Props {
   params: { id: string }
 }
 
-
 const ProjectDetailsPage = async ({params}: Props) => {
+
   const project = await prisma.project.findUnique({
     where: {id: params.id}
   });
@@ -22,7 +22,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
       <div className="">
         <ProjectDetailsActions projectId={project.id}/>
         <Card className="md:grid grid-cols-3 ">
-          <Card className="h-[12rem] m-5 md:w-full md:h-auto bg-muted" />
+          <Card className="h-[12rem] m-5 md:w-full md:h-auto bg-muted"/>
           <CardContent className="p-5 ml-0 pt-0 sm:pt-5 md:ml-5 col-span-2">
             <div className="grid gap-3">
               <div>
@@ -46,7 +46,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                 <p className="text-sm text-muted-foreground">
                   Frameworks
                 </p>
-                <FrameworkDetailsList frameworks={project.frameworks} />
+                <FrameworkDetailsList frameworks={project.frameworks}/>
               </div>
               <div className="flex gap-10">
                 <div>
@@ -83,13 +83,13 @@ const ProjectDetailsPage = async ({params}: Props) => {
                 </div>
               </div>
               <div>
-                  <p className="text-sm text-muted-foreground">
-                    Updated
-                  </p>
-                  <p className="text-sm font-medium">
-                    {`${project.updatedAt.toDateString()} - ${project.updatedAt.toLocaleTimeString()}`}
-                  </p>
-                </div>
+                <p className="text-sm text-muted-foreground">
+                  Updated
+                </p>
+                <p className="text-sm font-medium">
+                  {`${project.updatedAt.toDateString()} - ${project.updatedAt.toLocaleTimeString()}`}
+                </p>
+              </div>
             </div>
 
           </CardContent>

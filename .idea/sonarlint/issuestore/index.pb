@@ -170,3 +170,9 @@ E
 app/auth/Provider.tsx,2\a\2a291453b0a0db8442ba3520b64179a571bc3b6e
 n
 >prisma/migrations/20240206150905_add_user_models/migration.sql,9\5\95495b251891a3beb9abfe9a426ac3d8e4f8d98b
+m
+=prisma/migrations/20240209194948_add_user_roles/migration.sql,1\2\122c66f9673eeb7c1227062963abcc7e7b7a56cf
+=
+middleware.ts,3\0\306298667dd8f63c95afc94693a7bfe5a20f54f5
+G
+app/auth/authOptions.ts,8\f\8fa2f32b02c9d1c9b89fc3314bb0803d61f82939
