@@ -7,7 +7,7 @@ import authOptions from "@/app/auth/authOptions";
 
 export async function GET(request: NextRequest) {
   const projects = await prisma.project.findMany();
-  return NextResponse.json(projects);
+  return NextResponse.json(projects, {status: 200});
 }
 
 export async function POST(request: NextRequest) {

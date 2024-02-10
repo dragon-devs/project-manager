@@ -1,11 +1,10 @@
 import {NextRequest, NextResponse} from "next/server";
-import {patchProjectSchema, projectSchema} from "@/app/validationSchema";
+import {patchProjectSchema} from "@/app/validationSchema";
 import prisma from "@/prisma/client";
 import {Prisma} from ".prisma/client";
-import PrismaClientValidationError = Prisma.PrismaClientValidationError;
-import {Frameworks, Priority, Status} from "@prisma/client";
 import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
+import PrismaClientValidationError = Prisma.PrismaClientValidationError;
 
 export async function PATCH(
     request: NextRequest,

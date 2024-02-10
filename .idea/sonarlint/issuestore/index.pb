@@ -176,3 +176,11 @@ m
 middleware.ts,3\0\306298667dd8f63c95afc94693a7bfe5a20f54f5
 G
 app/auth/authOptions.ts,8\f\8fa2f32b02c9d1c9b89fc3314bb0803d61f82939
+F
+app/api/teams/route.ts,6\5\65cc5710a6eda0edcc4ca9cb301bc0638d4473b5
+n
+>prisma/migrations/20240210213022_add_teams_model/migration.sql,d\c\dcd771d35d3891996a26b7399d01344656a62b15
+o
+?prisma/migrations/20240210220957_fix_relationship/migration.sql,a\7\a79b1fe96b15efa6bb763df92e379aba409a3476
+y
+Iprisma/migrations/20240210220140_update_teams_and_users_mtm/migration.sql,b\6\b624edd03b8c904240bf351fe0335526669cc20a

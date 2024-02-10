@@ -24,3 +24,11 @@ export const patchProjectSchema = z.object({
   timeline: z.array(z.coerce.date()).optional(),
   priority: z.string().min(1).optional(),
 })
+
+export const teamsSchema = z.object({
+  name: z.string().min(5, 'Teams Name must be more than 5 characters.').max(255),
+  description: z.string().min(1, 'Teams Description is required.').max(255),
+  members: z.array(z.string()).optional(),
+  industry: z.string().optional(),
+  rating: z.string().optional()
+})

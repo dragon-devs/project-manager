@@ -61,6 +61,18 @@ model User {
   role          Role?     @default(MEMBER)
   accounts      Account[]
   sessions      Session[]
+  Teams         Teams[]   @relation("members")
+}
+
+model Teams {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  industry    String?
+  rating      String?
+  members     User[]   @relation("members")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
 model VerificationToken {
