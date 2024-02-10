@@ -32,6 +32,7 @@ const NavBar = () => {
   const links = [
     {label: 'Dashboard', href: '/'},
     {label: 'Projects', href: '/projects/grid'},
+    {label: 'Teams', href: '/teams'},
   ];
 
 

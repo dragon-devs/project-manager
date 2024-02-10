@@ -184,3 +184,7 @@ o
 ?prisma/migrations/20240210220957_fix_relationship/migration.sql,a\7\a79b1fe96b15efa6bb763df92e379aba409a3476
 y
 Iprisma/migrations/20240210220140_update_teams_and_users_mtm/migration.sql,b\6\b624edd03b8c904240bf351fe0335526669cc20a
+B
+app/teams/page.tsx,9\1\91f561c909cfc9401444c4f5f7d8d488fd98c94e
+?
+next.config.mjs,d\f\df8bd0b91ecb778bf2a1b031c7677390c7442bb4
