@@ -11,7 +11,7 @@ const Footer = () => {
       <Container>
         <div className="flex justify-between">
           <div className="sm:text-sm text-xs flex items-center gap-3 font-md text-muted-foreground mb-3 sm:mb-0">
-            Copyright © 2024 dragondevs <Separator orientation="vertical" className="h-5"/>
+            Copyright © 2024 dragon-devs <Separator orientation="vertical" className="h-5"/>
           </div>
           <div className="flex gap-3 justify-center">
             <WhatsappLink />

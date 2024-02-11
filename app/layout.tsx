@@ -8,6 +8,7 @@ import {Toaster} from "@/components/ui/sonner";
 import Footer from "@/app/Footer";
 import AuthProvider from "@/app/auth/Provider";
 import localFont from "next/font/local";
+import {MobileNav} from "@/components/MobileNav";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -33,7 +34,7 @@ export default function RootLayout({children,}: Readonly<{
             disableTransitionOnChange
         >
           <div className="flex flex-col min-h-screen">
-            <NavBar/>
+            <NavBar />
             <main className="flex-grow sm:p-5 p-3">
               <Container>{children}</Container>
             </main>

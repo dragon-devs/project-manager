@@ -188,3 +188,9 @@ B
 app/teams/page.tsx,9\1\91f561c909cfc9401444c4f5f7d8d488fd98c94e
 ?
 next.config.mjs,d\f\df8bd0b91ecb778bf2a1b031c7677390c7442bb4
+G
+components/ui/sheet.tsx,d\9\d95237ca82dd7d571f43598b1264112f8c705e62
+H
+components/MobileNav.tsx,a\9\a929da4aaf1dad00646fa24a6cc84e7e8a18ada4
+M
+components/ui/scroll-area.tsx,0\6\062d2979d5eb25aad127a3025f44932e17b13ebc
