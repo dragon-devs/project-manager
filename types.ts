@@ -1,6 +1,6 @@
 // types/project.ts
 
-import {Frameworks, Priority, Status, User} from "@prisma/client";
+import { Frameworks, Priority, Status, User } from "@prisma/client";
 
 export interface Project {
   id: string;
@@ -25,3 +25,15 @@ export interface Teams {
   createAt: Date;
   updateAt: Date;
 }
+
+export interface Users {
+  id: string;
+  name: string | null;
+  email: string | null;
+  emailVerified: Date | null;
+  image: string | null;
+  role: Role | null;
+  // Add any additional properties if necessary
+}
+
+export type Role = string;

@@ -1,9 +1,4 @@
 import {z} from "zod";
-import {Frameworks} from '@prisma/client';
-// Assume you have a set of allowed frameworks
-export const allowedFrameworks = Frameworks
-
-// Assume you have a set of allowed frameworks
 
 export const projectSchema = z.object({
   name: z.string().min(5, 'Project Name must be more than 5 characters.').max(255),

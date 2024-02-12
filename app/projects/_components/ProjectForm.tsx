@@ -35,7 +35,6 @@ export function ProjectForm({project}: { project?: Project }) {
       frameworks: project?.frameworks || [],
       timeline: project?.timeline,
       dueDate: project?.dueDate,
-
     }
   })
   const [date, setDate] = useState<Date>()
@@ -62,11 +61,10 @@ export function ProjectForm({project}: { project?: Project }) {
     }
   }
 
-
   return (
       <Card>
         <CardHeader>
-          <CardTitle>{project ? "Update Project" : "Create project"}</CardTitle>
+          <CardTitle>{project ? "Update Project" : "Create new project"}</CardTitle>
           <CardDescription>{project ? "Incorporate the latest updates to your project roster." : "Include a new project in your roster."} </CardDescription>
         </CardHeader>
         <CardContent>

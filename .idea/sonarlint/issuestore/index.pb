@@ -194,3 +194,9 @@ H
 components/MobileNav.tsx,a\9\a929da4aaf1dad00646fa24a6cc84e7e8a18ada4
 M
 components/ui/scroll-area.tsx,0\6\062d2979d5eb25aad127a3025f44932e17b13ebc
+Q
+!app/teams/CreateNewTeamDialog.tsx,f\5\f55e80cd0298053663d44f3b9e8be8d3a24a69ae
+R
+"app/teams/_components/TeamForm.tsx,1\4\148286795d7d6443bdcc61a131a44e563c0866b1
+\
+,app/teams/_components/FancyMembersSelect.tsx,7\2\72165e58878d647afb693ec6cb9f190796091339
