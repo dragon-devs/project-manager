@@ -22,11 +22,11 @@ const TeamsPage = async () => {
               <Card key={team.id}>
                 <CardHeader>
                   <div className="flex justify-between">
-                    <div>
-                      <CardTitle>{team.name}</CardTitle>
-                      <CardDescription>{team.description}</CardDescription>
+                    <div className="">
+                      <CardTitle className="">{team.name}</CardTitle>
+                      <CardDescription className="mt-2">{team.description}</CardDescription>
                     </div>
-                    <div>
+                    <div className="flex">
                       <TeamForm
                           users={users}
                           team={team}

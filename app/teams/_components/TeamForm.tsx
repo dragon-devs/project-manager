@@ -8,7 +8,7 @@ import {teamsSchema} from "@/app/validationSchema";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 import {Button} from "@/components/ui/button";
-import {PlusIcon} from "@radix-ui/react-icons";
+import {Pencil2Icon, PlusIcon} from "@radix-ui/react-icons";
 import {Input} from "@/components/ui/input";
 import {Form, FormControl, FormField, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
 import axios from "axios";
@@ -66,7 +66,7 @@ const TeamForm = ({team, users}: { team?: Teams, users: Users[] }) => {
       <Dialog>
         <DialogTrigger asChild>
           {team ?
-              <Button onClick={handleEdit} variant="outline"><PencilIcon/></Button> :
+              <Button onClick={handleEdit} className="p-3" variant="ghost"><Pencil2Icon/></Button> :
               <Button>New Team <PlusIcon/></Button>
           }
         </DialogTrigger>

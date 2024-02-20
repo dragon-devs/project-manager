@@ -42,7 +42,8 @@ const DeleteTeamButton = ({teamId}: { teamId: string }) => {
         <AlertDialogTrigger asChild>
           <Button
               disabled={loading}
-              variant="destructive"
+              variant="ghost"
+              className="p-3 text-red-500 hover:text-red-600 hover:bg-red-500/10"
           >
             {loading ? <Spinner/> : <TrashIcon/>}
           </Button>
