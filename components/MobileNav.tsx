@@ -3,20 +3,19 @@
 import * as React from "react"
 import Link, {LinkProps} from "next/link"
 import {useRouter} from "next/navigation"
-import {HamburgerMenuIcon, MixIcon, ViewVerticalIcon} from "@radix-ui/react-icons"
+import {HamburgerMenuIcon, MixIcon} from "@radix-ui/react-icons"
 
 import {cn} from "@/lib/utils"
 import {Button} from "@/components/ui/button"
 import {ScrollArea} from "@/components/ui/scroll-area"
 import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
-import {ReactNodeArray} from "prop-types";
-import HamburgerMenu from "@/components/HamburgerMenu";
 import {Badge} from "@/components/ui/badge";
 import {ModeToggle} from "@/components/Toggle";
-import {version} from "@/package.json";
+import packageInfo from '../package.json';
 
 export function MobileNav({links}: { links: { title: string; href: string }[] }) {
   const [open, setOpen] = React.useState(false)
+  const version = packageInfo.version;
 
   return (
       <Sheet open={open} onOpenChange={setOpen}>

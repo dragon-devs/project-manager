@@ -4,24 +4,10 @@ import React, {useState} from 'react';
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {useSession} from "next-auth/react";
-import {
-  Sheet,
-  SheetContent,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-  SheetClose
-} from "@/components/ui/sheet";
 import Container from "@/components/Container";
 import {Badge} from "@/components/ui/badge";
-import {version} from '../package.json';
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList
-} from "@/components/ui/navigation-menu";
+import packageInfo from '../package.json';
+import {NavigationMenu, NavigationMenuItem, NavigationMenuList} from "@/components/ui/navigation-menu";
 import {ModeToggle} from "@/components/Toggle";
 import {MixIcon} from "@radix-ui/react-icons";
 import {
@@ -39,6 +25,8 @@ const NavBar = () => {
   const currentPath = usePathname();
   const {status, data: session} = useSession();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+  const version = packageInfo.version;
 
   const links = [
     {title: 'Dashboard', href: '/'},

@@ -200,3 +200,7 @@ R
 "app/teams/_components/TeamForm.tsx,1\4\148286795d7d6443bdcc61a131a44e563c0866b1
 \
 ,app/teams/_components/FancyMembersSelect.tsx,7\2\72165e58878d647afb693ec6cb9f190796091339
+K
+app/api/teams/[id]/route.ts,6\5\65ace3fce914649c967581722b0f803c67d723a8
+N
+app/teams/DeleteTeamButton.tsx,2\7\279fd623e8aae6575e6a4ddeb27870cc1f7eed99

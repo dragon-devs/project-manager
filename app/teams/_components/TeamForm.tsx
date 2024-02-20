@@ -6,16 +6,7 @@ import {useForm} from "react-hook-form";
 import * as z from "zod";
 import {teamsSchema} from "@/app/validationSchema";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {Teams, User} from "@prisma/client";
-import {
-  Dialog, DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger
-} from "@/components/ui/dialog";
+import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 import {Button} from "@/components/ui/button";
 import {PlusIcon} from "@radix-ui/react-icons";
 import {Input} from "@/components/ui/input";
@@ -24,27 +15,21 @@ import axios from "axios";
 import {toast} from "sonner";
 import {Textarea} from "@/components/ui/textarea";
 import {FancyMemberSelect} from "@/app/teams/_components/FancyMembersSelect";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue
-} from "@/components/ui/select";
+import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import Spinner from "@/components/Spinner";
-import {Users} from "@/types";
+import {Users, Teams} from "@/types";
+import {PencilIcon} from "lucide-react";
 
-const TeamForm = ({teams, users}: { teams?: Teams, users: Users[] }) => {
+const TeamForm = ({team, users}: { team?: Teams, users: Users[] }) => {
   const router = useRouter();
 
   const form = useForm<z.infer<typeof teamsSchema>>({
     resolver: zodResolver(teamsSchema),
+
     defaultValues: {
-      name: teams?.name || '',
-      description: teams?.description || '',
-      industry: teams?.industry || '',
+      name: team?.name || '',
+      description: team?.description || '',
+      industry: team?.industry || '',
       rating: '5.0' || '',
     }
   })
@@ -52,34 +37,45 @@ const TeamForm = ({teams, users}: { teams?: Teams, users: Users[] }) => {
 
   async function onSubmit(data: z.infer<typeof teamsSchema>) {
     try {
-      setIsSubmiting(true)
-      if (teams) {
-        await axios.patch('/api/teams/' + teams.id, data)
+      if (team) {
+        console.log(team)
+        await axios.patch('/api/teams/' + team.id, data)
         toast.success('Team is successfully updated.');
       } else {
         await axios.post('/api/teams', data)
         toast.success('Team is successfully created.');
       }
+
       router.push('/teams')
       router.refresh()
       setIsSubmiting(false)
+
+      form.reset();
     } catch (error) {
       setIsSubmiting(false)
       toast.error('An unexpected error occurred.');
     }
+
+  }
+
+  const handleEdit = () => {
+    console.log(team!.name)
   }
 
   return (
       <Dialog>
         <DialogTrigger asChild>
-          <Button>New Team <PlusIcon/></Button>
+          {team ?
+              <Button onClick={handleEdit} variant="outline"><PencilIcon/></Button> :
+              <Button>New Team <PlusIcon/></Button>
+          }
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>Create New Team</DialogTitle>
-            {/*<DialogDescription>*/}
-            {/*  Make changes to your profile here. Click save when you&apos;re done.*/}
-            {/*</DialogDescription>*/}
+            {team ?
+                <DialogTitle>Edit Team</DialogTitle> :
+                <DialogTitle>Create New Team</DialogTitle>
+            }
           </DialogHeader>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
@@ -90,7 +86,7 @@ const TeamForm = ({teams, users}: { teams?: Teams, users: Users[] }) => {
                       <FormItem>
                         <FormLabel>Name</FormLabel>
                         <FormControl>
-                          <Input placeholder="Name of your teams" {...field} />
+                          <Input placeholder="Name of your team" {...field} />
                         </FormControl>
                         <FormMessage/>
                       </FormItem>
@@ -117,6 +113,7 @@ const TeamForm = ({teams, users}: { teams?: Teams, users: Users[] }) => {
                         <FormLabel>Members</FormLabel>
                         <FormControl>
                           <FancyMemberSelect
+                              team={team}
                               users={users}
                               onChange={(selected) => {
                                 field.onChange(selected.map(({id}) => id))
@@ -134,7 +131,7 @@ const TeamForm = ({teams, users}: { teams?: Teams, users: Users[] }) => {
                   render={({field}) => (
                       <FormItem>
                         <FormLabel>Industry</FormLabel>
-                        <Select onValueChange={field.onChange}>
+                        <Select onValueChange={field.onChange} {...field} >
                           <FormControl>
                             <SelectTrigger>
                               <SelectValue placeholder="Select an industry"/>
@@ -156,10 +153,13 @@ const TeamForm = ({teams, users}: { teams?: Teams, users: Users[] }) => {
                   )}
               />
               <DialogFooter>
-                  <Button type="submit" disabled={isSubmiting}>
-                    Submit New Team
-                    {isSubmiting && <Spinner/>}
-                  </Button>
+                <Button className="flex gap-2 justify-center items-center" type="submit" disabled={isSubmiting}>
+                  {team ?
+                      "Update Team" :
+                      "Submit New Team"
+                  }
+                  {isSubmiting && <Spinner/>}
+                </Button>
               </DialogFooter>
             </form>
           </Form>

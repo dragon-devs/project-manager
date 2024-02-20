@@ -8,7 +8,6 @@ import {Toaster} from "@/components/ui/sonner";
 import Footer from "@/app/Footer";
 import AuthProvider from "@/app/auth/Provider";
 import localFont from "next/font/local";
-import {MobileNav} from "@/components/MobileNav";
 
 const inter = Inter({subsets: ["latin"]});
 
