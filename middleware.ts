@@ -3,6 +3,7 @@ export {default} from 'next-auth/middleware';
 export const config = {
   matcher: [
       '/projects/new',
-      '/projects/edit/:id+'
+      '/projects/edit/:id+',
+      '/teams'
   ]
 }

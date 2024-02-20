@@ -11,18 +11,20 @@ datasource db {
 }
 
 model Project {
-  id          String       @unique @default(uuid())
-  name        String       @unique
-  description String
-  frameworks  Frameworks[]
-  status      Status       @default(NOT_STARTED)
-  priority    Priority     @default(NORMAL)
-  owner       String?      @default("Selected User")
-  dueDate     DateTime
-  timeline    DateTime[]
-  budget      String?
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  id               String       @unique @default(uuid())
+  name             String       @unique
+  description      String
+  frameworks       Frameworks[]
+  status           Status       @default(NOT_STARTED)
+  priority         Priority     @default(NORMAL)
+  owner            String?      @default("Selected User")
+  dueDate          DateTime
+  timeline         DateTime[]
+  budget           String?
+  assignedToUserId String?
+  assignedToUser   User?        @relation(fields: [assignedToUserId], references: [id])
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
 }
 
 model Account {
@@ -53,15 +55,16 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  role          Role?     @default(MEMBER)
-  accounts      Account[]
-  sessions      Session[]
-  Teams         Teams[]   @relation("members")
+  id               String    @id @default(cuid())
+  name             String?
+  email            String?   @unique
+  emailVerified    DateTime?
+  image            String?
+  role             Role?     @default(MEMBER)
+  accounts         Account[]
+  sessions         Session[]
+  Teams            Teams[]   @relation("members")
+  assignedProjects Project[]
 }
 
 model Teams {
