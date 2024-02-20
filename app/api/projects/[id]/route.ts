@@ -10,9 +10,9 @@ export async function PATCH(
     request: NextRequest,
     {params}: { params: { id: string } }
 ) {
-  const session = await getServerSession(authOptions)
-  if (!session)
-    return NextResponse.json({}, {status: 401})
+  // const session = await getServerSession(authOptions)
+  // if (!session)
+  //   return NextResponse.json({}, {status: 401})
 
   try {
     const body = await request.json();
@@ -28,9 +28,17 @@ export async function PATCH(
       );
     }
 
-    const projectId = params.id; // Assuming you have the project ID in the route
+    const {assignedToUserId} = body;
+    if(assignedToUserId) {
+      const user = await prisma.user.findUnique({
+        where: {id: assignedToUserId}
+      })
+      if (!user)
+        return NextResponse.json({error: "Invalid user."}, { status: 404})
 
-    // Check if the project with the given ID exists
+    }
+    const projectId = params.id;
+
     const existingProject = await prisma.project.findUnique({
       where: {
         id: projectId
@@ -47,7 +55,6 @@ export async function PATCH(
       );
     }
 
-    // Only include non-null and non-undefined properties from the body
     const updateData = {
       name: body.name,
       description: body.description,
@@ -57,7 +64,8 @@ export async function PATCH(
       priority: body.priority,
       timeline: body.timeline,
       budget: body.budget,
-      owner: body.owner
+      owner: body.owner,
+      assignedToUserId,
     };
 
 
@@ -80,7 +88,6 @@ export async function PATCH(
       );
     }
 
-    // Handle other errors
     console.error(error);
     return NextResponse.json(
         {

@@ -17,7 +17,6 @@ model Project {
   frameworks       Frameworks[]
   status           Status       @default(NOT_STARTED)
   priority         Priority     @default(NORMAL)
-  owner            String?      @default("Selected User")
   dueDate          DateTime
   timeline         DateTime[]
   budget           String?
