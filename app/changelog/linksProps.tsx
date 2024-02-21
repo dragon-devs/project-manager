@@ -12,7 +12,7 @@ export const CustomComponents: Partial<Record<string, ComponentType<CustomCompon
   h3: ({ children }) => <h3 className="text-lg my-4 font-bold">{children}</h3>,
   ul: ({ children }) => <ul className="ml-8">{children}</ul>,
   ol: ({ children }) => <ol className="ml-8">{children}</ol>,
-  li: ({ children }) => <li className="list-disc my-1">{children}</li>,
+  li: ({ children }) => <li className="list-disc text-sm my-1">{children}</li>,
   p: ({ children }) => <p className="my-5">{children}</p>,
   a: ({ children, href }) => (
     <a className="text-blue-500 hover:underline" href={href}>

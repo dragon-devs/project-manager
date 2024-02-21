@@ -9,11 +9,13 @@ import TeamForm from "@/app/teams/_components/TeamForm";
 import {Button} from "@/components/ui/button";
 import {Trash2Icon} from "lucide-react";
 import DeleteTeamButton from "@/app/teams/DeleteTeamButton";
+import delay from "delay";
 
 const TeamsPage = async () => {
   const teams = await prisma.teams.findMany({include: {members: true}})
   const users = await prisma.user.findMany()
 
+  await delay(2000)
   return (
       <div className="space-y-3 sm:space-y-5">
         <CreateNewTeam/>

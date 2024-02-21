@@ -67,7 +67,7 @@ const TeamForm = ({team, users}: { team?: Teams, users: Users[] }) => {
         <DialogTrigger asChild>
           {team ?
               <Button onClick={handleEdit} className="p-3" variant="ghost"><Pencil2Icon/></Button> :
-              <Button>New Team <PlusIcon/></Button>
+              <Button className="flex gap-2">New Team <PlusIcon/></Button>
           }
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
@@ -99,7 +99,7 @@ const TeamForm = ({team, users}: { team?: Teams, users: Users[] }) => {
                       <FormItem>
                         <FormLabel>Description</FormLabel>
                         <FormControl>
-                          <Textarea className="h-20" placeholder="Description of your project" {...field} />
+                          <Textarea className="h-20" placeholder="Description of your team" {...field} />
                         </FormControl>
                         <FormMessage/>
                       </FormItem>
