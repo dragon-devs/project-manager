@@ -1,13 +1,15 @@
 import React from 'react';
 import {Project} from '@/types'; // Import the type for your Project model
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from '@/components/ui/card';
-import {Avatar, AvatarFallback} from '@/components/ui/avatar';
+import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
 import DueDate from '@/app/projects/_components/DueDate';
 import Statues from "@/app/projects/_components/Status";
 import FrameworkList from "@/app/projects/_components/FrameworkList";
 import Link from "next/link";
-import {SignalIcon} from "lucide-react";
 import Priorities from "@/app/projects/_components/PrioritySignals";
+import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
+import {EnvelopeClosedIcon} from "@radix-ui/react-icons";
+import {Badge} from "@/components/ui/badge";
 
 interface ProjectCardProps {
   project: Project;
@@ -24,17 +26,43 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project}) => {
               </Link>
             </CardTitle>
             <CardDescription className="mr-10 truncate ...">{project.description}</CardDescription>
-            <Avatar className="absolute right-5 top-5">
-              <AvatarFallback>
-              </AvatarFallback>
-            </Avatar>
+            {project.assignedToUserId && (
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <Avatar className="absolute border right-5 top-5">
+                      <AvatarImage src={project.assignedToUser?.image!}/>
+                      <AvatarFallback>DP</AvatarFallback>
+                    </Avatar>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto">
+                    <div className="flex flex-col space-y-4 items-center justify-center">
+                      <Avatar className="border">
+                        <AvatarImage src={project.assignedToUser?.image!}/>
+                        <AvatarFallback>DP</AvatarFallback>
+                      </Avatar>
+                      <div className="flex justify-center items-center flex-col space-y-2">
+                        <h4 className="text-sm font-semibold">{project.assignedToUser?.name}</h4>
+                        <Badge className="text-[10px]">
+                          {project.assignedToUser?.role}
+                        </Badge>
+                        <div className="flex items-center pt-2">
+                          <EnvelopeClosedIcon className="mr-2 h-4 w-4 opacity-70"/>{" "}
+                          <span className="text-xs text-muted-foreground">
+                            {project.assignedToUser?.email}
+                            </span>
+                        </div>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+            )}
           </CardHeader>
           <CardContent>
             <div className="flex justify-between items-center">
               <div className="overflow-hidden w-[85%]">
                 <FrameworkList frameworks={project.frameworks}/>
               </div>
-              <Priorities priority={project.priority} />
+              <Priorities priority={project.priority}/>
             </div>
           </CardContent>
           <CardFooter className="gap-1 justify-between">

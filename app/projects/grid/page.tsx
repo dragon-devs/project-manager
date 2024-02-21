@@ -57,6 +57,9 @@ const getPriorityProjects = async (priority: Priority, page: number, pageSize: n
     orderBy: {
       priority: 'desc',
     },
+    include: {
+      assignedToUser: true
+    },
     skip,
     take: pageSize,
   });
@@ -67,6 +70,9 @@ const getPriorityProjects = async (priority: Priority, page: number, pageSize: n
       where,
       orderBy: {
         priority: 'desc',
+      },
+      include: {
+        assignedToUser: true
       },
       skip: skip + pageSize,
       take: remainingProjects,
@@ -88,6 +94,9 @@ const getStatusProjects = async (status: Status, page: number, pageSize: number)
     orderBy: {
       status: 'desc',
     },
+    include: {
+      assignedToUser: true
+    },
     skip,
     take: pageSize,
   });
@@ -100,6 +109,9 @@ const getStatusProjects = async (status: Status, page: number, pageSize: number)
       },
       orderBy: {
         status: 'desc',
+      },
+      include: {
+        assignedToUser: true
       },
       skip: skip + pageSize,
       take: remainingProjects,
@@ -134,14 +146,15 @@ const getSearchProjects = async (q: string, page: number, pageSize: number) => {
     orderBy: {
       createdAt: 'desc',
     },
+    include: {
+      assignedToUser: true
+    },
     skip: (page - 1) * pageSize,
     take: pageSize,
   });
 };
 
 const getProjectCount = async (filter: Priority | Status, q: string) => {
-
-
   if (Object.values(Priority).includes(filter as Priority)) {
     return prisma.project.count({
       where: {

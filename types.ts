@@ -8,7 +8,8 @@ export interface Project {
   timeline: Date[];
   status: Status;
   priority: Priority;
-  assignedToUserId: string | null;
+  assignedToUserId?: string | null;
+  assignedToUser?: Users | null;
   dueDate: Date;
   createdAt?: Date;
   updatedAt?: Date;

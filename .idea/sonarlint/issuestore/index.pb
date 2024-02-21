@@ -224,3 +224,5 @@ K
 app/changelog/linksProps.ts,0\e\0e34d0427fa6ecbb82adaf048abac655d6faea4c
 L
 app/changelog/linksProps.tsx,9\0\90b3c43cbfe1963ba7e894411c96aa25d2c1ad7a
+I
+app/changelog/loading.tsx,0\9\099f612d78f590e6f21e1e55a3dd61f3303e1798
