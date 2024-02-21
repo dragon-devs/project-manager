@@ -15,30 +15,31 @@ import {useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import {Skeleton} from "@/components/ui/skeleton";
 import {useRouter} from "next/navigation";
+import {toast} from "sonner";
 
 
 const AssigneeSelectUser = ({project}: { project: Project }) => {
   const router = useRouter();
-
-  const {data: users, error, isLoading} = useQuery<Users[]>({
-    queryKey: ['users'],
-    queryFn: () => axios.get('/api/users').then(res => res.data),
-    staleTime: 60 * 1000,
-    retry: 3
-  });
+  const {data: users, error, isLoading} = useUsers();
 
   if (isLoading) return <Skeleton className="w-[10rem]"/>
 
   if (error) return null;
 
+  const assignProject = (userId: string) => {
+            const assignedToUserId = userId === "unassigned" ? null : userId;
+            axios
+                .patch('/api/projects/' + project.id, {assignedToUserId})
+                .catch(() => {
+                  toast.error('Changes could not be saved.')
+                });
+            router.refresh()
+          };
+
   return (
       <Select
           defaultValue={project.assignedToUserId ?? "unassigned"}
-          onValueChange={(userId) => {
-        const assignedToUserId = userId === "unassigned" ? null : userId;
-        axios.patch('/api/projects/' + project.id, {assignedToUserId});
-        router.refresh()
-      }}>
+          onValueChange={assignProject}>
         <SelectTrigger className="sm:w-[10rem]">
           <SelectValue placeholder="Assign..."/>
         </SelectTrigger>
@@ -56,5 +57,13 @@ const AssigneeSelectUser = ({project}: { project: Project }) => {
       </Select>
   );
 };
+
+const useUsers = () =>
+  useQuery<Users[]>({
+    queryKey: ['users'],
+    queryFn: () => axios.get('/api/users').then(res => res.data),
+    staleTime: 60 * 1000,
+    retry: 3
+  });
 
 export default AssigneeSelectUser;
