@@ -1,4 +1,4 @@
-import { Frameworks, Priority, Status, User } from "@prisma/client";
+import {Frameworks, Priority, Status, User, Role} from "@prisma/client";
 
 export interface Project {
   id: string;
@@ -8,6 +8,7 @@ export interface Project {
   timeline: Date[];
   status: Status;
   priority: Priority;
+  assignedToUserId: string | null;
   dueDate: Date;
   createdAt?: Date;
   updatedAt?: Date;
@@ -33,4 +34,3 @@ export interface Users {
   role: Role | null;
 }
 
-export type Role = string;

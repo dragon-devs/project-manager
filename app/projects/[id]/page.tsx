@@ -20,7 +20,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
 
   return (
       <div className="">
-        <ProjectDetailsActions projectId={project.id}/>
+        <ProjectDetailsActions project={project}/>
         <Card className="md:grid grid-cols-3 ">
           <Card className="h-[12rem] m-5 md:w-full md:h-auto bg-muted"/>
           <CardContent className="p-5 ml-0 pt-0 sm:pt-5 md:ml-5 col-span-2">

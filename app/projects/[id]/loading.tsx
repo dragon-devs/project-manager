@@ -12,6 +12,7 @@ const ProjectDetailsPageSkeleton = () => {
             <Skeleton className="h-3.5 w-64 mb-5"/>
           </div>
           <div className="hidden sm:flex gap-3">
+            <Skeleton className="h-9 w-[9rem] mb-5"/>
             <Skeleton className="h-9 w-24 mb-5"/>
             <Skeleton className="h-9 w-20 mb-5"/>
 
