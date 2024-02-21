@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.2](https://github.com/dragon-devs/project-manager/compare/v0.4.1...v0.4.2) (2024-02-21)
+
+
+### Features
+
+* add assigned projects to prisma schema ([53f69f2](https://github.com/dragon-devs/project-manager/commit/53f69f28bf4543c45c496e581718b0ffb7e1114a))
+* **api:** enhance the api to assign projects ([aa4ac54](https://github.com/dragon-devs/project-manager/commit/aa4ac54fdfdc096954fcce94ffc8bd45631e1151))
+* build assignee project component + api ([8879181](https://github.com/dragon-devs/project-manager/commit/8879181c427f85b40293d8d2304aa034f3ee96dc))
+* Build teams, create new, update and delete + crud api ([9f034d1](https://github.com/dragon-devs/project-manager/commit/9f034d17f6ddc8ac50d2b7ea8221871f9b40f4b5))
+* fetching assignee users with react query ([faa413f](https://github.com/dragon-devs/project-manager/commit/faa413f5bc3fabff2a7caa2a4f0b46cd45cd3fd8))
+* you can assign users to a project ([761c663](https://github.com/dragon-devs/project-manager/commit/761c6637c3e4b24f88236377d042b3951a5b28e9))
+
+
+### Bug Fixes
+
+* fix team update, delete buttons. there is still some issues - ([a331c6b](https://github.com/dragon-devs/project-manager/commit/a331c6beb24625c01875ba9ebe41c504c23735fc))
+
 ### [0.4.1](https://github.com/dragon-devs/project-manager/compare/v0.3.2...v0.4.1) (2024-02-12)
 
 
