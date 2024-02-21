@@ -208,3 +208,5 @@ X
 (app/projects/[id]/AssigneeSelectUser.tsx,0\5\053a24daab991fa55a2e31cc458e3c62794749c6
 F
 app/api/users/route.ts,3\c\3cbc041578fda2def82f655cb546c9932c6b523d
+K
+app/QueryClientProvider.tsx,1\c\1ce7b77a8b34df01897a800e5fdb4edba2a1dea0

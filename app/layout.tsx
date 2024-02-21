@@ -8,6 +8,7 @@ import {Toaster} from "@/components/ui/sonner";
 import Footer from "@/app/Footer";
 import AuthProvider from "@/app/auth/Provider";
 import localFont from "next/font/local";
+import QueryClientProvider from "@/app/QueryClientProvider";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -25,23 +26,25 @@ export default function RootLayout({children,}: Readonly<{
   return (
       <html lang="en">
       <body className={inter_font.className}>
-      <AuthProvider>
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-        >
-          <div className="flex flex-col min-h-screen">
-            <NavBar />
-            <main className="flex-grow sm:p-5 p-3">
-              <Container>{children}</Container>
-            </main>
-            <Toaster position="top-center"/>
-            <Footer/>
-          </div>
-        </ThemeProvider>
-      </AuthProvider>
+      <QueryClientProvider>
+        <AuthProvider>
+          <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+          >
+            <div className="flex flex-col min-h-screen">
+              <NavBar/>
+              <main className="flex-grow sm:p-5 p-3">
+                <Container>{children}</Container>
+              </main>
+              <Toaster position="top-center"/>
+              <Footer/>
+            </div>
+          </ThemeProvider>
+        </AuthProvider>
+      </QueryClientProvider>
 
       </body>
       </html>
