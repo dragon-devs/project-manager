@@ -15,6 +15,7 @@ import {
 import {DotsVerticalIcon} from "@radix-ui/react-icons";
 import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
+import AssigneeSelectUser from "@/app/projects/[id]/AssigneeSelectUser";
 
 const ProjectDetailsActions = async ({projectId}: { projectId: string }) => {
   const session = await getServerSession(authOptions)
@@ -28,8 +29,9 @@ const ProjectDetailsActions = async ({projectId}: { projectId: string }) => {
         {session && (
             <div>
               <div className="hidden sm:flex gap-3">
-                <DeleteProjectButton projectId={projectId}/>
+                <AssigneeSelectUser/>
                 <EditProjectButton projectId={projectId}/>
+                <DeleteProjectButton projectId={projectId}/>
               </div>
               <div className="sm:hidden">
                 <Drawer>
@@ -43,10 +45,11 @@ const ProjectDetailsActions = async ({projectId}: { projectId: string }) => {
                         <DrawerDescription>Tap the screen or swipe it down.</DrawerDescription>
                       </DrawerHeader>
                       <DrawerFooter>
-                        <DeleteProjectButton projectId={projectId}/>
+                        <AssigneeSelectUser/>
                         <DrawerClose asChild>
                           <EditProjectButton projectId={projectId}/>
                         </DrawerClose>
+                        <DeleteProjectButton projectId={projectId}/>
                       </DrawerFooter>
                     </div>
                   </DrawerContent>
