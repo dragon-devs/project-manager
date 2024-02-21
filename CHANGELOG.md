@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.3](https://github.com/dragon-devs/project-manager/compare/v0.4.2...v0.4.3) (2024-02-21)
+
+
+### Features
+
+* add notification for assign user error. ([0ec4b55](https://github.com/dragon-devs/project-manager/commit/0ec4b558306dbcd4554b4db546b7cdf0bc999983))
+* add skeleton to teams page ([57ebe03](https://github.com/dragon-devs/project-manager/commit/57ebe03e9ac5dd0127c61069b6db7d3fddece73b))
+* assign projects display user info ([20c231c](https://github.com/dragon-devs/project-manager/commit/20c231ce53ba62091d9349356e58a5311a6d1745))
+* **changelog:** Add changelog file to the version btn + refactor ([eaed2df](https://github.com/dragon-devs/project-manager/commit/eaed2df61fbc0c3e00a0f02e79401d47ae45b0e0))
+* **component:** add hover card. ([3197555](https://github.com/dragon-devs/project-manager/commit/3197555ff1f05212a5c6d007f3077750550b5329))
+
+
+### Bug Fixes
+
+*  bug fixed ([394f043](https://github.com/dragon-devs/project-manager/commit/394f043d8d586a7d25a2b74f41956d144995c2e6))
+* bugs fixed + refactoring ([bc21e9e](https://github.com/dragon-devs/project-manager/commit/bc21e9e8b416180166a947dd9103c5098f445184))
+
 ### [0.4.2](https://github.com/dragon-devs/project-manager/compare/v0.4.1...v0.4.2) (2024-02-21)
 
 
