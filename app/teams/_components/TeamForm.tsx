@@ -17,8 +17,7 @@ import {Textarea} from "@/components/ui/textarea";
 import {FancyMemberSelect} from "@/app/teams/_components/FancyMembersSelect";
 import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
 import Spinner from "@/components/Spinner";
-import {Users, Teams} from "@/types";
-import {PencilIcon} from "lucide-react";
+import {Teams, Users} from "@/types";
 
 const TeamForm = ({team, users}: { team?: Teams, users: Users[] }) => {
   const router = useRouter();
