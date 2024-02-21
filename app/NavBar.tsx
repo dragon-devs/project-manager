@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useState} from 'react';
+import React from 'react';
 import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {useSession} from "next-auth/react";
@@ -24,7 +24,6 @@ import {MobileNav} from "@/components/MobileNav";
 const NavBar = () => {
   const currentPath = usePathname();
   const {status, data: session} = useSession();
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   const version = packageInfo.version;
 
@@ -34,9 +33,7 @@ const NavBar = () => {
     {title: 'Teams', href: '/teams'},
   ];
 
-  const handleSheetClose = () => {
-    setIsSheetOpen(false);
-  };
+
 
   return (
       <div className="border-b">
@@ -67,11 +64,13 @@ const NavBar = () => {
                 ))}
               </NavigationMenuList>
             </NavigationMenu>
-            <div className="flex gap-2 items-center ">
+            <div className="flex gap-2 items-center justify-center">
+               <Link href="/changelog">
+                  <Badge variant="secondary" className="sm:text-xs text-[0.6rem]">
+                    v{version}
+                  </Badge>
+                </Link>
               <div className="sm:flex items-center gap-2 hidden">
-                <Badge variant="secondary" className="sm:text-xs text-[0.6rem]">
-                  v{version}
-                </Badge>
                 <ModeToggle/>
               </div>
               {status === 'loading' && <Skeleton className="h-5 w-[2.25rem]"/>}
@@ -84,9 +83,14 @@ const NavBar = () => {
                       </Avatar>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
-                      <DropdownMenuLabel className="text-muted-foreground">{session?.user!.email}</DropdownMenuLabel>
-                      <DropdownMenuItem><Link className="w-full" href="/api/auth/signout">Log
-                        out</Link></DropdownMenuItem>
+                      <DropdownMenuLabel className="text-muted-foreground">
+                        {session?.user!.email}
+                      </DropdownMenuLabel>
+                      <DropdownMenuItem>
+                        <Link className="w-full" href="/api/auth/signout">
+                          Log out
+                        </Link>
+                      </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
               )}

@@ -212,3 +212,15 @@ K
 app/QueryClientProvider.tsx,1\c\1ce7b77a8b34df01897a800e5fdb4edba2a1dea0
 
 Oprisma/migrations/20240220234438_adding_assign_projects_to_a_user/migration.sql,8\8\881c913bea674851e65e4a50a12ec207ad80e00c
+A
+app/changelog.tsx,5\6\565358d95890316fe3c18e9ef85113b7a868addd
+B
+markdownStyles.css,2\e\2e52f8edc104f0a80a75c9a1839862a135c547ea
+D
+public/changelog.tsx,3\d\3d3c7e53818465f11b611f042039e08c611315eb
+F
+app/changelog/page.tsx,7\f\7f71d7d3d9719baa26fb45b6b99b23cb78479a2c
+K
+app/changelog/linksProps.ts,0\e\0e34d0427fa6ecbb82adaf048abac655d6faea4c
+L
+app/changelog/linksProps.tsx,9\0\90b3c43cbfe1963ba7e894411c96aa25d2c1ad7a

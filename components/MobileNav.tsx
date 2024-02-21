@@ -9,13 +9,10 @@ import {cn} from "@/lib/utils"
 import {Button} from "@/components/ui/button"
 import {ScrollArea} from "@/components/ui/scroll-area"
 import {Sheet, SheetContent, SheetTrigger} from "@/components/ui/sheet"
-import {Badge} from "@/components/ui/badge";
 import {ModeToggle} from "@/components/Toggle";
-import packageInfo from '../package.json';
 
-export function MobileNav({links}: { links: { title: string; href: string }[] }) {
+export function MobileNav({links}: Readonly<{ links: { title: string; href: string }[] }>) {
   const [open, setOpen] = React.useState(false)
-  const version = packageInfo.version;
 
   return (
       <Sheet open={open} onOpenChange={setOpen}>
@@ -38,9 +35,6 @@ export function MobileNav({links}: { links: { title: string; href: string }[] })
               <span className="font-bold">Home</span>
             </div>
             <div className="flex items-center gap-2 mr-10">
-              <Badge variant="secondary" className="sm:text-xs text-[0.6rem]">
-                v{version}
-              </Badge>
               <ModeToggle/>
             </div>
           </MobileLink>
@@ -81,7 +75,7 @@ function MobileLink({
                       className,
                       children,
                       ...props
-                    }: MobileLinkProps) {
+                    }: Readonly<MobileLinkProps>) {
   const router = useRouter()
   return (
       <Link
