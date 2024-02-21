@@ -37,7 +37,6 @@ export async function POST(request: NextRequest) {
       priority: body.priority,
       timeline: body.timeline,
       budget: body.budget,
-      owner: body.owner
     }
   });
 

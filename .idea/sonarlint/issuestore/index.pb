@@ -210,3 +210,5 @@ F
 app/api/users/route.ts,3\c\3cbc041578fda2def82f655cb546c9932c6b523d
 K
 app/QueryClientProvider.tsx,1\c\1ce7b77a8b34df01897a800e5fdb4edba2a1dea0
+
+Oprisma/migrations/20240220234438_adding_assign_projects_to_a_user/migration.sql,8\8\881c913bea674851e65e4a50a12ec207ad80e00c

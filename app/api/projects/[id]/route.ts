@@ -64,7 +64,6 @@ export async function PATCH(
       priority: body.priority,
       timeline: body.timeline,
       budget: body.budget,
-      owner: body.owner,
       assignedToUserId,
     };
 
