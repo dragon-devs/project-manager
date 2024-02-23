@@ -37,7 +37,6 @@ const TeamForm = ({team, users}: { team?: Teams, users: Users[] }) => {
   async function onSubmit(data: z.infer<typeof teamsSchema>) {
     try {
       if (team) {
-        console.log(team)
         await axios.patch('/api/teams/' + team.id, data)
         toast.success('Team is successfully updated.');
       } else {
@@ -57,15 +56,11 @@ const TeamForm = ({team, users}: { team?: Teams, users: Users[] }) => {
 
   }
 
-  const handleEdit = () => {
-    console.log(team!.name)
-  }
-
   return (
       <Dialog>
         <DialogTrigger asChild>
           {team ?
-              <Button onClick={handleEdit} className="p-3" variant="ghost"><Pencil2Icon/></Button> :
+              <Button className="p-3" variant="ghost"><Pencil2Icon/></Button> :
               <Button className="flex gap-2">New Team <PlusIcon/></Button>
           }
         </DialogTrigger>

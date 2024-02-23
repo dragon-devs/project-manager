@@ -36,16 +36,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project}) => {
                   </PopoverTrigger>
                   <PopoverContent className="w-auto">
                     <div className="flex flex-col space-y-4 items-center justify-center">
-                      <Avatar className="border">
-                        <AvatarImage src={project.assignedToUser?.image!}/>
-                        <AvatarFallback>DP</AvatarFallback>
-                      </Avatar>
-                      <div className="flex justify-center items-center flex-col space-y-2">
+
+                      <div className="flex justify-center flex-col space-y-2">
                         <h4 className="text-sm font-semibold">{project.assignedToUser?.name}</h4>
-                        <Badge className="text-[10px]">
+                        <Badge className="text-[10px] w-20 justify-center">
                           {project.assignedToUser?.role}
                         </Badge>
-                        <div className="flex items-center pt-2">
+                        <div className="flex items-center ">
                           <EnvelopeClosedIcon className="mr-2 h-4 w-4 opacity-70"/>{" "}
                           <span className="text-xs text-muted-foreground">
                             {project.assignedToUser?.email}

@@ -8,6 +8,7 @@ import {Badge} from "@/components/ui/badge";
 import {ChevronRightIcon} from "@radix-ui/react-icons";
 import ProjectCard from "@/app/components/ProjectCard";
 import prisma from "@/prisma/client";
+import delay from "delay";
 
 
 const MyProfile = async () => {
@@ -21,16 +22,15 @@ const MyProfile = async () => {
       accounts: true,
     }
   })
-  console.log(user)
   if (!user)
     return toast.error("Unable to fetch users.")
-
   return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5 ">
         <div className="flex flex-col">
           <Card>
             <CardHeader
-                className="dark:bg-slate-800 flex sm:flex-row flex-col-reverse justify-between sm:items-center bg-slate-300 rounded-lg rounded-b-none">
+                className="dark:bg-slate-800 flex sm:flex-row flex-col-reverse
+                justify-between sm:items-center bg-slate-300 rounded-md rounded-b-none">
               <div className="flex flex-col gap-2">
                 <CardTitle>{user.name}</CardTitle>
                 <CardDescription>{user.email}</CardDescription>
@@ -65,12 +65,10 @@ const MyProfile = async () => {
             <CardTitle>My Projects</CardTitle>
             <CardDescription>Here are all the projects assigned to you.</CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="p-3 sm:p-5">
             <div className="flex flex-col gap-3 sm:gap-5">
               {user.assignedProjects.map(project => (
-                  <div key={project.id}>
-                    <ProjectCard project={project}/>
-                  </div>
+                  <ProjectCard key={project.id} project={project}/>
               ))}
             </div>
           </CardContent>
