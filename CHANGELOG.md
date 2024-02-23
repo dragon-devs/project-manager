@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.4](https://github.com/dragon-devs/project-manager/compare/v0.4.3...v0.4.4) (2024-02-23)
+
+
+### Features
+
+* **navbar:** add page title to mobile navbar ([e287aee](https://github.com/dragon-devs/project-manager/commit/e287aeef8d8e84bf5b85b60919b601fba9dc70b9))
+* **profile:** add profile page + api ([7967d46](https://github.com/dragon-devs/project-manager/commit/7967d465c8ba17a3132fcd10fd6df2115a7893d2))
+* **profile:** Include assigned projects in the user profile ([67c2fc8](https://github.com/dragon-devs/project-manager/commit/67c2fc868073b156b2ce1f0ab73206b65bd1c78c))
+
+
+### Bug Fixes
+
+* **teams:** fixed loading skeleton + buttons ([8f3f364](https://github.com/dragon-devs/project-manager/commit/8f3f364b044dc8f9ff99fa8dd4bd1dcd0f1e666d))
+
 ### [0.4.3](https://github.com/dragon-devs/project-manager/compare/v0.4.2...v0.4.3) (2024-02-21)
 
 
