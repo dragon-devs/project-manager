@@ -14,7 +14,7 @@ import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 import {cn} from "@/lib/utils";
 import {Calendar} from "@/components/ui/calendar";
 import {CalendarIcon} from "@radix-ui/react-icons";
-import {useState} from "react";
+import React, {useState} from "react";
 import {addDays, format} from "date-fns"
 import {useRouter} from "next/navigation";
 import axios from "axios";
@@ -23,17 +23,18 @@ import {FancyMultiSelect} from "@/components/MultiSelect";
 import {Project} from "@prisma/client";
 import Spinner from "@/components/Spinner";
 
-export function ProjectForm({project}: { project?: Project }) {
+export function ProjectForm({project}: Readonly<{ project?: Project }>) {
   const router = useRouter();
 
   // 1. Define your form.
   const form = useForm<z.infer<typeof projectSchema>>({
     resolver: zodResolver(projectSchema),
     defaultValues: {
-      name: project?.name || '',
-      description: project?.description || '',
-      frameworks: project?.frameworks || [],
+      name: project?.name ?? '',
+      description: project?.description ?? '',
+      frameworks: project?.frameworks ?? [],
       timeline: project?.timeline,
+      budget: project?.budget ?? '',
       dueDate: project?.dueDate,
     }
   })
@@ -60,7 +61,6 @@ export function ProjectForm({project}: { project?: Project }) {
       toast.error('An unexpected error occurred.');
     }
   }
-
   return (
       <Card>
         <CardHeader>
@@ -180,9 +180,22 @@ export function ProjectForm({project}: { project?: Project }) {
                     )}
                 />
               </div>
+              <FormField
+                  control={form.control}
+                  name="budget"
+                  render={({field}) => (
+                      <FormItem>
+                        <FormLabel>Budget</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Project budget" {...field} />
+                        </FormControl>
+                        <FormMessage/>
+                      </FormItem>
+                  )}
+              />
               <Button className="w-full gap-2" type="submit" disabled={isSubmiting}>
                 {project ? "Update Project" : "Submit New Project"}{" "}
-                {isSubmiting && <Spinner />}
+                {isSubmiting && <Spinner/>}
               </Button>
             </form>
           </Form>
