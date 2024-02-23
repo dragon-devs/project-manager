@@ -9,7 +9,7 @@ import {Badge} from "@/components/ui/badge";
 import packageInfo from '../package.json';
 import {NavigationMenu, NavigationMenuItem, NavigationMenuList} from "@/components/ui/navigation-menu";
 import {ModeToggle} from "@/components/Toggle";
-import {MixIcon} from "@radix-ui/react-icons";
+import {ChevronRightIcon, MixIcon} from "@radix-ui/react-icons";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,7 +34,6 @@ const NavBar = () => {
   ];
 
 
-
   return (
       <div className="border-b">
         <Container>
@@ -43,9 +42,23 @@ const NavBar = () => {
               <Link className="hidden sm:block" href="/">
                 <MixIcon/>
               </Link>
-              <div className="flex sm:hidden">
+              <div className="flex items-center sm:hidden">
                 <MobileNav links={links}/>
+                <div className="flex items-center justify-center flex-grow">
+                  {links.map((link) => (
+                      <div key={link.href}>
+                        {link.href === currentPath && (
+                            <div className="flex items-center text-sm gap-2">
+                              <ChevronRightIcon />
+                              {link.title}
+                            </div>
+                        )}
+                      </div>
+                  ))}
+                </div>
               </div>
+
+
               <NavigationMenuList className="p-1 hidden sm:flex gap-2">
                 {links.map((link) => (
                     <NavigationMenuItem key={link.href}>
@@ -65,11 +78,11 @@ const NavBar = () => {
               </NavigationMenuList>
             </NavigationMenu>
             <div className="flex gap-2 items-center justify-center">
-               <Link href="/changelog">
-                  <Badge variant="secondary" className="sm:text-xs text-[0.6rem]">
-                    v{version}
-                  </Badge>
-                </Link>
+              <Link href="/changelog">
+                <Badge variant="secondary" className="sm:text-xs text-[0.6rem]">
+                  v{version}
+                </Badge>
+              </Link>
               <div className="sm:flex items-center gap-2 hidden">
                 <ModeToggle/>
               </div>
