@@ -4,6 +4,8 @@ export const config = {
   matcher: [
       '/projects/new',
       '/projects/edit/:id+',
-      '/teams'
+      '/teams',
+      '/users',
+      '/users/me'
   ]
 }

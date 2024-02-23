@@ -220,3 +220,9 @@ E
 app/teams/loading.tsx,7\2\724181d32d5a36b73e2eaa4f867dcd1db617c1cc
 L
 components/ui/hover-card.tsx,c\8\c88ad7bbef19a3ab4ba45015ecfab46eae9af90d
+B
+app/users/page.tsx,2\1\21af9a3aba13a4bc7eccb93b1bd055151c1fb0e5
+E
+app/users/me/page.tsx,4\2\423f99ac8cef232c3bcf560a682b02198fc68dcb
+K
+app/api/users/[id]/route.ts,0\d\0da4f202ba0387f045baa4046ae2b35e7989efd7

@@ -13,7 +13,6 @@ interface Props {
   };
 }
 
-
 const ProjectPage: React.FC<Props> = async ({searchParams}) => {
   const {filter, q} = searchParams;
 

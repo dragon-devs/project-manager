@@ -27,10 +27,12 @@ const NavBar = () => {
 
   const version = packageInfo.version;
 
+
   const links = [
     {title: 'Dashboard', href: '/'},
     {title: 'Projects', href: '/projects/grid'},
     {title: 'Teams', href: '/teams'},
+    {title: 'My Profile', href: '/users/me'},
   ];
 
 
@@ -49,7 +51,7 @@ const NavBar = () => {
                       <div key={link.href}>
                         {link.href === currentPath && (
                             <div className="flex items-center text-sm gap-2">
-                              <ChevronRightIcon />
+                              <ChevronRightIcon/>
                               {link.title}
                             </div>
                         )}
@@ -97,8 +99,13 @@ const NavBar = () => {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                       <DropdownMenuLabel className="text-muted-foreground">
-                        {session?.user!.email}
+                        {session?.user!.name}
                       </DropdownMenuLabel>
+                      <DropdownMenuItem>
+                        <Link className="w-full" href="/users/me">
+                          My Profile
+                        </Link>
+                      </DropdownMenuItem>
                       <DropdownMenuItem>
                         <Link className="w-full" href="/api/auth/signout">
                           Log out
