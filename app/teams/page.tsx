@@ -7,11 +7,13 @@ import {Badge} from "@/components/ui/badge";
 import CreateNewTeam from "@/app/teams/CreateNewTeamDialog";
 import TeamForm from "@/app/teams/_components/TeamForm";
 import DeleteTeamButton from "@/app/teams/DeleteTeamButton";
+import delay from "delay";
 
 const TeamsPage = async () => {
   const teams = await prisma.teams.findMany({include: {members: true}})
   const users = await prisma.user.findMany()
 
+  await delay(2000)
   return (
       <div className="space-y-3 sm:space-y-5">
         <CreateNewTeam/>
@@ -24,7 +26,7 @@ const TeamsPage = async () => {
                       <CardTitle className="">{team.name}</CardTitle>
                       <CardDescription className="mt-2">{team.description}</CardDescription>
                     </div>
-                    <div className="flex">
+                    <div className="flex flex-col">
                       <TeamForm
                           users={users}
                           team={team}

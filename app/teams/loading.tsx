@@ -16,12 +16,12 @@ const ProjectPageSkeleton = () => {
             <CardHeader className="relative">
               <div className="flex justify-between">
                 <div className="flex flex-col gap-2 mt-1">
-                  <Skeleton className="h-5 w-[300px]  rounded-md"/>
-                  <Skeleton className="h-3.5 w-[300px]   rounded-md"/>
+                  <Skeleton className="h-5 sm:w-[300px] w-52  rounded-md"/>
+                  <Skeleton className="h-3.5 sm:w-full rounded-md"/>
                 </div>
-                <div className="flex gap-3 mt-1 mr-3">
+                <div className="flex flex-col gap-3 mt-2">
                   <Skeleton className="h-4 w-4 ml-[20x] mt-1 mr-3 rounded-md"/>
-                  <Skeleton className="h-4 w-4 mt-1  rounded-md"/>
+                  <Skeleton className="h-4 w-4 mt-2  rounded-md"/>
                 </div>
               </div>
 
