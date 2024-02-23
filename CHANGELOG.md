@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.5](https://github.com/dragon-devs/project-manager/compare/v0.4.4...v0.4.5) (2024-02-23)
+
+
+### Features
+
+* **dashboard:** add dashboard page + added info cards ([d70e5cb](https://github.com/dragon-devs/project-manager/commit/d70e5cb11aa4413bcba91d4d1790ef436c65b4b5))
+* **profile:** add loading skeletons to profile page ([7b28c6e](https://github.com/dragon-devs/project-manager/commit/7b28c6ea85dc570eee669875008c09185b9e3f5a))
+* **projects:** add budget to new & edit project + update skeletons ([6482acd](https://github.com/dragon-devs/project-manager/commit/6482acd0120ed1b287db011320301f687f461697))
+* **projects:** add skeletons to dashboard ([6577239](https://github.com/dragon-devs/project-manager/commit/6577239bf9c2c20f4d3aa885975ec5bdee9ea725))
+
+
+### Bug Fixes
+
+* fixed prisma not defined. ([ba39a59](https://github.com/dragon-devs/project-manager/commit/ba39a59d84df48d524c83a443c6043cb9b98be46))
+* **navbar:** fixed navbar view + bugs ([663d84a](https://github.com/dragon-devs/project-manager/commit/663d84a45f432732c7f5458f815204f1c2b8679e))
+
 ### [0.4.4](https://github.com/dragon-devs/project-manager/compare/v0.4.3...v0.4.4) (2024-02-23)
 
 
