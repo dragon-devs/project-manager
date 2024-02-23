@@ -7,10 +7,12 @@ import {toast} from "sonner";
 import {Badge} from "@/components/ui/badge";
 import {ChevronRightIcon} from "@radix-ui/react-icons";
 import ProjectCard from "@/app/components/ProjectCard";
+import prisma from "@/prisma/client";
+
 
 const MyProfile = async () => {
   const session = await getServerSession(authOptions)
-  const user = await prisma?.user.findUnique({
+  const user = await prisma.user.findUnique({
     where: {
       id: session!.user!.id
     },
