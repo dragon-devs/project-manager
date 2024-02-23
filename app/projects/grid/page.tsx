@@ -1,9 +1,9 @@
 import React from 'react';
 import prisma from "@/prisma/client";
 import ProjectActions from "@/app/projects/grid/ProjectActions";
-import ProjectCard from "@/app/projects/grid/ProjectCard";
 import {Priority, Status} from "@prisma/client";
 import Pagination from "@/app/projects/_components/Pagination";
+import ProjectCard from "@/app/components/ProjectCard";
 
 interface Props {
   searchParams: {

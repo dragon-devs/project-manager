@@ -1,5 +1,5 @@
 import React from 'react';
-import {Project} from '@/types'; // Import the type for your Project model
+import {Project} from '@/types';
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from '@/components/ui/card';
 import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
 import DueDate from '@/app/projects/_components/DueDate';

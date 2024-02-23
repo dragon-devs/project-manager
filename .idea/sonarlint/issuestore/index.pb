@@ -226,3 +226,5 @@ E
 app/users/me/page.tsx,4\2\423f99ac8cef232c3bcf560a682b02198fc68dcb
 K
 app/api/users/[id]/route.ts,0\d\0da4f202ba0387f045baa4046ae2b35e7989efd7
+N
+app/components/ProjectCard.tsx,9\5\9540c789ee3c5d875a8ab42195c07510bda88fe0

@@ -39,7 +39,7 @@ const NavBar = () => {
   return (
       <div className="border-b">
         <Container>
-          <div className="flex my-1 sm:mx-5 mx-3 lg:mx-0 justify-between items-center">
+          <div className="flex my-1 sm:mx-5 xl:mx-0 mx-3 justify-between items-center">
             <NavigationMenu className="gap-3">
               <Link className="hidden sm:block" href="/">
                 <MixIcon/>
