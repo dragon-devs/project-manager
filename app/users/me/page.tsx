@@ -8,7 +8,6 @@ import {Badge} from "@/components/ui/badge";
 import {ChevronRightIcon} from "@radix-ui/react-icons";
 import ProjectCard from "@/app/components/ProjectCard";
 import prisma from "@/prisma/client";
-import delay from "delay";
 
 
 const MyProfile = async () => {
@@ -25,7 +24,6 @@ const MyProfile = async () => {
   if (!user)
     return toast.error("Unable to fetch users.")
 
-  await delay(2000)
   return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5 ">
         <div className="flex flex-col">

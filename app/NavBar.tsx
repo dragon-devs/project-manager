@@ -29,7 +29,8 @@ const NavBar = () => {
 
 
   const links = [
-    {title: 'Dashboard', href: '/'},
+    {title: 'Home', href: '/'},
+    {title: 'Dashboard', href: '/dashboard'},
     {title: 'Projects', href: '/projects/grid'},
     {title: 'Teams', href: '/teams'},
     {title: 'Profile', href: '/users/me'},

@@ -230,3 +230,13 @@ H
 app/users/me/loading.tsx,b\6\b6f806ec206db6645a86a77ffbcf15f45383dd18
 A
 app/MobileNav.tsx,b\9\b9a355c60dc548d34bbdabe3163494957bd6b504
+F
+app/dashboard/page.tsx,1\2\12fef110c4fa21b63f77b82c2a37396501d6880d
+O
+app/dashboard/DashboardCard.tsx,a\9\a9db0e1002c58f17ea41e68cf2556501f4c7ed12
+I
+app/dashboard/loading.tsx,9\b\9b0b11127ac72cedde729134cfbfcad164749f04
+O
+app/dashboard/ProjectCounts.tsx,5\a\5a1a1145200daf89e85bd459d701599f9ce1ed88
+N
+app/dashboard/projectCounts.ts,9\7\97d7cba162a94b0d94c7772e0b16298519545d20

@@ -33,7 +33,7 @@ export function MobileNav({links}: Readonly<{ links: { title: string; href: stri
           >
             <div className="flex items-center justify-center ">
               <MixIcon className="-ml-2 mr-3 h-5 w-5"/>
-              <span className="font-bold">Home</span>
+              <span className="font-bold">Project Manager</span>
             </div>
             <div className="flex items-center gap-2 mr-5">
               <ModeToggle/>
