@@ -138,8 +138,6 @@ J
 app/projects/grid/page.tsx,3\4\349689a4dc1d5901dc29a054f17f672cf6899b54
 T
 $app/projects/grid/ProjectActions.tsx,8\d\8d9583c1774fa8904eb7d5c9a5134fc820c8e89e
-Q
-!app/projects/grid/ProjectCard.tsx,7\2\727468e2baad800bf1ce41c254e46b9794851b00
 K
 components/ui/separator.tsx,4\0\406e493f7d0a05c2bf4bdf138a23a45e96828b1f
 M
@@ -230,3 +228,5 @@ N
 app/components/ProjectCard.tsx,9\5\9540c789ee3c5d875a8ab42195c07510bda88fe0
 H
 app/users/me/loading.tsx,b\6\b6f806ec206db6645a86a77ffbcf15f45383dd18
+A
+app/MobileNav.tsx,b\9\b9a355c60dc548d34bbdabe3163494957bd6b504

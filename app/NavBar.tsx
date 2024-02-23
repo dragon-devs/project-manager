@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Skeleton} from "@/components/ui/skeleton";
-import {MobileNav} from "@/components/MobileNav";
+import {MobileNav} from "@/app/MobileNav";
 
 const NavBar = () => {
   const currentPath = usePathname();
@@ -32,7 +32,7 @@ const NavBar = () => {
     {title: 'Dashboard', href: '/'},
     {title: 'Projects', href: '/projects/grid'},
     {title: 'Teams', href: '/teams'},
-    {title: 'My Profile', href: '/users/me'},
+    {title: 'Profile', href: '/users/me'},
   ];
 
 
@@ -59,8 +59,6 @@ const NavBar = () => {
                   ))}
                 </div>
               </div>
-
-
               <NavigationMenuList className="p-1 hidden sm:flex gap-2">
                 {links.map((link) => (
                     <NavigationMenuItem key={link.href}>
@@ -68,7 +66,7 @@ const NavBar = () => {
                         <div
                             className={`text-sm transition-colors duration-800 ${
                                 link.href === currentPath
-                                    ? "border-foreground/80 transition-colors"
+                                    ? "border-foreground/80 transition-colors underline underline-offset-[17px]"
                                     : "text-muted-foreground transition-colors"
                             }`}
                         >
@@ -81,7 +79,7 @@ const NavBar = () => {
             </NavigationMenu>
             <div className="flex gap-2 items-center justify-center">
               <Link href="/changelog">
-                <Badge variant="secondary" className="sm:text-xs text-[0.6rem]">
+                <Badge variant="secondary" className="flex sm:text-xs text-[0.6rem]">
                   v{version}
                 </Badge>
               </Link>
