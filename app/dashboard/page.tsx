@@ -1,7 +1,7 @@
 import React from 'react';
 import DashboardCard from "@/app/dashboard/DashboardCard";
 
-const Dashboard = () => {
+const Dashboard = async () => {
   return (
       <div>
         <DashboardCard/>
