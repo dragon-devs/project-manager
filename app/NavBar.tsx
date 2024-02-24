@@ -9,7 +9,7 @@ import {Badge} from "@/components/ui/badge";
 import packageInfo from '../package.json';
 import {NavigationMenu, NavigationMenuItem, NavigationMenuList} from "@/components/ui/navigation-menu";
 import {ModeToggle} from "@/components/Toggle";
-import {ChevronRightIcon, MixIcon} from "@radix-ui/react-icons";
+import {ChevronRightIcon, EnterIcon, ExitIcon, MixIcon, MoonIcon, SunIcon} from "@radix-ui/react-icons";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -20,6 +20,8 @@ import {
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {Skeleton} from "@/components/ui/skeleton";
 import {MobileNav} from "@/app/MobileNav";
+import {Button} from "@/components/ui/button";
+import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
 
 const NavBar = () => {
   const currentPath = usePathname();
@@ -87,14 +89,16 @@ const NavBar = () => {
               <div className="sm:flex items-center gap-2 hidden">
                 <ModeToggle/>
               </div>
-              {status === 'loading' && <Skeleton className="h-5 w-[2.25rem]"/>}
+              {status === 'loading' && <Skeleton className="h-9 w-9 border rounded-full"/>}
               {status === 'authenticated' && (
                   <DropdownMenu>
-                    <DropdownMenuTrigger>
-                      <Avatar className="w-9 h-9 border">
-                        <AvatarImage src={session.user!.image!} alt="profile_picture"/>
-                        <AvatarFallback className="text-xs">DP</AvatarFallback>
-                      </Avatar>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" className="rounded-full" size="icon">
+                        <Avatar className="w-9 h-9 border focus:rounded-full">
+                          <AvatarImage src={session.user!.image!} alt="profile_picture"/>
+                          <AvatarFallback className="text-xs">DP</AvatarFallback>
+                        </Avatar>
+                      </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                       <DropdownMenuLabel className="text-muted-foreground">
@@ -106,15 +110,31 @@ const NavBar = () => {
                         </Link>
                       </DropdownMenuItem>
                       <DropdownMenuItem>
-                        <Link className="w-full" href="/api/auth/signout">
-                          Log out
+                        <Link className="w-full flex items-center gap-2" href="/api/auth/signout">
+                          Logout <ExitIcon/>
                         </Link>
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
               )}
               {status === "unauthenticated" &&
-                  <Link className="text-sm -ml-[0.02rem]" href="/api/auth/signin">Login</Link>}
+                  <Link className="text-sm" href="/api/auth/signin">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger>
+                          <div className="rounded-full flex items-center justify-center border w-9 h-9 hover:bg-muted">
+                            <EnterIcon/>
+                          </div>
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Sign in</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+
+
+                  </Link>
+              }
             </div>
           </div>
         </Container>
