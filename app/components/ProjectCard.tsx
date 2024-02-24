@@ -8,18 +8,22 @@ import FrameworkList from "@/app/projects/_components/FrameworkList";
 import Link from "next/link";
 import Priorities from "@/app/projects/_components/PrioritySignals";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
-import {ButtonIcon, EnvelopeClosedIcon, Pencil2Icon} from "@radix-ui/react-icons";
+import {EnvelopeClosedIcon} from "@radix-ui/react-icons";
 import {Badge} from "@/components/ui/badge";
-import {Button} from "@/components/ui/button";
-import {FormControl, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
-import {Input} from "@/components/ui/input";
 import UserProjectFeatures from "@/app/components/UserProjectFeatures";
+import {getServerSession} from "next-auth";
+import authOptions from "@/app/auth/authOptions";
 
 interface ProjectCardProps {
   project: Project;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({project}) => {
+const ProjectCard: React.FC<ProjectCardProps> = async ({project}) => {
+  const session = await getServerSession(authOptions)
+  const sessionUser = session?.user || null;
+
+  const isAssignedToCurrentUser = project!.assignedToUserId === sessionUser?.id;
+
   return (
       <div>
         <Card key={project.id} className="hover:ring-[0.5px] ring-foreground duration-500 transition-all">
@@ -58,7 +62,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project}) => {
                 </Popover>
             ) : (
                 <div className="absolute right-6 top-6">
-                  <UserProjectFeatures project={project} />
+                  {isAssignedToCurrentUser && <UserProjectFeatures project={project}/>}
                 </div>
             )}
           </CardHeader>
