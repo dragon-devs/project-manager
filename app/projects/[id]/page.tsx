@@ -5,6 +5,7 @@ import {Card, CardContent} from "@/components/ui/card";
 import ProjectDetailsActions from "@/app/projects/[id]/ProjectDetailsActions";
 import Statues from "@/app/projects/_components/Status";
 import {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
+import Priorities, {PrioritiesText} from "@/app/projects/_components/PrioritySignals";
 
 interface Props {
   params: { id: string }
@@ -53,9 +54,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                   <p className="text-sm text-muted-foreground">
                     Priority
                   </p>
-                  <p className="text-sm font-medium">
-                    {project.priority}
-                  </p>
+                  <PrioritiesText priority={project.priority} />
                 </div>
                 <div className=" sm:grid-cols-none">
                   <p className="text-sm text-muted-foreground">
@@ -67,11 +66,24 @@ const ProjectDetailsPage = async ({params}: Props) => {
                 </div>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row sm:gap-10">
-                <div className="">
-                  <p className="text-sm text-muted-foreground">
-                    Status
-                  </p>
-                  <Statues className="text-md" status={project.status}/>
+                <div className="flex gap-10">
+                  <div className="">
+                    <p className="text-sm text-muted-foreground">
+                      Status
+                    </p>
+                    <Statues className="text-md" status={project.status}/>
+                  </div>
+                  <div className=" sm:grid-cols-none">
+                    <p className="text-sm text-muted-foreground">
+                      Budget
+                    </p>
+                    <div className="text-sm font-medium">
+                      {project.budget ?
+                          <p>${project.budget}</p>:
+                          <p>unset</p>
+                      }
+                    </div>
+                  </div>
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">
