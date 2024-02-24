@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.6](https://github.com/dragon-devs/project-manager/compare/v0.4.5...v0.4.6) (2024-02-24)
+
+
+### Features
+
+* **project:** update project details page ([1030ad8](https://github.com/dragon-devs/project-manager/commit/1030ad827c3c43a551fdc9ad7a78fa19e7d6b226))
+* **refactor:** refactor dashboard & project pages + user can set priorities & statuses ([edf9c56](https://github.com/dragon-devs/project-manager/commit/edf9c5688c0f691441e4b708db89ff6d001f626a))
+* **status:** project status changes on assigning. ([75bb7cd](https://github.com/dragon-devs/project-manager/commit/75bb7cd7ca02e0393409b3a0f3c649b864ad8607))
+
+
+### Bug Fixes
+
+* fixed delay bugs ([47333ce](https://github.com/dragon-devs/project-manager/commit/47333ce15b7ee0eb0c82ae4ff89e3c9b0e3e05c7))
+* user project feature bug fixed ([9083f55](https://github.com/dragon-devs/project-manager/commit/9083f556e52bce8a1f835db8b60c1a5ea98c4464))
+
 ### [0.4.5](https://github.com/dragon-devs/project-manager/compare/v0.4.4...v0.4.5) (2024-02-23)
 
 
