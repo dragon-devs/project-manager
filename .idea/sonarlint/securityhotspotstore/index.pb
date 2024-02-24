@@ -240,3 +240,11 @@ O
 app/dashboard/ProjectCounts.tsx,5\a\5a1a1145200daf89e85bd459d701599f9ce1ed88
 N
 app/dashboard/projectCounts.ts,9\7\97d7cba162a94b0d94c7772e0b16298519545d20
+P
+ app/projects/grid/getProjects.ts,a\7\a76fc4c93b43a4c2941af6421f1c60f382dbe0d7
+V
+&app/components/UserProjectFeatures.tsx,2\5\25e12ee97b5db3290d9e9b04c70e29d5ad1f07df
+M
+app/dashboard/projectsData.ts,c\8\c8f05e1e1c426d872f969a160982117a556898f3
+Q
+!app/projects/grid/projectsData.ts,c\9\c96324e6bdd870ded8e37b018ab76741dd51901f

@@ -4,25 +4,24 @@ import Link from "next/link";
 import {Activity, AlertTriangle, Boxes, DollarSign} from "lucide-react";
 import {
   getProjectCount,
-  getProjectCountByStatus,
-  getProjectCountLast14Days,
-  getProjectCountLast7Days,
+  getProjectCountByStatus, getProjectCountLastDays,
   getProjectTotalRevenue,
   getProjectTotalRevenueLast30DaysPercentage
-} from "@/app/dashboard/projectCounts";
+} from "@/app/dashboard/projectsData";
 
 const DashboardCard = async () => {
   const count = await getProjectCount();
-  const countLast7Days = await getProjectCountLast7Days();
+  const countLast7Days = await getProjectCountLastDays(7);
   const countInProgress = await getProjectCountByStatus('IN_PROGRESS');
-  const countLast14DaysInProgress = await getProjectCountLast14Days("IN_PROGRESS");
+  const countLast14DaysInProgress = await getProjectCountLastDays(14,"IN_PROGRESS");
   const countNotStarted = await getProjectCountByStatus('NOT_STARTED');
-  const countLast14DaysNotStarted = await getProjectCountLast14Days("NOT_STARTED");
+  const countLast14DaysNotStarted = await getProjectCountLastDays(14,"NOT_STARTED");
   const totalRevenue = await getProjectTotalRevenue('COMPLETED');
   const lastMonthPercentage = await getProjectTotalRevenueLast30DaysPercentage("COMPLETED");
+
   return (
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
-        <Card>
+        <Card >
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium mr-3">
               <Link href="/projects/grid">Total Projects</Link>

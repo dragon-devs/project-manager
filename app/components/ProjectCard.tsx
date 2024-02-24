@@ -8,8 +8,12 @@ import FrameworkList from "@/app/projects/_components/FrameworkList";
 import Link from "next/link";
 import Priorities from "@/app/projects/_components/PrioritySignals";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
-import {EnvelopeClosedIcon} from "@radix-ui/react-icons";
+import {ButtonIcon, EnvelopeClosedIcon, Pencil2Icon} from "@radix-ui/react-icons";
 import {Badge} from "@/components/ui/badge";
+import {Button} from "@/components/ui/button";
+import {FormControl, FormItem, FormLabel, FormMessage} from "@/components/ui/form";
+import {Input} from "@/components/ui/input";
+import UserProjectFeatures from "@/app/components/UserProjectFeatures";
 
 interface ProjectCardProps {
   project: Project;
@@ -26,7 +30,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project}) => {
               </Link>
             </CardTitle>
             <CardDescription className="mr-10 truncate ...">{project.description}</CardDescription>
-            {project.assignedToUserId && (
+            {project.assignedToUser ? (
                 <Popover>
                   <PopoverTrigger asChild>
                     <Avatar className="absolute border right-5 top-5">
@@ -52,6 +56,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({project}) => {
                     </div>
                   </PopoverContent>
                 </Popover>
+            ) : (
+                <div className="absolute right-6 top-6">
+                  <UserProjectFeatures project={project} />
+                </div>
             )}
           </CardHeader>
           <CardContent>

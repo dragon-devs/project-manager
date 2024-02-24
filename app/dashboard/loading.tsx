@@ -10,7 +10,7 @@ const DashboardSkeleton = () => {
 
     for (let i = 0; i < skeletonCount; i++) {
       skeletons.push(
-          <Card>
+          <Card key={i}>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
               <CardTitle className="text-sm font-medium mr-3">
                 <Skeleton className="w-24 h-4"/>
