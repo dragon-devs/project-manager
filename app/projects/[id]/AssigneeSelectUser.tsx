@@ -27,14 +27,18 @@ const AssigneeSelectUser = ({project}: { project: Project }) => {
   if (error) return null;
 
   const assignProject = (userId: string) => {
-            const assignedToUserId = userId === "unassigned" ? null : userId;
-            axios
-                .patch('/api/projects/' + project.id, {assignedToUserId})
-                .catch(() => {
-                  toast.error('Changes could not be saved.')
-                });
-            router.refresh()
-          };
+    const assignedToUserId = userId === "unassigned" ? null : userId;
+    const status = assignedToUserId ? "IN_PROGRESS" : "CANCELLED";
+
+    axios
+        .patch('/api/projects/' + project.id, {assignedToUserId, status})
+        .then(() => {
+          router.refresh();
+        })
+        .catch(() => {
+          toast.error('Changes could not be saved.');
+        });
+  };
 
   return (
       <Select
@@ -59,11 +63,11 @@ const AssigneeSelectUser = ({project}: { project: Project }) => {
 };
 
 const useUsers = () =>
-  useQuery<Users[]>({
-    queryKey: ['users'],
-    queryFn: () => axios.get('/api/users').then(res => res.data),
-    staleTime: 60 * 1000,
-    retry: 3
-  });
+    useQuery<Users[]>({
+      queryKey: ['users'],
+      queryFn: () => axios.get('/api/users').then(res => res.data),
+      staleTime: 60 * 1000,
+      retry: 3
+    });
 
 export default AssigneeSelectUser;

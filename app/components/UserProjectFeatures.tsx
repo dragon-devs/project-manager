@@ -24,23 +24,22 @@ const UserProjectFeatures = ({project}: { project: Project }) => {
   const router = useRouter()
   const priorities = projectPriorities
   const statuses = projectStatuses
-  const setPriority = (priority: Priority) => {
-    console.log({priority})
-    axios
-        .patch('/api/projects/' + project.id, {priority})
-        .catch(() => {
-          toast.error('Changes could not be saved.')
-        });
-    router.refresh()
+  const setPriority = async (priority: Priority) => {
+    try {
+      await axios.patch(`/api/projects/${project.id}`, {priority});
+      router.refresh();
+    } catch (error) {
+      toast.error('Changes could not be saved.');
+    }
   };
-  const setStatus = (status: Status) => {
-    console.log({status})
-    axios
-        .patch('/api/projects/' + project.id, {status})
-        .catch(() => {
-          toast.error('Changes could not be saved.')
-        });
-    router.refresh()
+
+  const setStatus = async (status: Status) => {
+    try {
+      await axios.patch(`/api/projects/${project.id}`, {status});
+      router.refresh();
+    } catch (error) {
+      toast.error('Changes could not be saved.');
+    }
   };
 
   return (
