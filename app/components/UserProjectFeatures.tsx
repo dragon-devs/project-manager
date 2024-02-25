@@ -16,8 +16,8 @@ import {Project} from "@/types";
 import axios from "axios";
 import {toast} from "sonner";
 import {useRouter} from "next/navigation";
-import {projectPriorities} from "@/app/projects/_components/PrioritySignals";
-import {projectStatuses} from "@/app/projects/_components/Status";
+import {projectPriorities} from "@/app/components/PrioritySignals";
+import {projectStatuses} from "@/app/components/Status";
 import {Priority, Status} from "@prisma/client";
 
 const UserProjectFeatures = ({project}: { project: Project }) => {

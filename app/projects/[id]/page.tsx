@@ -3,9 +3,9 @@ import prisma from "@/prisma/client";
 import {notFound} from "next/navigation";
 import {Card, CardContent} from "@/components/ui/card";
 import ProjectDetailsActions from "@/app/projects/[id]/ProjectDetailsActions";
-import Statues from "@/app/projects/_components/Status";
+import Statues from "@/app/components/Status";
 import {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
-import Priorities, {PrioritiesText} from "@/app/projects/_components/PrioritySignals";
+import Priorities, {PrioritiesText} from "@/app/components/PrioritySignals";
 
 interface Props {
   params: { id: string }

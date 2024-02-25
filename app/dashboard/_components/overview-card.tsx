@@ -1,6 +1,6 @@
 'use client';
 
-import {Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+import {Bar, BarChart, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 
 interface ChartDataItem {
@@ -8,18 +8,30 @@ interface ChartDataItem {
   total: string;
 }
 
-const OverviewCard = ({data}: { data: ChartDataItem[] }) => {
+interface Props {
+  title?: string;
+  description?: string;
+  formatter?: string;
+  data: ChartDataItem[]
+}
+
+const OverviewCard = ({
+                        title = "Overview",
+                        description = "The description of the chart.",
+                        formatter = "$",
+                        data
+                      }: Props) => {
 
   return (
       <div>
         <Card className="">
           <CardHeader>
-            <CardTitle>Overview</CardTitle>
-            <CardDescription>Overview of current projects revenue.</CardDescription>
+            <CardTitle>{title}</CardTitle>
+            <CardDescription>{description}</CardDescription>
           </CardHeader>
-          <CardContent className="p-2 sm:pb-7 pl-0">
+          <CardContent className="p-2  pl-0">
             <div>
-              <ResponsiveContainer className="text-muted-foreground" width="100%" height={350}>
+              <ResponsiveContainer className="text-muted-foreground" width="100%" height={290}>
                 <BarChart data={data}>
                   <XAxis
                       dataKey="name"
@@ -33,19 +45,22 @@ const OverviewCard = ({data}: { data: ChartDataItem[] }) => {
                       fontSize={10}
                       tickLine={false}
                       axisLine={false}
-                      tickFormatter={(value) => `$${value}`}
+                      tickFormatter={(value) => `${formatter}${value}`}
                   />
                   {/*<Tooltip cursor={{fill: "transparent"}}/>*/}
                   <Bar
                       dataKey="total"
                       className="fill-accent-foreground"
-                  />
+                  >
+                    <LabelList dataKey="total" position="top" fill={"foreground"} fontSize={10}/>
+                  </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
           </CardContent>
         </Card>
       </div>
-)};
+  )
+};
 
 export default OverviewCard;

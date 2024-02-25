@@ -139,7 +139,9 @@ export const getTotalBudgetForDay = async () => {
     const totalBudget = projects.reduce((acc, project) => acc + parseFloat(project.budget || '0'), 0);
     data.push({
       name: day.toLocaleDateString('en-US', {weekday: 'short'}),
-      total: totalBudget.toFixed(2),
+      total: totalBudget.toFixed(),
+      // total: totalBudget.toFixed(2),
+
     });
   }
   return data

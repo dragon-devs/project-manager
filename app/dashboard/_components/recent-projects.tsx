@@ -2,6 +2,9 @@ import {Project} from "@/types";
 import prisma from "@/prisma/client";
 import PopoverUserAvatar from "@/app/components/popover-user-avatar";
 import {getProjectCountLastDays} from "@/app/dashboard/projectsData";
+import Statues from "@/app/components/Status";
+import PrioritySignals from "@/app/components/PrioritySignals";
+import Link from "next/link";
 
 export async function RecentProjects() {
   const projects = await prisma.project.findMany({
@@ -11,7 +14,7 @@ export async function RecentProjects() {
     include: {
       assignedToUser: true
     },
-    take: 6
+    take: 5
   })
 
   return (
@@ -19,10 +22,12 @@ export async function RecentProjects() {
         {projects.map((project: Project) => (
             <div key={project.id} className="flex items-center">
               <div className="mr-2 space-y-1">
-                <div className="text-sm font-medium w-40 leading-none truncate ...">{project.name}</div>
-                <div className="text-sm text-muted-foreground">{project.status}</div>
+                <Link href={`/projects/${project.id}`}>
+                  <div className="hover:underline text-sm font-medium w-40 leading-none truncate ...">{project.name}</div>
+                </Link>
+                <div className="text-sm text-muted-foreground"><Statues status={project.status}/></div>
               </div>
-              <div className="ml-auto font-medium mr-3">{project.priority}</div>
+              <div className="ml-auto font-medium mr-3"><PrioritySignals priority={project.priority}/></div>
               {project.assignedToUserId ? (
                   <div className="border rounded-full">
                     <PopoverUserAvatar project={project}/>
