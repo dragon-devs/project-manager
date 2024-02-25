@@ -1,6 +1,6 @@
 import prisma from "@/prisma/client";
 import {Priority, Status} from "@prisma/client";
-import {eachDayOfInterval, endOfWeek, format, startOfWeek} from "date-fns";
+import {eachDayOfInterval, endOfWeek, format, startOfDay, startOfWeek, subDays} from "date-fns";
 
 export const getProjectCount = async () => await prisma.project.count();
 
@@ -108,3 +108,39 @@ export const generateRevenueDataLast7Days = async () => {
 
   return data;
 };
+
+export const getTotalBudgetForDay = async () => {
+  const today = new Date();
+  const days = [];
+
+  for (let i = 6; i >= 0; i--) {
+    const day = subDays(today, i);
+    days.push(startOfDay(day));
+  }
+
+  const data = [];
+
+  for (const day of days) {
+    const nextDay = new Date(day);
+    nextDay.setDate(day.getDate() + 1); // Next day
+
+    const projects = await prisma.project.findMany({
+      where: {
+        createdAt: {
+          gte: day,
+          lt: nextDay,
+        },
+      },
+      select: {
+        budget: true,
+      },
+    });
+
+    const totalBudget = projects.reduce((acc, project) => acc + parseFloat(project.budget || '0'), 0);
+    data.push({
+      name: day.toLocaleDateString('en-US', {weekday: 'short'}),
+      total: totalBudget.toFixed(2),
+    });
+  }
+  return data
+}

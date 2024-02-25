@@ -13,6 +13,7 @@ import {Badge} from "@/components/ui/badge";
 import UserProjectFeatures from "@/app/components/UserProjectFeatures";
 import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
+import PopoverUserAvatar from "@/app/components/popover-user-avatar";
 
 interface ProjectCardProps {
   project: Project;
@@ -35,31 +36,9 @@ const ProjectCard: React.FC<ProjectCardProps> = async ({project}) => {
             </CardTitle>
             <CardDescription className="mr-10 truncate ...">{project.description}</CardDescription>
             {project.assignedToUser ? (
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <Avatar className="absolute border right-5 top-5">
-                      <AvatarImage src={project.assignedToUser?.image!}/>
-                      <AvatarFallback>DP</AvatarFallback>
-                    </Avatar>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto">
-                    <div className="flex flex-col space-y-4 items-center justify-center">
-
-                      <div className="flex justify-center flex-col space-y-2">
-                        <h4 className="text-sm font-semibold">{project.assignedToUser?.name}</h4>
-                        <Badge className="text-[10px] w-20 justify-center">
-                          {project.assignedToUser?.role}
-                        </Badge>
-                        <div className="flex items-center ">
-                          <EnvelopeClosedIcon className="mr-2 h-4 w-4 opacity-70"/>{" "}
-                          <span className="text-xs text-muted-foreground">
-                            {project.assignedToUser?.email}
-                            </span>
-                        </div>
-                      </div>
-                    </div>
-                  </PopoverContent>
-                </Popover>
+                <div className="absolute border right-5 top-5 rounded-full">
+                  <PopoverUserAvatar project={project}/>
+                </div>
             ) : (
                 <div className="absolute right-6 top-6">
                   {isAssignedToCurrentUser && <UserProjectFeatures project={project}/>}

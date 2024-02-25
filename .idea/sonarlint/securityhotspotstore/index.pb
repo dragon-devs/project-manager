@@ -274,3 +274,5 @@ Z
 -app/dashboard/_components/recent-projects.tsx,1\c\1c7d07ec311865158f5fecc619867e64c3550562
 [
 +app/dashboard/_components/overview-card.tsx,8\5\850b1402f2a136faabbde8cb8ac5ae0cceb6bbee
+V
+&app/components/popover-user-avatar.tsx,3\c\3c69d708f195f785b34d1d1ca3b6bbdff3975c81

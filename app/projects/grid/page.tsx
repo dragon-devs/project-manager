@@ -43,7 +43,6 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
             </div>
         )}
         <Pagination itemCount={projectCount} pageSize={pageSize} currentPage={page}/>
-
       </div>
   );
 };
