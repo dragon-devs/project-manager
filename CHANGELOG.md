@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.4.7](https://github.com/dragon-devs/project-manager/compare/v0.4.6...v0.4.7) (2024-02-25)
+
+
+### Features
+
+* **dashboard:** add dashboard overview, and recent projects ([83459a0](https://github.com/dragon-devs/project-manager/commit/83459a08289e11ca0370ac24b5d4dcf038e9932c))
+* **dashboard:** add dashboard overview, and recent projects ([b54c254](https://github.com/dragon-devs/project-manager/commit/b54c2541f22de5b7db5c7203140fa4cdcf7aec78))
+* **dashboard:** add skeleton dashboard fixed + update recent projects card. ([bd9a433](https://github.com/dragon-devs/project-manager/commit/bd9a43357c1d2b59a4d93c7dc56f334399ab9901))
+* **nav:** update signin and logout btn on navbar ([706df82](https://github.com/dragon-devs/project-manager/commit/706df8205337ea056e7713664b80fd62bc8e5e50))
+
+
+### Bug Fixes
+
+* **recover:** recover the revert + fixing dashboard ([0df9480](https://github.com/dragon-devs/project-manager/commit/0df94803de8708dfd6329970e848fe43dddf3a66))
+* **recover:** update and fixed the recent users card ([25c3417](https://github.com/dragon-devs/project-manager/commit/25c3417f776766c7b12f09607b556ba691095366))
+* **refactor:** fixed dashboard bugs + refactor projects & dashboard. ([f363512](https://github.com/dragon-devs/project-manager/commit/f363512c562872adc7513c6d32350843c8b39789))
+
 ### [0.4.6](https://github.com/dragon-devs/project-manager/compare/v0.4.5...v0.4.6) (2024-02-24)
 
 
