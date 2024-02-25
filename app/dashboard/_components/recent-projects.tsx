@@ -1,7 +1,6 @@
 import {Project} from "@/types";
 import prisma from "@/prisma/client";
 import PopoverUserAvatar from "@/app/components/popover-user-avatar";
-import {getProjectCountLastDays} from "@/app/dashboard/projectsData";
 import Statues from "@/app/components/Status";
 import PrioritySignals from "@/app/components/PrioritySignals";
 import Link from "next/link";

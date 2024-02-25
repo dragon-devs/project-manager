@@ -1,12 +1,6 @@
 import React from 'react';
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Skeleton} from "@/components/ui/skeleton";
-import {Bar, BarChart, LabelList, ResponsiveContainer, XAxis, YAxis} from "recharts";
-import {Project} from "@/types";
-import Link from "next/link";
-import Statues from "@/app/components/Status";
-import PrioritySignals from "@/app/components/PrioritySignals";
-import PopoverUserAvatar from "@/app/components/popover-user-avatar";
 
 const DashboardSkeleton = () => {
   const skeletonCount = 4;

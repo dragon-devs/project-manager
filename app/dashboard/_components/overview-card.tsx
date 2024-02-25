@@ -1,6 +1,6 @@
 'use client';
 
-import {Bar, BarChart, LabelList, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+import {Bar, BarChart, LabelList, ResponsiveContainer, XAxis, YAxis} from "recharts";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 
 interface ChartDataItem {

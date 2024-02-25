@@ -47,3 +47,13 @@ R
 "app/components/PrioritySignals.tsx,3\8\38d3b8a4d72675fcd8d4aa5c10beebad54f74401
 I
 app/components/Status.tsx,c\7\c7307a64f1c3a47d6330b90418405e26159fc371
+T
+$app/api/projectsData/[slug]/route.ts,5\b\5ba153ea7cc96d7c193c867ed7fcdfb2ed6f217d
+w
+G.idea/sonarlint/issuestore/3/8/38d3b8a4d72675fcd8d4aa5c10beebad54f74401,b\f\bfe92fecd99606a81ae059cbd1e3d93abd7ab0d4
+Å
+Q.idea/sonarlint/securityhotspotstore/c/7/c7307a64f1c3a47d6330b90418405e26159fc371,6\b\6badbeee1bbc417f80eb7bcebae2e24b6e04e416
+Å
+Q.idea/sonarlint/securityhotspotstore/3/8/38d3b8a4d72675fcd8d4aa5c10beebad54f74401,5\e\5ee7bb2e29944c0eba5d480c8073ec94953accaf
+w
+G.idea/sonarlint/issuestore/c/7/c7307a64f1c3a47d6330b90418405e26159fc371,f\e\fe14eab959ba99702e4253690dfc3765caefb6f0

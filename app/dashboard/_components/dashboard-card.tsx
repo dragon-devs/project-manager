@@ -4,7 +4,8 @@ import Link from "next/link";
 import {Activity, AlertTriangle, Boxes, DollarSign} from "lucide-react";
 import {
   getProjectCount,
-  getProjectCountByStatus, getProjectCountLastDays,
+  getProjectCountByStatus,
+  getProjectCountLastDays,
   getProjectTotalRevenue,
   getProjectTotalRevenueLast30DaysPercentage
 } from "@/app/dashboard/projectsData";

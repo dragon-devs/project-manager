@@ -5,8 +5,6 @@ import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/compo
 import {RecentProjects} from "@/app/dashboard/_components/recent-projects";
 import {getProjectCountByPriority, getProjectCountLastDays, getTotalBudgetForDay} from "@/app/dashboard/projectsData";
 import {NextComponentType} from "next";
-import Example from "@/app/dashboard/_components/overview-card";
-import delay from "delay";
 
 
 const Dashboard: NextComponentType = async () => {
@@ -22,7 +20,6 @@ const Dashboard: NextComponentType = async () => {
     {name: "High", total: high.toString()},
     {name: "Critical", total: critical.toString()},
   ]
-  await delay(2000)
 
   return (
       <div className="flex flex-col gap-3 sm:gap-5">
