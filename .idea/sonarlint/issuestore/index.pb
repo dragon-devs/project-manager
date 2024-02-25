@@ -21,3 +21,5 @@ L
 app/projects/new/loading.tsx,d\3\d3cf3fad62f95d12f989a5dfd08cdd162af82e23
 R
 "app/projects/edit/[id]/loading.tsx,e\0\e067302694623494e942016cb4750d4149300b0c
+V
+&app/components/popover-user-avatar.tsx,3\c\3c69d708f195f785b34d1d1ca3b6bbdff3975c81
