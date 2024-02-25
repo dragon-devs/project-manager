@@ -1,4 +1,3 @@
-import {Avatar, AvatarFallback, AvatarImage,} from "@/components/ui/avatar";
 import {Project} from "@/types";
 import prisma from "@/prisma/client";
 import PopoverUserAvatar from "@/app/components/popover-user-avatar";
@@ -34,5 +33,4 @@ export async function RecentProjects() {
         ))}
       </div>
   );
-
 }

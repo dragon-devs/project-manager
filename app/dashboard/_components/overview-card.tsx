@@ -7,17 +7,19 @@ interface ChartDataItem {
   name: string;
   total: string;
 }
-const OverviewCard = ({ data }: { data: ChartDataItem[] }) => {
+
+const OverviewCard = ({data}: { data: ChartDataItem[] }) => {
+
   return (
-      <div className="">
+      <div>
         <Card className="">
           <CardHeader>
             <CardTitle>Overview</CardTitle>
             <CardDescription>Overview of current projects revenue.</CardDescription>
           </CardHeader>
-          <CardContent className="p-2 py-0 pb-4 pl-0">
+          <CardContent className="p-2 py-0 pb-2 pl-0">
             <div>
-              <ResponsiveContainer className="text-muted-foreground" width="100%" height={360}>
+              <ResponsiveContainer className="text-muted-foreground" width="100%" height={350}>
                 <BarChart data={data}>
                   <XAxis
                       dataKey="name"
@@ -44,7 +46,6 @@ const OverviewCard = ({ data }: { data: ChartDataItem[] }) => {
           </CardContent>
         </Card>
       </div>
-  );
-};
+)};
 
 export default OverviewCard;

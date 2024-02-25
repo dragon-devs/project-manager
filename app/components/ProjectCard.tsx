@@ -31,7 +31,6 @@ const ProjectCard: React.FC<ProjectCardProps> = async ({project}) => {
           <CardHeader className="relative">
             <CardTitle className="mr-12 text-md -mb-1 truncate ...">
               <Link href={`/projects/${project.id}`} className="focus:underline hover:underline">
-                {project.name}
               </Link>
             </CardTitle>
             <CardDescription className="mr-10 truncate ...">{project.description}</CardDescription>
