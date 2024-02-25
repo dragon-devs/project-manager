@@ -37,12 +37,9 @@ const ProjectEditPageSkeleton = () => {
                   <Skeleton className="h-9 rounded-md"/>
                 </div>
               </div>
-               <div>
-                  <Skeleton className="h-3.5 mb-[19px] sm:mb-[11px] w-16"/>
-                  <Skeleton className="h-9 rounded-md"/>
-                </div>
             </div>
             <Skeleton className="h-9 mt-[20px] sm:mt-7 rounded-md"/>
+
           </CardContent>
         </Card>
       </div>
