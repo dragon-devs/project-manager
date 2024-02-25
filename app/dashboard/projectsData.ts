@@ -1,5 +1,6 @@
 import prisma from "@/prisma/client";
-import {Status, Project, Priority} from "@prisma/client";
+import {Priority, Status} from "@prisma/client";
+import {eachDayOfInterval, endOfWeek, format, startOfWeek} from "date-fns";
 
 export const getProjectCount = async () => await prisma.project.count();
 
@@ -73,4 +74,37 @@ export const getProjectTotalRevenueLast30DaysPercentage = async (status?: Status
     console.error("Error calculating revenue change:", error);
     return 0; // Return 0 if an error occurs
   }
+};
+
+
+export const generateRevenueDataLast7Days = async () => {
+  const today = new Date();
+  const startDate = startOfWeek(today);
+  const endDate = endOfWeek(today);
+  const days = eachDayOfInterval({start: startDate, end: endDate});
+
+  const data = [];
+
+  for (const day of days) {
+    const projects = await prisma.project.findMany({
+      where: {
+        createdAt: {
+          gte: day,
+          lt: new Date(day.getTime() + 24 * 60 * 60 * 1000),
+        },
+      },
+      select: {
+        budget: true,
+      },
+    });
+
+    const totalBudget = projects.reduce((acc, project) => acc + parseFloat(project.budget || '0'), 0);
+
+    data.push({
+      name: format(day, 'E'), // Format day name (e.g., "Mon", "Tue")
+      total: totalBudget.toFixed(2),
+    });
+  }
+
+  return data;
 };

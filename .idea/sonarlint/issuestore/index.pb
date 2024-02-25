@@ -248,3 +248,29 @@ M
 app/dashboard/projectsData.ts,c\8\c8f05e1e1c426d872f969a160982117a556898f3
 Q
 !app/projects/grid/projectsData.ts,c\9\c96324e6bdd870ded8e37b018ab76741dd51901f
+N
+app/dashboard/OverviewCard.tsx,0\f\0fd00cfc170096d03e95ebbc1df7e79a936bc930
+O
+app/api/projects/projectData.ts,2\2\22dd37d1888fa6c931d06fe067416c9a938dac7c
+N
+app/api/projects/data/route.ts,1\6\16f643c76f4a7c428c8bba686035df0db0a3e4a8
+@
+app/api/route.ts,7\6\76e15b82d0e17026a4c40b67ad944cee304c39a4
+F
+app/api/projectData.ts,c\8\c855e31b9b0485c187ffe75f0d4c8ba9f878cca7
+M
+app/pages/api/projectsData.ts,3\9\39ac7c59d330b65ac761eb85ade891daaa4e4fd9
+P
+ app/api/projects/[slug]/route.ts,4\e\4ed2efe6adb2ec246eb9407c8cadfbba395ec809
+T
+$app/api/projectsData/[slug]/route.ts,5\b\5ba153ea7cc96d7c193c867ed7fcdfb2ed6f217d
+\
+,app/dashboard/_components/RecentProjects.tsx,0\0\003464f61c12698abc7831edf66fe61499c27da1
+Z
+*app/dashboard/_components/OverviewCard.tsx,4\8\48f551396c3b3e092132b57e171132e3d3681b05
+\
+,app/dashboard/_components/dashboard-card.tsx,8\5\852c4dbb9c99cb7871cb4ca61b6f00c3cd81b38c
+]
+-app/dashboard/_components/recent-projects.tsx,1\c\1c7d07ec311865158f5fecc619867e64c3550562
+[
++app/dashboard/_components/overview-card.tsx,8\5\850b1402f2a136faabbde8cb8ac5ae0cceb6bbee
