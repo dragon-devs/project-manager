@@ -14,7 +14,7 @@ export async function RecentProjects() {
   })
 
   return (
-      <div className="space-y-6">
+      <div className="space-y-5">
         {projects.map((project: Project) => (
             <div key={project.id} className="flex items-center">
               <div className="mr-4 space-y-1">

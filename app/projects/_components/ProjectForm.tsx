@@ -30,10 +30,11 @@ export function ProjectForm({project}: { project?: Project }) {
   const form = useForm<z.infer<typeof projectSchema>>({
     resolver: zodResolver(projectSchema),
     defaultValues: {
-      name: project?.name || '',
-      description: project?.description || '',
-      frameworks: project?.frameworks || [],
+      name: project?.name ?? '',
+      description: project?.description ?? '',
+      frameworks: project?.frameworks ?? [],
       timeline: project?.timeline,
+      budget: project?.budget ?? '',
       dueDate: project?.dueDate,
     }
   })
@@ -180,9 +181,22 @@ export function ProjectForm({project}: { project?: Project }) {
                     )}
                 />
               </div>
+              <FormField
+                  control={form.control}
+                  name="budget"
+                  render={({field}) => (
+                      <FormItem>
+                        <FormLabel>Budget</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Project budget" {...field} />
+                        </FormControl>
+                        <FormMessage/>
+                      </FormItem>
+                  )}
+              />
               <Button className="w-full gap-2" type="submit" disabled={isSubmiting}>
                 {project ? "Update Project" : "Submit New Project"}{" "}
-                {isSubmiting && <Spinner />}
+                {isSubmiting && <Spinner/>}
               </Button>
             </form>
           </Form>

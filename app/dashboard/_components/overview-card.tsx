@@ -17,7 +17,7 @@ const OverviewCard = ({data}: { data: ChartDataItem[] }) => {
             <CardTitle>Overview</CardTitle>
             <CardDescription>Overview of current projects revenue.</CardDescription>
           </CardHeader>
-          <CardContent className="p-2 py-0 pb-2 pl-0">
+          <CardContent className="p-2 sm:pb-7 pl-0">
             <div>
               <ResponsiveContainer className="text-muted-foreground" width="100%" height={350}>
                 <BarChart data={data}>
