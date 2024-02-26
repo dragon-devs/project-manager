@@ -28,8 +28,8 @@ const MyProfile = async () => {
         <div className="flex flex-col">
           <Card>
             <CardHeader
-                className="dark:bg-slate-800 flex sm:flex-row flex-col-reverse
-                justify-between sm:items-center bg-slate-300 rounded-md rounded-b-none">
+                className="dark:bg-accent bg-accent flex sm:flex-row flex-col-reverse
+                justify-between sm:items-center  rounded-md rounded-b-none">
               <div className="flex flex-col gap-2">
                 <CardTitle>{user.name}</CardTitle>
                 <CardDescription>{user.email}</CardDescription>

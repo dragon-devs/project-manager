@@ -50,9 +50,11 @@ const OverviewCard = ({
                   {/*<Tooltip cursor={{fill: "transparent"}}/>*/}
                   <Bar
                       dataKey="total"
-                      className="fill-accent-foreground"
+                      stackId="total"
+                      className="fill-primary"
                   >
-                    <LabelList dataKey="total" position="top" fill={"foreground"} fontSize={10}/>
+                    <LabelList dataKey="total" position="insideBottom"
+                               className="sm:text-xs text-[10px] fill-background" fontWeight="bold"/>
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>

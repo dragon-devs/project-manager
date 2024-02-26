@@ -2,8 +2,6 @@ import {NextRequest, NextResponse} from "next/server";
 import {patchProjectSchema} from "@/app/validationSchema";
 import prisma from "@/prisma/client";
 import {Prisma} from ".prisma/client";
-import {getServerSession} from "next-auth";
-import authOptions from "@/app/auth/authOptions";
 import PrismaClientValidationError = Prisma.PrismaClientValidationError;
 
 export async function PATCH(
@@ -17,6 +15,10 @@ export async function PATCH(
   try {
     const body = await request.json();
 
+    if (body.budget) {
+      body.budget = body.budget.toString();
+    }
+
     const validation = patchProjectSchema.safeParse(body);
     if (!validation.success) {
       return NextResponse.json(
@@ -29,12 +31,12 @@ export async function PATCH(
     }
 
     const {assignedToUserId} = body;
-    if(assignedToUserId) {
+    if (assignedToUserId) {
       const user = await prisma.user.findUnique({
         where: {id: assignedToUserId}
       })
       if (!user)
-        return NextResponse.json({error: "Invalid user."}, { status: 404})
+        return NextResponse.json({error: "Invalid user."}, {status: 404})
 
     }
     const projectId = params.id;

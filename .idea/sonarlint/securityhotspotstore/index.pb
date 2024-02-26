@@ -90,3 +90,7 @@ Sprisma/migrations/20240226102825_updating_the_teams_name_to_be_unique/migration
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+N
+app/api/projects/[id]/route.ts,7\c\7cfaad2cde4e45c1f0ecc80f435bdc2849a12a2d
+?
+app/globals.css,4\d\4dfa49b1332116153eb16507891285845e9ab86e

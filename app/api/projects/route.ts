@@ -14,6 +14,11 @@ export async function POST(request: NextRequest) {
   //   return NextResponse.json({}, {status: 401})
 
   const body = await request.json();
+
+  if (body.budget) {
+    body.budget = body.budget.toString();
+  }
+
   const validation = projectSchema.safeParse(body);
   if (!validation.success)
     return NextResponse.json(
@@ -26,14 +31,14 @@ export async function POST(request: NextRequest) {
 
   // Check if a project with the same name already exists
   const existingProject = await prisma.project.findUnique({
-    where: { name: body.name }
+    where: {name: body.name}
   });
   if (existingProject) {
     return NextResponse.json(
-      {
-        error: `Project with the name '${body.name}' already exists.`,
-      },
-      { status: 400 }
+        {
+          error: `Project with the name '${body.name}' already exists.`,
+        },
+        {status: 400}
     );
   }
 
@@ -47,7 +52,8 @@ export async function POST(request: NextRequest) {
       status: body.status,
       priority: body.priority,
       timeline: body.timeline,
-      budget: body.budget.toString(),
+      budget: body.budget,
+      createdAt: body.createdAt,
     }
   });
 
