@@ -11,8 +11,6 @@ A
 et --hard b54c254,c\3\c3746a425b4fcde9bfda0f955a58ba77bfb57c85
 M
 app/dashboard/projectsData.ts,c\8\c8f05e1e1c426d872f969a160982117a556898f3
-S
-#app/projects/_components/Status.tsx,3\5\35dcc9d0693a9071d161e743017e5c6a56c2f4c1
 X
 (app/projects/_components/ProjectForm.tsx,d\d\dde1e4868e8a9e9ec30fc83601c9bd7379d822fe
 G
@@ -47,8 +45,6 @@ R
 "app/components/PrioritySignals.tsx,3\8\38d3b8a4d72675fcd8d4aa5c10beebad54f74401
 I
 app/components/Status.tsx,c\7\c7307a64f1c3a47d6330b90418405e26159fc371
-T
-$app/api/projectsData/[slug]/route.ts,5\b\5ba153ea7cc96d7c193c867ed7fcdfb2ed6f217d
 w
 G.idea/sonarlint/issuestore/3/8/38d3b8a4d72675fcd8d4aa5c10beebad54f74401,b\f\bfe92fecd99606a81ae059cbd1e3d93abd7ab0d4
 Å
@@ -57,3 +53,7 @@ Q.idea/sonarlint/securityhotspotstore/c/7/c7307a64f1c3a47d6330b90418405e26159fc3
 Q.idea/sonarlint/securityhotspotstore/3/8/38d3b8a4d72675fcd8d4aa5c10beebad54f74401,5\e\5ee7bb2e29944c0eba5d480c8073ec94953accaf
 w
 G.idea/sonarlint/issuestore/c/7/c7307a64f1c3a47d6330b90418405e26159fc371,f\e\fe14eab959ba99702e4253690dfc3765caefb6f0
+J
+components/MultiSelect.tsx,7\c\7cc0f06d0e5835b5e5b45dc2444acdfc55a4c667
+Z
+*app/projects/_components/FrameworkList.tsx,1\6\16666ff084dcc7dbd449ce4964d6e2cfacefc8d6

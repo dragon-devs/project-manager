@@ -7,14 +7,13 @@ import {Badge} from "@/components/ui/badge";
 import {Command, CommandGroup, CommandItem} from "@/components/ui/command";
 import {Command as CommandPrimitive} from "cmdk";
 import {$Enums, Frameworks, Project} from "@prisma/client";
+import {allFrameworks} from "@/app/projects/_components/FrameworkList";
 
 type Framework = Record<"value" | "label", string>;
 
-const languageArray = Object.values(Frameworks) as string[];
-
-const FRAMEWORKS: Framework[] = languageArray.map((framework) => ({
-  value: framework,
-  label: framework.charAt(0).toUpperCase() + framework.slice(1),
+const FRAMEWORKS: Framework[] = allFrameworks.map((framework) => ({
+    value: framework.value,
+    label: framework.label
 }));
 
 interface Props {
@@ -146,11 +145,10 @@ export const FancyMultiSelect = ({onChange, project}: Props) => {
                             }}
                             className={"cursor-pointer"}
                         >
-                          {framework.label}
+                          {framework.label} {/* Display label instead of value */}
                         </CommandItem>
                     );
-                  })}
-                </CommandGroup>
+                  })}                </CommandGroup>
               </div>
           ) : null}
         </div>

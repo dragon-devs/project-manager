@@ -5,7 +5,12 @@ export const projectSchema = z.object({
   description: z.string().min(1, 'Project Description is required.').max(65535),
   frameworks: z.array(z.string(), {required_error: "Select a framework, at least one."}),
   dueDate: z.coerce.date({required_error: "Due date is required.",}),
-  budget: z.string().min(1, "budget is required.").max(255),
+  budget: z.string()
+      .min(1, "budget must have at least 1 character")
+      .max(255, "budget can have at most 255 characters")
+      .refine(value => /^\d+$/.test(value), {
+        message: "budget must contain only numeric characters"
+      }),
   timeline: z.array(z.coerce.date()).optional(),
   status: z.string().min(1).optional(),
   priority: z.string().min(1).optional(),
@@ -17,7 +22,13 @@ export const patchProjectSchema = z.object({
   frameworks: z.array(z.string()).optional(),
   dueDate: z.coerce.date({required_error: "Due date is required.",}).optional(),
   status: z.string().min(1).optional(),
-  budget: z.string().min(1, "budget is required.").max(255).optional(),
+  budget: z.string()
+      .min(1, "budget must have at least 1 character")
+      .max(255, "budget can have at most 255 characters")
+      .refine(value => /^\d+$/.test(value), {
+        message: "budget must contain only  characters"
+      })
+      .optional(),
   timeline: z.array(z.coerce.date()).optional(),
   priority: z.string().min(1).optional(),
   assignedToUserId: z.string().min(1, "Assigned to user id is required.").max(255).optional().nullable()
