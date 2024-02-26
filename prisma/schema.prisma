@@ -68,7 +68,7 @@ model User {
 
 model Teams {
   id          String   @id @default(cuid())
-  name        String
+  name        String   @unique
   description String
   industry    String?
   rating      String?

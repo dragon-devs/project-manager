@@ -24,6 +24,19 @@ export async function POST(request: NextRequest) {
         {status: 400}
     );
 
+  // Check if a project with the same name already exists
+  const existingProject = await prisma.project.findUnique({
+    where: { name: body.name }
+  });
+  if (existingProject) {
+    return NextResponse.json(
+      {
+        error: `Project with the name '${body.name}' already exists.`,
+      },
+      { status: 400 }
+    );
+  }
+
   // noinspection TypeScriptValidateJSTypes
   const newProject = await prisma.project.create({
     data: {

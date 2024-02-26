@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
   if (body.members) {
     members = body.members.map((memberId: string) => ({ id: memberId }));
   }
-
+  
   // noinspection TypeScriptValidateJSTypes
   const newTeam = await prisma.teams.create({
     data: {
