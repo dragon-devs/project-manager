@@ -85,3 +85,8 @@ H
 app/users/me/loading.tsx,b\6\b6f806ec206db6645a86a77ffbcf15f45383dd18
 ƒ
 Sprisma/migrations/20240226102825_updating_the_teams_name_to_be_unique/migration.sql,1\3\1359dec3c9d5e8ade94d719e0bbffbbfb8ff237e
+4
+.env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
