@@ -1,10 +1,14 @@
 import React from 'react';
-import prisma from "@/prisma/client";
 import ProjectActions from "@/app/projects/grid/ProjectActions";
 import {Priority, Status} from "@prisma/client";
 import Pagination from "@/app/projects/_components/Pagination";
 import ProjectCard from "@/app/components/ProjectCard";
-import {getPriorityProjects, getSearchProjects, getStatusProjects, getProjectCount} from "@/app/projects/grid/projectsData";
+import {
+  getPriorityProjects,
+  getProjectCount,
+  getSearchProjects,
+  getStatusProjects
+} from "@/app/projects/grid/projectsData";
 
 interface Props {
   searchParams: {
@@ -34,8 +38,9 @@ const ProjectPage: React.FC<Props> = async ({searchParams}) => {
       <div className="space-y-3 sm:space-y-5">
         <ProjectActions/>
         {projects.length === 0 ? (
-            <p>No match found.</p>
-        ) : (
+            <div className="flex justify-center items-center ">
+              <p>No projects available.</p>
+            </div>) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
               {projects.map((project) => (
                   <ProjectCard key={project.id} project={project}/>

@@ -3,7 +3,6 @@ import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import {toast} from "sonner";
 import {Badge} from "@/components/ui/badge";
 import {ChevronRightIcon} from "@radix-ui/react-icons";
 import ProjectCard from "@/app/components/ProjectCard";
@@ -22,7 +21,7 @@ const MyProfile = async () => {
     }
   })
   if (!user)
-    return toast.error("Unable to fetch users.")
+    return console.log("Unable to fetch users.")
 
   return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5 ">
@@ -67,6 +66,9 @@ const MyProfile = async () => {
           </CardHeader>
           <CardContent className="p-3 sm:p-5">
             <div className="flex flex-col gap-3 sm:gap-5">
+              {!user.assignedProjects || user.assignedProjects.length === 0 && (
+                  <div className="flex  self-center pb-5">Currently there are no projects assigned to you.</div>
+              )}
               {user.assignedProjects.map(project => (
                   <ProjectCard key={project.id} project={project}/>
               ))}

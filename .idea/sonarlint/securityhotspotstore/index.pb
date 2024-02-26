@@ -73,3 +73,15 @@ I
 app/api/projects/route.ts,6\d\6df5772567120733995c79a80161e18a7fa8fa45
 F
 app/api/teams/route.ts,6\5\65cc5710a6eda0edcc4ca9cb301bc0638d4473b5
+U
+%prisma/migrations/migration_lock.toml,4\9\49d9a6f38d32f9c3f59abb4adddb4cb67be6f3c3
+
+Oprisma/migrations/20240220234438_adding_assign_projects_to_a_user/migration.sql,8\8\881c913bea674851e65e4a50a12ec207ad80e00c
+z
+Jprisma/migrations/20240226102259_update_teams_name_to_unique/migration.sql,9\3\93aa5a951ffa38b4eae97fa32887e16912cf1779
+E
+app/users/me/page.tsx,4\2\423f99ac8cef232c3bcf560a682b02198fc68dcb
+H
+app/users/me/loading.tsx,b\6\b6f806ec206db6645a86a77ffbcf15f45383dd18
+ƒ
+Sprisma/migrations/20240226102825_updating_the_teams_name_to_be_unique/migration.sql,1\3\1359dec3c9d5e8ade94d719e0bbffbbfb8ff237e
