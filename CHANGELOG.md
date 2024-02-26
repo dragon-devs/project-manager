@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/dragon-devs/project-manager/compare/v0.4.7...v0.5.0) (2024-02-26)
+
+
+### Bug Fixes
+
+* **teams:** fixed not available in the apps. + teams must be unqiue with name. ([6bbf8c9](https://github.com/dragon-devs/project-manager/commit/6bbf8c9a362a0f52d44e2990effd3d0e4c54fbca))
+* **teams:** updating bug fixed + closing dialog fixed. ([b174256](https://github.com/dragon-devs/project-manager/commit/b1742567de7154691771d2b1704c66f85d79f1c2))
+* update frameworks selectors + fixed the budgets numeric validation. ([c79a359](https://github.com/dragon-devs/project-manager/commit/c79a359b0be3a0252db7b16c589337992bd6286e))
+
 ### [0.4.7](https://github.com/dragon-devs/project-manager/compare/v0.4.6...v0.4.7) (2024-02-25)
 
 
