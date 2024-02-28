@@ -15,13 +15,7 @@ interface Props {
   data: ChartDataItem[]
 }
 
-const OverviewCard = ({
-                        title = "Overview",
-                        description = "The description of the chart.",
-                        formatter = "$",
-                        data
-                      }: Props) => {
-
+const OverviewCard = ({title = "Overview", description = "The description of the chart.", formatter = "$", data}: Props) => {
   return (
       <div>
         <Card className="">

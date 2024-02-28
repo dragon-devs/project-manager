@@ -29,7 +29,6 @@ const NavBar = () => {
 
   const version = packageInfo.version;
 
-
   const links = [
     {title: 'Home', href: '/'},
     {title: 'Dashboard', href: '/dashboard'},
@@ -37,7 +36,6 @@ const NavBar = () => {
     {title: 'Teams', href: '/teams'},
     {title: 'Profile', href: '/users/me'},
   ];
-
 
   return (
       <div className="border-b">
