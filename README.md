@@ -18,7 +18,7 @@ To get started with Project Manager, follow these steps:
 
 1. **Clone the Repository:**
 ```bash
-git clone https://github.com/your-username/project-manager.git
+git clone https://github.com/dragon-devs/project-manager.git
 ```
 
 2. **Install Dependencies:**
@@ -57,7 +57,7 @@ Project Manager is licensed under the [MIT License](LICENSE).
 
 ## Support
 
-For support, bug reports, or feature requests, please [open an issue](https://github.com/your-username/project-manager/issues).
+For support, bug reports, or feature requests, please [open an issue](https://github.com/dragon-devs/project-manager/issues).
 
 ## Acknowledgements
 
