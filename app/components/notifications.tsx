@@ -21,6 +21,7 @@ const notifications = [
 
 ]
 
+
 type CardProps = React.ComponentProps<typeof Card>
 const Notifications = ({className, ...props}: CardProps) => {
     const [newMessage, setNewMessage] = useState(true)
@@ -40,7 +41,6 @@ const Notifications = ({className, ...props}: CardProps) => {
                 <div className={className} {...props}>
                     <div className="border-b overflow-hidden p-4">
                         <h1> Notifications</h1>
-                        {newMessage && <p className="text-sm text-muted-foreground">You have 3 unread messages.</p>}
                     </div>
                     <div className="">
                         {notifications.length === 0 ? (

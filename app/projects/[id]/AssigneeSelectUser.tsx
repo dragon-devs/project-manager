@@ -2,13 +2,13 @@
 
 import React from 'react';
 import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select"
 import {Project, Users} from "@/types";
 import {useQuery} from "@tanstack/react-query";
@@ -29,9 +29,9 @@ const AssigneeSelectUser = ({project}: { project: Project }) => {
   const assignProject = (userId: string) => {
     const assignedToUserId = userId === "unassigned" ? null : userId;
     const status = assignedToUserId ? "IN_PROGRESS" : "CANCELLED";
-
-    axios
-        .patch('/api/projects/' + project.id, {assignedToUserId, status})
+      const name = project.name
+      axios
+          .patch('/api/projects/' + project.id, {assignedToUserId, status, name})
         .then(() => {
           router.refresh();
         })

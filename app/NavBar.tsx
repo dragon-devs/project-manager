@@ -22,7 +22,7 @@ import {Skeleton} from "@/components/ui/skeleton";
 import {MobileNav} from "@/app/MobileNav";
 import {Button} from "@/components/ui/button";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
-import Notifications from "@/app/components/notifications";
+import {NotificationsPage} from "@/app/components/knock-notifications";
 
 const NavBar = () => {
     const currentPath = usePathname();
@@ -85,7 +85,7 @@ const NavBar = () => {
                                 v{version}
                             </Badge>
                         </Link>
-                        <Notifications/>
+                        <NotificationsPage/>
                         <div className="sm:flex items-center gap-2 hidden">
                             <ModeToggle/>
                         </div>
