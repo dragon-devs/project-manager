@@ -71,4 +71,4 @@ Project Manager is built using the following technologies and libraries:
 
 ## About
 
-Project Manager is developed and maintained by [Your Organization](https://dragon-devs.vercel.app).
+Project Manager is developed and maintained by [dragon-devs](https://dragon-devs.vercel.app).
