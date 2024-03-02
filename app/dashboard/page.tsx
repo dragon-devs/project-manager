@@ -44,5 +44,4 @@ const Dashboard: NextComponentType = async () => {
       </div>
   );
 };
-export const dynamic = 'force-dynamic';
 export default Dashboard;

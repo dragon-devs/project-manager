@@ -11,7 +11,7 @@ const Footer = () => {
         <Container>
           <div className="flex justify-between">
             <div className="sm:text-sm text-xs flex items-center gap-1 font-md text-muted-foreground mb-3 sm:mb-0">
-              Created by <Link className="hover:underline text-foreground" href="https://github.com/dragon-devs/project-manager">dragon-devs</Link> © 2024 <Separator orientation="vertical" className="h-5"/>
+              Built & Designed by <Link className="hover:underline text-foreground" href="https://github.com/dragon-devs/project-manager">dragon-devs</Link> © 2024 <Separator orientation="vertical" className="h-5"/>
             </div>
             <div className="flex gap-3 justify-center">
               <WhatsappLink/>
