@@ -102,8 +102,8 @@ export const NotificationsPage = () => {
 
     const {user} = sessionData;
     return (
-        <KnockProvider apiKey={"pk_test_rBhm8c938x0fOqs0G9wPPXENdhLDF6--1RzJ0sgUiZU"} userId={user!.id}>
-            <KnockFeedProvider feedId={"1ec5a0db-7a1d-4c9e-ab62-b5a5589266af"}>
+        <KnockProvider apiKey={process.env.KNOCK_PUBLIC_API_KEY!} userId={user!.id}>
+            <KnockFeedProvider feedId={process.env.KNOCK_FEED_CHANNEL_ID!}>
                 <div>
                     <NotificationsList/>
                     <NotificationToaster/>

@@ -15,13 +15,13 @@ export const YourAppLayout = () => {
     const {user} = sessionData;
     return (
         <KnockProvider
-            apiKey={"pk_test_rBhm8c938x0fOqs0G9wPPXENdhLDF6--1RzJ0sgUiZU"}
+            apiKey={process.env.KNOCK_PUBLIC_API_KEY!}
             userId={user!.id}
             // In production, you must pass a signed userToken
             // and enable enhanced security mode in your Knock dashboard
             // userToken={currentUser.knockUserToken}
         >
-            <KnockFeedProvider colorMode={"dark"} feedId={"1ec5a0db-7a1d-4c9e-ab62-b5a5589266af"}>
+            <KnockFeedProvider colorMode={"dark"} feedId={process.env.KNOCK_FEED_CHANNEL_ID!}>
                 <>
                     <NotificationIconButton
                         ref={notifButtonRef}
