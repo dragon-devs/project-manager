@@ -26,14 +26,14 @@ const ProjectCard: React.FC<ProjectCardProps> = async ({project}) => {
 
   return (
       <div>
-        <Card key={project.id} className="hover:ring-[0.5px] ring-foreground duration-500 transition-all">
+        <Card key={project.id} className="hover:ring-[0.5px] ring-foreground duration-500  transition-all">
           <CardHeader className="relative">
-            <CardTitle className="mr-12 text-md -mb-1 truncate ...">
+            <CardTitle className="mr-12 text-md -mb-1 truncate">
               <Link href={`/projects/${project.id}`} className="focus:underline hover:underline">
                 {project.name}
               </Link>
             </CardTitle>
-            <CardDescription className="mr-10 truncate ...">{project.description}</CardDescription>
+            <CardDescription className="mr-10 truncate">{project.description}</CardDescription>
             {project.assignedToUser ? (
                 <Popover>
                   <PopoverTrigger asChild>

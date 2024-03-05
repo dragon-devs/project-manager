@@ -5,7 +5,7 @@ import {Card, CardContent} from "@/components/ui/card";
 import ProjectDetailsActions from "@/app/projects/[id]/ProjectDetailsActions";
 import Statues from "@/app/components/Status";
 import {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
-import Priorities, {PrioritiesText} from "@/app/components/PrioritySignals";
+import {PrioritiesText} from "@/app/components/PrioritySignals";
 
 interface Props {
   params: { id: string }
@@ -39,7 +39,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                 <p className="text-sm text-muted-foreground">
                   Description
                 </p>
-                <p className="text-sm font-medium">
+                <p className="text-sm font-medium ">
                   {project.description}
                 </p>
               </div>

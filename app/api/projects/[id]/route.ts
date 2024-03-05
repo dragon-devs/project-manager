@@ -5,11 +5,12 @@ import {Prisma} from ".prisma/client";
 import {Knock} from "@knocklabs/node";
 import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
+import {io, Socket} from "socket.io-client";
 import PrismaClientValidationError = Prisma.PrismaClientValidationError;
 
+const socket: Socket = io();
 
-const knock = new Knock(process.env.KNOCK_SECRET_API_KEY!)
-
+const knock = new Knock(process.env.KNOCK_API_KEY)
 export async function PATCH(
     request: NextRequest,
     {params}: { params: { id: string } }
@@ -84,6 +85,7 @@ export async function PATCH(
             },
             data: updateData
         });
+
 
         await knock.notify('assign-project', {
             actor: session.user!.id,

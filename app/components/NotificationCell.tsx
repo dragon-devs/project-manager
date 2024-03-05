@@ -17,7 +17,6 @@ export const NotificationCell: React.FC<Props> = ({item}) => {
     const maybeActor = item.actors[0];
     const receivedAt = item.inserted_at;
 
-
     let receivedAtFormatted = "";
     if (receivedAt) {
         // Convert receivedAt to Date object
