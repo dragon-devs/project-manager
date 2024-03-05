@@ -9,6 +9,9 @@ import Footer from "@/app/Footer";
 import AuthProvider from "@/app/auth/Provider";
 import localFont from "next/font/local";
 import QueryClientProvider from "@/app/QueryClientProvider";
+import {getServerSession} from "next-auth";
+import authOptions from "@/app/auth/authOptions";
+import {Knock} from "@knocklabs/node";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -25,7 +28,14 @@ const inter_font = localFont({
 export default async function RootLayout({children,}: Readonly<{
     children: React.ReactNode;
 }>) {
-
+    const session = await getServerSession(authOptions);
+    if (session) {
+        const knockClient = new Knock(process.env.KNOCK_API_KEY);
+        const knockUser = await knockClient.users.identify(session!.user!.id, {
+            name: session!.user!.name!,
+            email: session!.user!.email!
+        })
+    }
     return (
         <html lang="en">
         <body className={inter_font.className}>
