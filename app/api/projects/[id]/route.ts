@@ -87,15 +87,17 @@ export async function PATCH(
         });
 
 
-        await knock.notify('assign-project', {
-            actor: session.user!.id,
-            recipients: [assignedToUserId],
-            data: {
-                project: {
-                    name: body.name
+        if (assignedToUserId) {
+            await knock.notify('assign-project', {
+                actor: session.user!.id,
+                recipients: [assignedToUserId],
+                data: {
+                    project: {
+                        name: body.name
+                    }
                 }
-            }
-        })
+            })
+        }
 
 
         return NextResponse.json(updatedProject, {status: 200});
