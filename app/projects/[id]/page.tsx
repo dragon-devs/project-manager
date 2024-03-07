@@ -7,6 +7,7 @@ import Statues from "@/app/components/Status";
 import {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
 import {PrioritiesText} from "@/app/components/PrioritySignals";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import Link from "next/link";
 
 interface Props {
     params: { id: string }
@@ -28,20 +29,22 @@ const ProjectDetailsPage = async ({params}: Props) => {
             <Card className="md:grid grid-cols-3 ">
                 <Card className="h-[12rem] m-5 md:w-full flex p-3 md:h-auto bg-muted">
                     {project.assignedToUserId && (
-                        <div className="flex space-x-2 items-start justify-start">
-                            <Avatar className="">
-                                <AvatarImage src={project.assignedToUser?.image!}/>
-                                <AvatarFallback>DP</AvatarFallback>
-                            </Avatar>
-                            <div className="flex justify-center flex-col pt-0.5">
-                                <h4 className="text-sm font-semibold">{project.assignedToUser?.name}</h4>
-                                <div className="flex items-center ">
+                        <Link href={`/users/${project.assignedToUser!.id}`}>
+                            <div className="flex space-x-2 items-start justify-start hover:underline">
+                                <Avatar className="">
+                                    <AvatarImage src={project.assignedToUser?.image!}/>
+                                    <AvatarFallback>DP</AvatarFallback>
+                                </Avatar>
+                                <div className="flex justify-center flex-col pt-0.5">
+                                    <h4 className="text-sm font-semibold">{project.assignedToUser?.name}</h4>
+                                    <div className="flex items-center ">
                                     <span className="text-xs text-muted-foreground">
                                         {project.assignedToUser?.email}
                                     </span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     )}
                 </Card>
                 <CardContent className="p-5 ml-0 pt-0 sm:pt-5 md:ml-5 col-span-2">
