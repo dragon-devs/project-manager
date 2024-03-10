@@ -1,6 +1,7 @@
 import React from "react";
 import LandingPage from "@/app/components/LandingPage";
 import LandingPageSectionTwo from "@/app/components/LandingPageSectionTwo";
+import LandingFooter from "@/app/components/LandingFooter";
 
 export default function Home() {
     return (
@@ -8,7 +9,7 @@ export default function Home() {
             className="flex justify-center flex-col gap-3 text-sm items-center bg-background w-[100vw] relative left-[50%] right-[50%] ml-[-50vw] mr-[-50vw]">
             <LandingPage/>
             <LandingPageSectionTwo/>
-
+            <LandingFooter/>
         </div>
     );
 }

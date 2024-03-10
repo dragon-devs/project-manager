@@ -7,7 +7,6 @@ import Container from "@/components/Container";
 import {Toaster} from "@/components/ui/sonner";
 import Footer from "@/app/Footer";
 import AuthProvider from "@/app/auth/Provider";
-import localFont from "next/font/local";
 import QueryClientProvider from "@/app/QueryClientProvider";
 import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
@@ -19,11 +18,6 @@ export const metadata: Metadata = {
     title: "Project Manager",
     description: "Empower yourself with an application designed for efficient project management tailored to your unique requirements.",
 };
-
-const inter_font = localFont({
-    src: "../public/fonts/Inter-Regular.ttf"
-})
-
 
 export default async function RootLayout({children,}: Readonly<{
     children: React.ReactNode;
@@ -38,7 +32,7 @@ export default async function RootLayout({children,}: Readonly<{
     }
     return (
         <html lang="en">
-        <body className={inter_font.className}>
+        <body className={inter.className}>
         <QueryClientProvider>
             <AuthProvider>
                 <ThemeProvider
