@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.1](https://github.com/dragon-devs/project-manager/compare/v0.5.0...v0.5.1) (2024-03-10)
+
+
+### Features
+
+* Add users details page + projects ([7b0ba42](https://github.com/dragon-devs/project-manager/commit/7b0ba428f6151fd1493d2f4e39af77872c614fcf))
+* Adding images ([f28054c](https://github.com/dragon-devs/project-manager/commit/f28054cf519acedeee2c95d946c33e19f0c1d745))
+* Adding Section Two to landing page ([1e01679](https://github.com/dragon-devs/project-manager/commit/1e0167902bbf5eeccc3f258f8cc60f723c48f74b))
+* Building Landing page ([08aaedb](https://github.com/dragon-devs/project-manager/commit/08aaedba38ee4f6f43f1011c42d630482e1efc79))
+* finishing landing page. ([dcb8ecf](https://github.com/dragon-devs/project-manager/commit/dcb8ecf8b7afcf109d8f8ceb19b5ed789ce0d077))
+* **notifications:** build notifications.tsx component ([246b37b](https://github.com/dragon-devs/project-manager/commit/246b37bb9252903179d6ae569ed28173716b9cc7))
+* **notifications:** setup and build knock-notifications.tsx ([f91ded3](https://github.com/dragon-devs/project-manager/commit/f91ded3e8f89d01c94247eb2292c84ca666d8558))
+* Updated project details page. ([cec7a27](https://github.com/dragon-devs/project-manager/commit/cec7a27502878f043307104d97fea8a72c109ee0))
+
+
+### Bug Fixes
+
+* fixed some bugs and update charts. ([3bc3bb2](https://github.com/dragon-devs/project-manager/commit/3bc3bb2264d77083acc467ec284e7cce6d93d22f))
+* fixed the issue now notifications is functional ([4ff67c9](https://github.com/dragon-devs/project-manager/commit/4ff67c9683555c86ae16afa1d1a0624c37fddc41))
+* updated ([53c1adb](https://github.com/dragon-devs/project-manager/commit/53c1adb4cce9c7c4f8721a6718e830f028db71c6))
+* updated the knock notifications ([a1de3c5](https://github.com/dragon-devs/project-manager/commit/a1de3c5fd01f752874206e752506ced2fbbbda6e))
+
 ## [0.5.0](https://github.com/dragon-devs/project-manager/compare/v0.4.7...v0.5.0) (2024-02-26)
 
 
