@@ -7,7 +7,7 @@ const LandingPageSectionTwo = () => {
     return (
         <div className="sm:py-10 py-5 flex m-5 sm:m-0">
             <Container>
-                <h1 className="sm:text-3xl text-xl font-bold text-center text-primary mb-5 sm:mb-10">
+                <h1 className="animate-fade-down sm:text-3xl text-xl font-bold text-center text-primary mb-5 sm:mb-10">
                     <span className="dark:text-green-300 text-green-500">Save Time</span> and Manage Your All
                     Project <span className="dark:text-amber-300 text-amber-500">Easily</span>.</h1>
                 {renderListLTR("Project Management Can Easily", "Experience seamless project planning and execution with our intuitive management tools. Improve collaboration and productivity across your team, effortlessly.",
@@ -25,7 +25,7 @@ const LandingPageSectionTwo = () => {
 
 const renderListRTL = (title: string, description: string, icon: React.ReactNode) => {
     return (
-        <div className="relative px-3 flex sm:grid grid-cols-2 " dir="rtl">
+        <div className="animate-fade-left relative px-3 flex sm:grid grid-cols-2 " dir="rtl">
             <div></div>
             <ol className="relative">
                 <li className="mb-10 sm:ms-10 ms-7 ">
@@ -51,7 +51,7 @@ const renderListRTL = (title: string, description: string, icon: React.ReactNode
 
 const renderListLTR = (title: string, description: string, icon: React.ReactNode) => {
     return (
-        <div className="relative px-3 flex sm:grid grid-cols-2 " dir="ltr">
+        <div className="animate-fade-right relative px-3 flex sm:grid grid-cols-2 " dir="ltr">
             <div></div>
             <ol className="relative">
                 <li className="mb-10 sm:ms-10 ms-7 ">

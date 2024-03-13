@@ -9,8 +9,8 @@ const LandingPage = () => {
         <div className="w-full sm:-m-5 -m-3 py-10 bg-gradient-to-r from-secondary to-background">
             <Container>
                 <div
-                    className="flex sm:p-5 p-3 justify-center flex-col md:flex-row gap-3 sm:gap-5 text-sm items-center">
-                    <div className="flex items-start justify-center flex-col gap-3 sm:gap-5">
+                    className=" flex sm:p-5 p-3 justify-center flex-col md:flex-row gap-3 sm:gap-5 text-sm items-center">
+                    <div className=" animate-fade-left flex items-start justify-center flex-col gap-3 sm:gap-5">
                         <h1 className="sm:text-5xl text-3xl font-extrabold text-primary">
                             Manage Your Projects Easily and Make Amazing <span
                             className="dark:text-amber-300 text-amber-500">Experience</span>.
@@ -23,7 +23,8 @@ const LandingPage = () => {
                             <Button className="bg-primary text-center mt-2">Login for Demo</Button>
                         </Link>
                     </div>
-                    <Image width={500} height={500} src="/hero_icon.svg" className="p-5" alt="hero_picture"/>
+                    <Image width={500} height={500} src="/hero_icon.svg" className="p-5 animate-fade-right"
+                           alt="hero_picture"/>
                 </div>
             </Container>
         </div>
