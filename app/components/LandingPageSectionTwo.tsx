@@ -11,13 +11,13 @@ const LandingPageSectionTwo = () => {
                     <span className="dark:text-green-300 text-green-500">Save Time</span> and Manage Your All
                     Project <span className="dark:text-amber-300 text-amber-500">Easily</span>.</h1>
                 {renderListLTR("Project Management Can Easily", "Experience seamless project planning and execution with our intuitive management tools. Improve collaboration and productivity across your team, effortlessly.",
-                    <FilesIcon className="w-5 h-5 text-primary"/>)}
+                    <FilesIcon className="w-5 h-5 text-blue-500"/>)}
                 {renderListRTL("Project Assigning to Users", "Effortlessly assign and track projects for your team members using our intuitive management tools. Streamline collaboration and boost productivity.",
-                    <FileCheck className="w-5 h-5 text-primary"/>)}
+                    <FileCheck className="w-5 h-5 text-blue-500"/>)}
                 {renderListLTR("Team Management and Collaboration", "Efficiently manage your team and foster seamless collaboration with our powerful tools. Streamline communication, tasks, and projects to drive success.",
-                    <UsersIcon className="w-5 h-5 text-primary"/>)}
+                    <UsersIcon className="w-5 h-5 text-blue-500"/>)}
                 {renderListRTL("Time Management And Save", "Optimize your time management and save valuable resources with our innovative tools. Increase productivity and efficiency across your projects.",
-                    <TimerIcon className="w-5 h-5 text-primary"/>)}
+                    <TimerIcon className="w-5 h-5 text-blue-500"/>)}
             </Container>
         </div>
     );
@@ -31,7 +31,7 @@ const renderListRTL = (title: string, description: string, icon: React.ReactNode
                 <li className="mb-10 sm:ms-10 ms-7 ">
                 <span
                     className="absolute flex items-center
-                    shadow-lg shadow-primary transition-all
+                    shadow-lg shadow-blue-500 transition-all
                     justify-center w-10 h-10 bg-primary-foreground rounded-full -start-5
                     dark:bg-background">
                     {icon}
@@ -57,7 +57,7 @@ const renderListLTR = (title: string, description: string, icon: React.ReactNode
                 <li className="mb-10 sm:ms-10 ms-7 ">
                     <span
                         className="absolute flex items-center
-                        shadow-lg shadow-primary transition-all
+                        shadow-lg shadow-blue-500 transition-all
                         justify-center w-10 h-10 bg-primary-foreground rounded-full -start-5
                         dark:bg-background">
                         {icon}
