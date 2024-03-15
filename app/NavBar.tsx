@@ -22,7 +22,7 @@ import {Skeleton} from "@/components/ui/skeleton";
 import {MobileNav} from "@/app/MobileNav";
 import {Button} from "@/components/ui/button";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "@/components/ui/tooltip";
-import {NotificationsPage} from "@/app/components/knock-notifications";
+import NotificationsPage from "@/app/components/NotificationsPage";
 
 const NavBar = () => {
     const currentPath = usePathname();

@@ -1,7 +1,6 @@
 'use client';
 
-import {KnockFeedProvider, KnockProvider, NotificationCell, useKnockFeed,} from "@knocklabs/react";
-import {useSession} from "next-auth/react";
+import {NotificationCell, useKnockFeed,} from "@knocklabs/react";
 import React, {useEffect} from "react";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 import {BellIcon} from "@radix-ui/react-icons";
@@ -10,7 +9,7 @@ import {ScrollArea} from "@/components/ui/scroll-area";
 import "@knocklabs/react/dist/index.css";
 
 
-const NotificationToaster = () => {
+export const NotificationToaster = () => {
     const {feedClient} = useKnockFeed();
 
     // @ts-ignore
@@ -33,8 +32,7 @@ const NotificationToaster = () => {
 
 };
 
-export default NotificationToaster;
-const NotificationsList = () => {
+export const NotificationsList = () => {
     const {feedClient, useFeedStore} = useKnockFeed();
     const notifications = useFeedStore((state) => state.items);
 
@@ -96,23 +94,6 @@ const NotificationsList = () => {
     );
 };
 
-export const NotificationsPage = () => {
-    const {data: sessionData, status} = useSession();
 
-    if (status === "loading") return <div
-        className="rounded-full flex items-center justify-center border w-9 h-9 bg-muted animate-pulse"></div>
-    if (!sessionData) return null
 
-    const {user} = sessionData;
 
-    return (
-        <KnockProvider apiKey={process.env.NEXT_PUBLIC_KNOCK_PUBLIC_API_KEY!} userId={user!.id}>
-            <KnockFeedProvider feedId={process.env.NEXT_PUBLIC_KNOCK_FEED_CHANNEL_ID!}>
-                <div>
-                    <NotificationsList/>
-                    <NotificationToaster/>
-                </div>
-            </KnockFeedProvider>
-        </KnockProvider>
-    );
-};
