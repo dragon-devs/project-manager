@@ -65,8 +65,7 @@ const UserProfile = async ({params}: Props) => {
                 <CardContent className="p-0 pb-5">
                     <div className="flex flex-col  gap-3 ">
                         {!user.assignedProjects || user.assignedProjects.length === 0 && (
-                            <div className="flex  self-center pb-3">Currently there are no projects assigned to
-                                you.</div>
+                            <div className="flex  self-center pb-3">Currently there are no projects.</div>
                         )}
                         {user.assignedProjects.map(project => (
                             <div key={project.id} className="pt-3 border-t">
