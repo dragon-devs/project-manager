@@ -45,7 +45,8 @@ const ProjectCard: React.FC<ProjectCardProps> = async ({project}) => {
                   <PopoverContent className="w-auto">
                     <div className="flex flex-col space-y-4 items-center justify-center">
                       <div className="flex justify-center flex-col space-y-2">
-                        <h4 className="text-sm font-semibold">{project.assignedToUser?.name}</h4>
+                        <Link href={`/users/${project.assignedToUserId}`}
+                              className="text-sm font-semibold focus:underline hover:underline">{project.assignedToUser?.name}</Link>
                         <Badge className="text-[10px] w-20 justify-center">
                           {project.assignedToUser?.role}
                         </Badge>
