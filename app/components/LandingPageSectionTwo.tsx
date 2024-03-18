@@ -10,14 +10,26 @@ const LandingPageSectionTwo = () => {
                 <h1 className="animate-fade-down sm:text-3xl text-xl font-bold text-center text-primary mb-5 sm:mb-10">
                     <span className="dark:text-green-300 text-green-500">Save Time</span> and Manage Your All
                     Project <span className="dark:text-amber-300 text-amber-500">Easily</span>.</h1>
-                {renderListLTR("Project Management Can Easily", "Experience seamless project planning and execution with our intuitive management tools. Improve collaboration and productivity across your team, effortlessly.",
-                    <FilesIcon className="w-5 h-5 text-blue-500"/>)}
-                {renderListRTL("Project Assigning to Users", "Effortlessly assign and track projects for your team members using our intuitive management tools. Streamline collaboration and boost productivity.",
-                    <FileCheck className="w-5 h-5 text-blue-500"/>)}
-                {renderListLTR("Team Management and Collaboration", "Efficiently manage your team and foster seamless collaboration with our powerful tools. Streamline communication, tasks, and projects to drive success.",
-                    <UsersIcon className="w-5 h-5 text-blue-500"/>)}
-                {renderListRTL("Time Management And Save", "Optimize your time management and save valuable resources with our innovative tools. Increase productivity and efficiency across your projects.",
-                    <TimerIcon className="w-5 h-5 text-blue-500"/>)}
+                <div className="hidden sm:block">
+                    {renderListLTR("Project Management Can Easily", "Experience seamless project planning and execution with our intuitive management tools. Improve collaboration and productivity across your team, effortlessly.",
+                        <FilesIcon className="w-5 h-5 text-blue-500"/>)}
+                    {renderListRTL("Project Assigning to Users", "Effortlessly assign and track projects for your team members using our intuitive management tools. Streamline collaboration and boost productivity.",
+                        <FileCheck className="w-5 h-5 text-blue-500"/>)}
+                    {renderListLTR("Team Management and Collaboration", "Efficiently manage your team and foster seamless collaboration with our powerful tools. Streamline communication, tasks, and projects to drive success.",
+                        <UsersIcon className="w-5 h-5 text-blue-500"/>)}
+                    {renderListRTL("Time Management And Save", "Optimize your time management and save valuable resources with our innovative tools. Increase productivity and efficiency across your projects.",
+                        <TimerIcon className="w-5 h-5 text-blue-500"/>)}
+                </div>
+                <div className="p-3 sm:hidden block">
+                    {renderListLTR("Project Management Can Easily", "Experience seamless project planning and execution with our intuitive management tools. Improve collaboration and productivity across your team, effortlessly.",
+                        <FilesIcon className="w-5 h-5 text-blue-500"/>)}
+                    {renderListLTR("Project Assigning to Users", "Effortlessly assign and track projects for your team members using our intuitive management tools. Streamline collaboration and boost productivity.",
+                        <FileCheck className="w-5 h-5 text-blue-500"/>)}
+                    {renderListLTR("Team Management and Collaboration", "Efficiently manage your team and foster seamless collaboration with our powerful tools. Streamline communication, tasks, and projects to drive success.",
+                        <UsersIcon className="w-5 h-5 text-blue-500"/>)}
+                    {renderListLTR("Time Management And Save", "Optimize your time management and save valuable resources with our innovative tools. Increase productivity and efficiency across your projects.",
+                        <TimerIcon className="w-5 h-5 text-blue-500"/>)}
+                </div>
             </Container>
         </div>
     );
