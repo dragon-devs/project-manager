@@ -1,4 +1,4 @@
-import {Frameworks, Priority, Status, User, Role} from "@prisma/client";
+import {Frameworks, Priority, Role, Status, User} from "@prisma/client";
 
 export interface Project {
   id: string;
@@ -33,5 +33,6 @@ export interface Users {
   emailVerified: Date | null;
   image: string | null;
   role: Role | null;
+  createdAt?: Date;
 }
 

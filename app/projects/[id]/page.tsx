@@ -134,4 +134,5 @@ const ProjectDetailsPage = async ({params}: Props) => {
     );
 };
 
+
 export default ProjectDetailsPage;

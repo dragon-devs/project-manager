@@ -64,6 +64,7 @@ model User {
   sessions         Session[]
   Teams            Teams[]   @relation("members")
   assignedProjects Project[]
+  createdAt        DateTime  @default(now())
 }
 
 model Teams {
