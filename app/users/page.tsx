@@ -3,8 +3,23 @@ import prisma from "@/prisma/client";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import Link from "next/link";
 import moment from "moment";
+import authOptions from "@/app/auth/authOptions";
+import {getServerSession} from "next-auth";
 
 const UsersPage = async () => {
+
+    const session = await getServerSession(authOptions)
+    const user = await prisma.user.findUnique({
+        where: {
+            id: session!.user!.id,
+        },
+        include: {
+            assignedProjects: true
+        }
+    })
+
+    if (!(user!.role === "ADMIN"))
+        return <div className="text-center text-destructive">You are forbidden to access this page.</div>
     const users = await prisma.user.findMany(
         {
             include: {
@@ -26,7 +41,7 @@ const UsersPage = async () => {
                         </CardHeader>
                         <CardContent>
                             <div>
-                                <p className="text-sm text-muted-foreground">Registered on
+                                <p className="text-sm text-muted-foreground">Registered
                                     <span className="ml-2 font-bold text-primary">{formatTimeAgo(user.createdAt)}</span>
                                 </p>
                                 <p className="text-sm text-muted-foreground">Assigned Projects
