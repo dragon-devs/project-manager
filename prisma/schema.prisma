@@ -59,12 +59,13 @@ model User {
   email            String?   @unique
   emailVerified    DateTime?
   image            String?
-  role             Role?     @default(MEMBER)
+  role             Role?     @default(VIEWER)
   accounts         Account[]
   sessions         Session[]
   Teams            Teams[]   @relation("members")
   assignedProjects Project[]
   createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 }
 
 model Teams {
@@ -163,7 +164,7 @@ enum Priority {
 
 enum Role {
   ADMIN
-  STAFF
+  MODERATOR
   MEMBER
-  CLIENT
+  VIEWER
 }
