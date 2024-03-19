@@ -8,6 +8,7 @@ import {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
 import {PrioritiesText} from "@/app/components/PrioritySignals";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import Link from "next/link";
+import moment from "moment/moment";
 
 interface Props {
     params: { id: string }
@@ -113,7 +114,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                                     Created
                                 </p>
                                 <p className="text-sm font-medium">
-                                    {`${project.createdAt.toDateString()} - ${project.createdAt.toLocaleTimeString()}`}
+                                    {formatTimeAgo(project.createdAt)}
                                 </p>
                             </div>
                         </div>
@@ -122,7 +123,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                                 Updated
                             </p>
                             <p className="text-sm font-medium">
-                                {`${project.updatedAt.toDateString()} - ${project.updatedAt.toLocaleTimeString()}`}
+                                {project.updatedAt ? formatTimeAgo(project.updatedAt) : "Not Updated"}
                             </p>
                         </div>
                     </div>
@@ -134,5 +135,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
     );
 };
 
-
+const formatTimeAgo = (timestamp: Date) => {
+    return moment(timestamp).fromNow();
+};
 export default ProjectDetailsPage;
