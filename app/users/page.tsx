@@ -6,6 +6,7 @@ import moment from "moment";
 import authOptions from "@/app/auth/authOptions";
 import {getServerSession} from "next-auth";
 import DeleteButton from "@/app/users/DeleteButton";
+import AssigneeSelectRole from "@/app/users/AssigneeSelectRole";
 
 
 const UsersPage = async () => {
@@ -31,7 +32,7 @@ const UsersPage = async () => {
 
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 sm:gap-5 gap-3">
             {users.map(user => (
                 <div key={user.id}>
                     <Card>
@@ -41,11 +42,11 @@ const UsersPage = async () => {
                             </CardTitle>
                             <CardDescription>
                                 {user.email}
-                                <p className="text-sm text-muted font-bold capitalize">{user.role}</p>
                             </CardDescription>
                         </CardHeader>
                         <CardContent className="flex justify-between flex-row-reverse">
-                            <div>
+                            <div className="flex gap-3">
+                                <AssigneeSelectRole id={user.id} role={user.role!}/>
                                 <DeleteButton id={user.id}/>
                             </div>
                             <div>
