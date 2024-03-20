@@ -1,9 +1,9 @@
 import {Project} from "@/types";
 import prisma from "@/prisma/client";
-import PopoverUserAvatar from "@/app/components/popover-user-avatar";
 import Statues from "@/app/components/Status";
 import PrioritySignals from "@/app/components/PrioritySignals";
 import Link from "next/link";
+import UserPopover from "@/app/components/UserPopover";
 
 export async function RecentProjects() {
   const projects = await prisma.project.findMany({
@@ -33,10 +33,10 @@ export async function RecentProjects() {
                   <div className="ml-auto font-medium mr-3"><PrioritySignals priority={project.priority}/></div>
                   {project.assignedToUserId ? (
                       <div className="border rounded-full">
-                        <PopoverUserAvatar project={project}/>
+                        {project.assignedToUser && <UserPopover user={project.assignedToUser!}/>}
                       </div>
                   ) : (
-                      <div className="mr-[42px]"></div>
+                      <div className="mr-[42px]">sd</div>
                   )}
                 </div>
             ))
