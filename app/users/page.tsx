@@ -38,28 +38,28 @@ const UsersPage = async () => {
                 <div key={user.id}>
                     <Card>
                         <CardHeader className="relative">
-                            <CardTitle className="capitalize hover:underline">
+                            <CardTitle className="truncate sm:w-full w-3/4 capitalize hover:underline">
                                 <Link href={`/users/${user.id}`}>{user.name}</Link>
                             </CardTitle>
-                            <CardDescription>
-                                {user.email}
-                            </CardDescription>
+                            <CardDescription className="truncate sm:w-full w-3/4">{user.email}</CardDescription>
                             <Avatar className="absolute w-12 h-12 top-4 right-5">
                                 <AvatarImage src={user.image!}/>
                                 <AvatarFallback>{user.name!.slice(0, 2)}</AvatarFallback>
                             </Avatar>
                         </CardHeader>
                         <CardContent className="flex justify-between flex-row-reverse">
-                            <div className="flex gap-3">
+                            <div className="flex gap-2">
                                 <AssigneeSelectRole id={user.id} role={user.role!}/>
                                 <DeleteButton id={user.id}/>
                             </div>
-                            <div>
-                                <p className="text-sm text-muted-foreground">Assigned Projects
-                                    <span className="ml-2 font-bold text-primary">{user.assignedProjects.length}</span>
+                            <div className="flex flex-col text-[10px]">
+                                <p className="sm:text-sm text-muted-foreground">Assigned Projects
+                                    <span
+                                        className="ml-1.5 font-bold text-primary">{user.assignedProjects.length}</span>
                                 </p>
-                                <p className="text-sm text-muted-foreground ">Registered
-                                    <span className="ml-2 font-bold text-primary">{formatTimeAgo(user.createdAt)}</span>
+                                <p className="sm:text-sm text-muted-foreground ">Registered
+                                    <span
+                                        className="ml-1.5 font-bold text-primary">{formatTimeAgo(user.createdAt)}</span>
                                 </p>
                             </div>
                         </CardContent>

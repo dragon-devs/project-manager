@@ -5,12 +5,16 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {ChevronRightIcon} from "@radix-ui/react-icons";
 import prisma from "@/prisma/client";
 import Link from "next/link";
+import authOptions from "@/app/auth/authOptions";
+import {getServerSession} from "next-auth";
+import {redirect} from "next/navigation";
 
 interface Props {
     params: { id: string }
 }
 
 const UserProfile = async ({params}: Props) => {
+    const session = await getServerSession(authOptions)
     const user = await prisma.user.findUnique({
         where: {
             id: params.id
@@ -20,6 +24,8 @@ const UserProfile = async ({params}: Props) => {
             accounts: true,
         }
     })
+    if (session && user!.id === session!.user!.id)
+        return redirect("/users/me")
     if (!user)
         return console.log("Unable to fetch users.")
 
