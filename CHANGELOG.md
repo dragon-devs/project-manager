@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.2](https://github.com/dragon-devs/project-manager/compare/v0.5.1...v0.5.2) (2024-03-20)
+
+
+### Features
+
+* Adding customAlert and handling deletebuttons ([ea94e93](https://github.com/dragon-devs/project-manager/commit/ea94e935edc898961b861742889865abfb91edf7))
+* Adding users lists grid ([de9b87b](https://github.com/dragon-devs/project-manager/commit/de9b87bc66b92b69cd5cc4ec76909e559b28bed5))
+* **API:** add users patch api route ([a1e326e](https://github.com/dragon-devs/project-manager/commit/a1e326e1529c8470df2d37a54e38032e3a9e3d5e))
+* **Projects:** projects details created updated with moment ago ([237d5e8](https://github.com/dragon-devs/project-manager/commit/237d5e86c938e7a4a15a728b60b2a1bd310f925b))
+* **Users:** add changing roles ([2ece952](https://github.com/dragon-devs/project-manager/commit/2ece9520883cd25dd18ccefeb14d145e3c8ee425))
+* **Users:** Securing the users route only admin can access it. ([331dd44](https://github.com/dragon-devs/project-manager/commit/331dd446b578c50faa56e42d41be4cfd2c68e9f9))
+
+
+### Bug Fixes
+
+* adding user profile loading skeletons ([c64af78](https://github.com/dragon-devs/project-manager/commit/c64af78fed7d28d60c1413e0c3387a68b4a6be93))
+* **refactor:** NotificationsPage.tsx fixed light and dark mode ([051b03f](https://github.com/dragon-devs/project-manager/commit/051b03f6d5fa76f9562fbedf02e19873d45df8a3))
+
 ### [0.5.1](https://github.com/dragon-devs/project-manager/compare/v0.5.0...v0.5.1) (2024-03-10)
 
 
