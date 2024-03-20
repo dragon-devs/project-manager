@@ -7,6 +7,7 @@ import authOptions from "@/app/auth/authOptions";
 import {getServerSession} from "next-auth";
 import DeleteButton from "@/app/users/DeleteButton";
 import AssigneeSelectRole from "@/app/users/AssigneeSelectRole";
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 
 
 const UsersPage = async () => {
@@ -36,13 +37,17 @@ const UsersPage = async () => {
             {users.map(user => (
                 <div key={user.id}>
                     <Card>
-                        <CardHeader>
+                        <CardHeader className="relative">
                             <CardTitle className="capitalize hover:underline">
                                 <Link href={`/users/${user.id}`}>{user.name}</Link>
                             </CardTitle>
                             <CardDescription>
                                 {user.email}
                             </CardDescription>
+                            <Avatar className="absolute w-12 h-12 top-4 right-5">
+                                <AvatarImage src={user.image!}/>
+                                <AvatarFallback>{user.name!.slice(0, 2)}</AvatarFallback>
+                            </Avatar>
                         </CardHeader>
                         <CardContent className="flex justify-between flex-row-reverse">
                             <div className="flex gap-3">
