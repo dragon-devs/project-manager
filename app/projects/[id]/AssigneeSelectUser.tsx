@@ -1,30 +1,22 @@
 'use client';
 
 import React from 'react';
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 import {Project, Users} from "@/types";
 import {useQuery} from "@tanstack/react-query";
 import axios from "axios";
 import {Skeleton} from "@/components/ui/skeleton";
 import {useRouter} from "next/navigation";
 import {toast} from "sonner";
+import CustomAssigneeSelectUser from "@/app/components/CustomAssigneeSelectUser";
 
 
 const AssigneeSelectUser = ({project}: { project: Project }) => {
-  const router = useRouter();
-  const {data: users, error, isLoading} = useUsers();
+    const router = useRouter();
+    const {data: users, error, isLoading} = useUsers();
 
-  if (isLoading) return <Skeleton className="w-[10rem]"/>
+    if (isLoading) return <Skeleton className="w-[10rem]"/>
 
-  if (error) return null;
+    if (error) return null;
 
   const assignProject = (userId: string) => {
     const assignedToUserId = userId === "unassigned" ? null : userId;
@@ -41,24 +33,14 @@ const AssigneeSelectUser = ({project}: { project: Project }) => {
   };
 
   return (
-      <Select
-          defaultValue={project.assignedToUserId ?? "unassigned"}
-          onValueChange={assignProject}>
-        <SelectTrigger className="sm:w-[10rem]">
-          <SelectValue placeholder="Assign..."/>
-        </SelectTrigger>
-        <SelectContent>
-          <SelectGroup>
-            <SelectLabel>Suggestions</SelectLabel>
-            <SelectItem value="unassigned">Unassigned</SelectItem>
-            {users?.map(user => (
-                <SelectItem key={user.id} value={user.id}>
-                  {user.name}
-                </SelectItem>
-            ))}
-          </SelectGroup>
-        </SelectContent>
-      </Select>
+      <div>
+          <CustomAssigneeSelectUser
+              SelectedUser={project.assignedToUser?.name ?? "Unassigned"}
+              users={users!}
+              defaultValue={project.assignedToUserId ?? "unassigned"}
+              onValueChange={assignProject}
+          />
+      </div>
   );
 };
 
