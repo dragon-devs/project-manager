@@ -25,6 +25,14 @@ const UsersPage = async () => {
         return <div className="text-center text-destructive">You are forbidden to access this page.</div>
     const users = await prisma.user.findMany(
         {
+            where: {
+                NOT: {
+                    id: session!.user!.id
+                }
+            },
+            orderBy: {
+                name: "asc"
+            },
             include: {
                 assignedProjects: true
             }

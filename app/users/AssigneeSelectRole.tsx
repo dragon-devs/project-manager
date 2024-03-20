@@ -13,7 +13,7 @@ const AssigneeSelectRole = ({id, role}: { id: string, role: Role }) => {
 
     const changeRole = (role: string) => {
         axios
-            .patch('/api/users/' + id, {role})
+            .patch('/api/users/' + id, {role: role.toUpperCase()})
             .then(() => {
                 router.refresh();
             })

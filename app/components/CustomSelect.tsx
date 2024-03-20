@@ -1,58 +1,79 @@
-// components/CustomSelect.tsx
 import React from 'react';
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue
-} from '@/components/ui/select';
-import {Skeleton} from '@/components/ui/skeleton';
-import {RolesOption} from "@/app/components/Roles";
+import {Popover, PopoverContent, PopoverTrigger} from '@/components/ui/popover';
+import {Button} from '@/components/ui/button';
+import {CaretSortIcon, CheckIcon} from '@radix-ui/react-icons';
+import {Command, CommandEmpty, CommandGroup, CommandInput, CommandItem} from '@/components/ui/command';
+import Roles from "@/app/components/Roles";
 
+interface Option {
+    value: string;
+    label: string;
+}
 
 interface CustomSelectProps {
     defaultValue: string;
-    options: RolesOption[];
-    label?: string;
+    options: Option[];
     unassignedLabel?: string;
     onValueChange: (value: string) => void;
-    loading: boolean;
+    loading?: boolean;
 }
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
-                                                       defaultValue,
-                                                       label = "Suggestions",
+                                                       defaultValue = 'Suggestions',
                                                        options,
-                                                       unassignedLabel,
+                                                       unassignedLabel = "unassigned",
                                                        onValueChange,
                                                        loading
                                                    }) => {
-    if (loading) {
-        return <Skeleton className="w-[10rem]"/>;
-    }
+    const [searchValue, setSearchValue] = React.useState('');
+    const [value, setValue] = React.useState(defaultValue);
+    const [open, setOpen] = React.useState(false);
+
+    const handleSelect = (selectedValue: string) => {
+        setValue(selectedValue === value ? '' : selectedValue);
+        onValueChange(selectedValue);
+        setOpen(false);
+    };
 
     return (
-        <Select defaultValue={defaultValue} onValueChange={onValueChange}>
-            <SelectTrigger className="sm:w-[10rem]">
-                <SelectValue placeholder="Assign..."/>
-            </SelectTrigger>
-            <SelectContent>
-                <SelectGroup>
-                    <SelectLabel className="border-b">{label}</SelectLabel>
-                    {unassignedLabel && (
-                        <SelectItem value={unassignedLabel!} className="capitalize">{unassignedLabel}</SelectItem>
-                    )}
-                    {options?.map(option => (
-                        <SelectItem key={option.value} value={option.value}>
-                            {option.label}
-                        </SelectItem>
-                    ))}
-                </SelectGroup>
-            </SelectContent>
-        </Select>
+        <Popover open={open} onOpenChange={setOpen}>
+            <PopoverTrigger asChild>
+                <Button
+                    variant="outline"
+                    role="combobox"
+                    aria-expanded={open}
+                    className="justify-between"
+                >
+                    {value ? <Roles role={value}/> : 'Select framework...'}
+                    <CaretSortIcon className="h-4 w-4 shrink-0 opacity-50"/>
+                </Button>
+            </PopoverTrigger>
+            <PopoverContent className="p-0 w-fit">
+                <Command>
+                    <CommandInput
+                        placeholder="Search item..."
+                        className="h-9"
+                        value={searchValue}
+                        onInput={(e: React.ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value)}
+                    />
+                    <CommandEmpty>No item found.</CommandEmpty>
+                    <CommandGroup>
+                        {options
+                            .filter((option) => option.label.toLowerCase().includes(searchValue.toLowerCase()))
+                            .map((option) => (
+                                <CommandItem
+                                    key={option.value}
+                                    value={option.value}
+                                    onSelect={() => handleSelect(option.value)}
+                                >
+                                    <Roles role={option.value}/>
+                                    {value === option.value && <CheckIcon className="ml-auto h-4 w-4 opacity-100"/>}
+                                </CommandItem>
+                            ))}
+                    </CommandGroup>
+                </Command>
+            </PopoverContent>
+        </Popover>
     );
 };
 
