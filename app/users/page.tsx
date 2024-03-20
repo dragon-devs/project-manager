@@ -5,9 +5,10 @@ import Link from "next/link";
 import moment from "moment";
 import authOptions from "@/app/auth/authOptions";
 import {getServerSession} from "next-auth";
+import DeleteButton from "@/app/users/DeleteButton";
+
 
 const UsersPage = async () => {
-
     const session = await getServerSession(authOptions)
     const user = await prisma.user.findUnique({
         where: {
@@ -28,6 +29,7 @@ const UsersPage = async () => {
         }
     );
 
+
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5 gap-3">
             {users.map(user => (
@@ -37,15 +39,21 @@ const UsersPage = async () => {
                             <CardTitle className="capitalize hover:underline">
                                 <Link href={`/users/${user.id}`}>{user.name}</Link>
                             </CardTitle>
-                            <CardDescription>{user.email}</CardDescription>
+                            <CardDescription>
+                                {user.email}
+                                <p className="text-sm text-muted font-bold capitalize">{user.role}</p>
+                            </CardDescription>
                         </CardHeader>
-                        <CardContent>
+                        <CardContent className="flex justify-between flex-row-reverse">
                             <div>
-                                <p className="text-sm text-muted-foreground">Registered
-                                    <span className="ml-2 font-bold text-primary">{formatTimeAgo(user.createdAt)}</span>
-                                </p>
+                                <DeleteButton id={user.id}/>
+                            </div>
+                            <div>
                                 <p className="text-sm text-muted-foreground">Assigned Projects
                                     <span className="ml-2 font-bold text-primary">{user.assignedProjects.length}</span>
+                                </p>
+                                <p className="text-sm text-muted-foreground ">Registered
+                                    <span className="ml-2 font-bold text-primary">{formatTimeAgo(user.createdAt)}</span>
                                 </p>
                             </div>
                         </CardContent>
