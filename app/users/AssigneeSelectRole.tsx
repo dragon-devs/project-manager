@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import CustomSelect from "@/app/components/CustomSelect";
 import {Role} from "@prisma/client";
 import axios from "axios";
 import {useRouter} from "next/navigation";
 import {toast} from "sonner";
 import {roles} from "@/app/components/Roles";
+import CustomRoleSelect from "@/app/components/CustomRoleSelect";
 
 const AssigneeSelectRole = ({id, role}: { id: string, role: Role }) => {
     const router = useRouter();
@@ -22,12 +22,10 @@ const AssigneeSelectRole = ({id, role}: { id: string, role: Role }) => {
             });
     }
 
-
     return (
         <div>
-            <CustomSelect
+            <CustomRoleSelect
                 loading={false}
-                label="Roles"
                 defaultValue={role}
                 options={roles}
                 onValueChange={changeRole}

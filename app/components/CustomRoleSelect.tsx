@@ -13,18 +13,20 @@ interface Option {
 interface CustomSelectProps {
     defaultValue: string;
     options: Option[];
+    label?: string;
     unassignedLabel?: string;
     onValueChange: (value: string) => void;
-    loading?: boolean;
+    loading: boolean;
 }
 
-const CustomSelect: React.FC<CustomSelectProps> = ({
-                                                       defaultValue = 'Suggestions',
-                                                       options,
-                                                       unassignedLabel = "unassigned",
-                                                       onValueChange,
-                                                       loading
-                                                   }) => {
+const CustomRoleSelect: React.FC<CustomSelectProps> = ({
+                                                           defaultValue,
+                                                           label = 'Suggestions',
+                                                           options,
+                                                           unassignedLabel,
+                                                           onValueChange,
+                                                           loading
+                                                       }) => {
     const [searchValue, setSearchValue] = React.useState('');
     const [value, setValue] = React.useState(defaultValue);
     const [open, setOpen] = React.useState(false);
@@ -37,7 +39,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
 
     return (
         <Popover open={open} onOpenChange={setOpen}>
-            <PopoverTrigger asChild>
+            <PopoverTrigger className="border-none" asChild>
                 <Button
                     variant="outline"
                     role="combobox"
@@ -48,7 +50,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
                     <CaretSortIcon className="h-4 w-4 shrink-0 opacity-50"/>
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="p-0 w-fit">
+            <PopoverContent className="p-0">
                 <Command>
                     <CommandInput
                         placeholder="Search item..."
@@ -77,4 +79,4 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
     );
 };
 
-export default CustomSelect;
+export default CustomRoleSelect;
