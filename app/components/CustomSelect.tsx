@@ -10,15 +10,12 @@ import {
     SelectValue
 } from '@/components/ui/select';
 import {Skeleton} from '@/components/ui/skeleton';
+import {RolesOption} from "@/app/components/Roles";
 
-interface Option {
-    value: string;
-    label: string;
-}
 
 interface CustomSelectProps {
     defaultValue: string;
-    options: Option[];
+    options: RolesOption[];
     label?: string;
     unassignedLabel?: string;
     onValueChange: (value: string) => void;

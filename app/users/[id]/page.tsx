@@ -1,6 +1,5 @@
 import React from 'react';
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
-import {Badge} from "@/components/ui/badge";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import {ChevronRightIcon} from "@radix-ui/react-icons";
 import prisma from "@/prisma/client";
@@ -8,6 +7,7 @@ import Link from "next/link";
 import authOptions from "@/app/auth/authOptions";
 import {getServerSession} from "next-auth";
 import {redirect} from "next/navigation";
+import Roles from "@/app/components/Roles";
 
 interface Props {
     params: { id: string }
@@ -38,7 +38,7 @@ const UserProfile = async ({params}: Props) => {
                     <div className="flex flex-col gap-2">
                         <CardTitle>{user.name}</CardTitle>
                         <CardDescription>{user.email}</CardDescription>
-                        <Badge className="w-20 justify-center">{user.role}</Badge>
+                        <Roles role={user.role!} className="bg-background"/>
                     </div>
                     <div className="sm:pb-0 pb-5 sm:pl-3">
                         <Avatar className="w-20 h-20 border">

@@ -6,6 +6,7 @@ import {Role} from "@prisma/client";
 import axios from "axios";
 import {useRouter} from "next/navigation";
 import {toast} from "sonner";
+import {roles} from "@/app/components/Roles";
 
 const AssigneeSelectRole = ({id, role}: { id: string, role: Role }) => {
     const router = useRouter();
@@ -20,12 +21,7 @@ const AssigneeSelectRole = ({id, role}: { id: string, role: Role }) => {
                 toast.error('Changes could not be saved.');
             });
     }
-    const roles = [
-        {value: "ADMIN", label: "Admin"},
-        {value: "MODERATOR", label: "Moderator"},
-        {value: "MEMBER", label: "Member"},
-        {value: "VIEWER", label: "Viewer"}
-    ]
+
 
     return (
         <div>

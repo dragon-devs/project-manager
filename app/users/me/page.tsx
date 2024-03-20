@@ -3,10 +3,11 @@ import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import {Badge} from "@/components/ui/badge";
 import {ChevronRightIcon} from "@radix-ui/react-icons";
 import ProjectCard from "@/app/components/ProjectCard";
 import prisma from "@/prisma/client";
+import Link from "next/link";
+import Roles from "@/app/components/Roles";
 
 
 const MyProfile = async () => {
@@ -25,7 +26,7 @@ const MyProfile = async () => {
 
   return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-5 ">
-        <div className="flex flex-col">
+        <div className="flex flex-col gap-3 sm:gap-5">
           <Card>
             <CardHeader
                 className="dark:bg-accent bg-accent flex sm:flex-row flex-col-reverse
@@ -33,7 +34,7 @@ const MyProfile = async () => {
               <div className="flex flex-col gap-2">
                 <CardTitle>{user.name}</CardTitle>
                 <CardDescription>{user.email}</CardDescription>
-                <Badge className="w-20 justify-center">{user.role}</Badge>
+                <Roles className="bg-background" role={user.role!}/>
               </div>
               <div className="sm:pb-0 pb-5 sm:pl-3">
                 <Avatar className="w-20 h-20 border">
@@ -58,6 +59,20 @@ const MyProfile = async () => {
               </div>
             </CardContent>
           </Card>
+          {user.role === "ADMIN" && (
+              <Card>
+                <CardHeader>
+                  <CardTitle>Admin Control Panel</CardTitle>
+                  <CardDescription>Reserved for administrators only, providing full control.</CardDescription>
+                </CardHeader>
+                <CardContent className="">
+                  <div className="font-bold">
+                    <Link href="/users">All Users Details</Link>
+                  </div>
+                </CardContent>
+              </Card>
+          )}
+
         </div>
         <Card className="flex flex-col">
           <CardHeader>
