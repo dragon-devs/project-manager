@@ -1,7 +1,7 @@
 import React from 'react';
 import prisma from "@/prisma/client";
 import {notFound} from "next/navigation";
-import {Card, CardContent} from "@/components/ui/card";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import ProjectDetailsActions from "@/app/projects/[id]/ProjectDetailsActions";
 import Statues from "@/app/components/Status";
 import {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
@@ -9,6 +9,7 @@ import {PrioritiesText} from "@/app/components/PrioritySignals";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import Link from "next/link";
 import moment from "moment/moment";
+import Comments from "@/app/projects/_components/Comments";
 
 interface Props {
     params: { id: string }
@@ -18,7 +19,8 @@ const ProjectDetailsPage = async ({params}: Props) => {
     const project = await prisma.project.findUnique({
         where: {id: params.id},
         include: {
-            assignedToUser: true
+            assignedToUser: true,
+            Comment: true
         }
     });
     if (!project)
@@ -130,6 +132,21 @@ const ProjectDetailsPage = async ({params}: Props) => {
 
                 </CardContent>
             </Card>
+            <div className="mt-3 md:mt-5">
+                <Card>
+                    <CardHeader className="border-b bg-muted rounded-t-md">
+                        <CardTitle>Comments</CardTitle>
+                        <CardDescription>Comments and issues related to this project.</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        {project.Comment.length > 0 ?
+                            <Comments/>
+                            : <p className="text-lg font-semibold text-center p-5">No comments yet.</p>
+                        }
+                    </CardContent>
+                </Card>
+
+            </div>
         </div>
 
     );
