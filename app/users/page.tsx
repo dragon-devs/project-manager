@@ -31,7 +31,7 @@ const UsersPage = async () => {
                 }
             },
             orderBy: {
-                name: "asc"
+                createdAt: "desc"
             },
             include: {
                 assignedProjects: true

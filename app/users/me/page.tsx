@@ -17,7 +17,11 @@ const MyProfile = async () => {
       id: session!.user!.id
     },
     include: {
-      assignedProjects: true,
+      assignedProjects: {
+        orderBy: {
+          name: 'asc'
+        }
+      },
       accounts: true,
     }
   })
