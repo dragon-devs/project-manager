@@ -40,7 +40,6 @@ export interface Like {
   id: string;
   user: Users;
   userId: string;
-  comment: Comment;
   commentId: string;
   createdAt?: Date;
 }
@@ -50,9 +49,8 @@ export interface Comment {
   content: string;
   user: Users;
   userId: string;
-  project: Project;
+  Like: Like[];
   projectId: string;
   createdAt?: Date;
 }
-
 

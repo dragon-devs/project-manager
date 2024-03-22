@@ -1,21 +1,32 @@
 import React from 'react';
 import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
-import {HeartIcon} from "@radix-ui/react-icons";
 import moment from "moment";
 import prisma from "@/prisma/client";
 import Roles from "@/app/components/Roles";
 import Link from "next/link";
 import {HoverUserCard} from "@/app/components/HoverUserCard";
+import HoverLikeUsers from "@/app/components/HoverLikeUsers";
+import Like from "@/app/projects/_components/Like";
+import {getServerSession} from "next-auth";
+import authOptions from "@/app/auth/authOptions";
+import {HeartIcon} from "@radix-ui/react-icons";
 
 const Comments = async ({projectId}: { projectId: string }) => {
+    const session = await getServerSession(authOptions);
     const comments = await prisma.comment.findMany({
         where: {
             projectId: projectId,
         },
         include: {
-            user: true
+            user: true,
+            Like: {
+                include: {
+                    user: true,
+                }
+            }
         }
     })
+
     return (
         <>
             <div className="flex flex-col gap-5 relative pt-5 z-20">
@@ -40,9 +51,16 @@ const Comments = async ({projectId}: { projectId: string }) => {
                         <CardContent className="p-2 px-4">
                             {comment.content}
                         </CardContent>
-                        <CardFooter className="pb-3 px-4">
-                            <div className="flex hover:bg-muted justify-center items-center border rounded-full p-1">
-                                <HeartIcon className="w-5 h-5 pt-0.5"/>
+                        <CardFooter className="items-center gap-2 pb-3 px-4">
+                            {session?.user ? (
+                                <Like comment={comment} userId={session.user.id}/>
+                            ) : <div
+                                className="flex hover:bg-muted justify-center items-center border rounded-full p-1">
+                                <HeartIcon className="h-4 w-4 text-primary"/>
+                            </div>
+                            }
+                            <div>
+                                <HoverLikeUsers comment={comment}/>
                             </div>
                         </CardFooter>
                     </Card>
