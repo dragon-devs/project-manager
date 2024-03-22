@@ -132,15 +132,15 @@ const ProjectDetailsPage = async ({params}: Props) => {
             </Card>
             <div className="mt-3 md:mt-5">
                 <Card>
-                    <CardHeader className="flex p-3 px-6 border-b bg-muted rounded-t-md">
-                        <CardTitle className="flex items-center gap-3">
+                    <CardHeader className="flex p-2 px-3 sm:p-3 sm:px-6 border-b bg-muted rounded-t-md">
+                        <CardTitle className="sm:flex items-center gap-3 text-sm sm:text-sm">
                             Comments
-                            <div className="text-sm font-normal text-muted-foreground">
+                            <div className="text-xs sm:text-sm font-normal text-muted-foreground">
                                 List of comments and issues related to this project.
                             </div>
                         </CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="p-3 sm:p-5">
                         {project.Comment.length > 0 ?
                             <Comments projectId={project.id}/>
                             : <p className="text-lg font-semibold text-center p-5">No comments yet.</p>

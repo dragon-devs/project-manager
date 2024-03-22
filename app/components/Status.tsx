@@ -86,7 +86,6 @@ interface StatuesProps {
   className?: string;
 }
 const Statues: React.FC<StatuesProps> = ({ className, status }) => {
-  // Find the corresponding project status based on the 'status' prop
   const currentStatus = projectStatuses.find((projectStatus) => projectStatus.value === status);
 
   if (!currentStatus) {

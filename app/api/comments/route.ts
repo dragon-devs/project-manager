@@ -33,3 +33,44 @@ export async function POST(request: NextRequest) {
         }
     }
 }
+
+export async function DELETE(
+    request: NextRequest,
+) {
+    const session = await getServerSession(authOptions);
+    if (!session)
+        return NextResponse.json("Unauthorized", {status: 401});
+
+    const body = await request.json();
+    const {commentId} = body;
+
+    try {
+        // Find all likes associated with the comment
+        const likes = await prisma.like.findMany({
+            where: {
+                commentId: commentId,
+            },
+        });
+
+        // Delete each like associated with the comment
+        for (const like of likes) {
+            await prisma.like.delete({
+                where: {
+                    id: like.id,
+                },
+            });
+        }
+
+        // Delete the comment
+        await prisma.comment.delete({
+            where: {
+                id: commentId,
+            },
+        });
+
+        return NextResponse.json({}, {status: 200});
+    } catch (error) {
+        console.error("Error occurred while deleting comment and likes:", error);
+        return NextResponse.json({error: "Failed to delete comment and associated likes"}, {status: 500});
+    }
+}

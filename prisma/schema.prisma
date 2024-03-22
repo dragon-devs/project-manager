@@ -74,7 +74,7 @@ model User {
 model Comment {
   id        String        @unique @default(uuid())
   content   String
-  status    CommentStatus @default(OPEN)
+  status    CommentStatus @default(QUESTION)
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
   projectId String
@@ -85,9 +85,12 @@ model Comment {
 }
 
 enum CommentStatus {
-  OPEN
-  CLOSED
-  IN_PROGRESS
+  BUG
+  DOCUMENTATION
+  ENHANCEMENT
+  HELP_WANTED
+  QUESTION
+  REPLY
 }
 
 model Like {
