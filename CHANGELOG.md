@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.3](https://github.com/dragon-devs/project-manager/compare/v0.5.2...v0.5.3) (2024-03-22)
+
+
+### Features
+
+* Adding ComboBox ([aef12ae](https://github.com/dragon-devs/project-manager/commit/aef12aeb6cb6c9c178339ddca330d2f375149399))
+* Build Comments.tsx ([0d3f93e](https://github.com/dragon-devs/project-manager/commit/0d3f93e8b58313a20e0916322772538dd0a41f88))
+* Build HoverCard for comments users ([c65e3ea](https://github.com/dragon-devs/project-manager/commit/c65e3ea09878d4f9e75c6a47b9bfefcff12dac3b))
+* **Comments:** Adding comments for porjects ([8fcbd74](https://github.com/dragon-devs/project-manager/commit/8fcbd74b203e1091840f6463cd2452de94fa2db8))
+* **Roles:** Build new roles component ([c2265d4](https://github.com/dragon-devs/project-manager/commit/c2265d46ee5580f431e59f76ab29315a8839e901))
+
+
+### Bug Fixes
+
+* fixed CustomRoleSelect.tsx ([ee16d3e](https://github.com/dragon-devs/project-manager/commit/ee16d3eacc0ab8ef15ad05cfa8fe24f4b3d30c23))
+* redirect user to the profile ([c0b4d20](https://github.com/dragon-devs/project-manager/commit/c0b4d202ed89ab7ccec8348b14da5951c34c6df8))
+* Updated the project Assignee Select user ([3192ff3](https://github.com/dragon-devs/project-manager/commit/3192ff3cd1efd1d4bd021511c6a6cbe46c91227d))
+
 ### [0.5.2](https://github.com/dragon-devs/project-manager/compare/v0.5.1...v0.5.2) (2024-03-20)
 
 
