@@ -1,7 +1,7 @@
 import React from 'react';
 import prisma from "@/prisma/client";
 import {notFound} from "next/navigation";
-import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import ProjectDetailsActions from "@/app/projects/[id]/ProjectDetailsActions";
 import Statues from "@/app/components/Status";
 import {FrameworkDetailsList} from "@/app/projects/_components/FrameworkList";
@@ -134,13 +134,17 @@ const ProjectDetailsPage = async ({params}: Props) => {
             </Card>
             <div className="mt-3 md:mt-5">
                 <Card>
-                    <CardHeader className="border-b bg-muted rounded-t-md">
-                        <CardTitle>Comments</CardTitle>
-                        <CardDescription>Comments and issues related to this project.</CardDescription>
+                    <CardHeader className="flex p-3 px-6 border-b bg-muted rounded-t-md">
+                        <CardTitle className="flex items-center gap-3">
+                            Comments
+                            <div className="text-sm font-normal text-muted-foreground">
+                                List of comments and issues related to this project.
+                            </div>
+                        </CardTitle>
                     </CardHeader>
                     <CardContent>
                         {project.Comment.length > 0 ?
-                            <Comments/>
+                            <Comments projectId={project.id}/>
                             : <p className="text-lg font-semibold text-center p-5">No comments yet.</p>
                         }
                     </CardContent>

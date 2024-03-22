@@ -36,3 +36,23 @@ export interface Users {
   createdAt?: Date;
 }
 
+export interface Like {
+  id: string;
+  user: Users;
+  userId: string;
+  comment: Comment;
+  commentId: string;
+  createdAt?: Date;
+}
+
+export interface Comment {
+  id: string;
+  content: string;
+  user: Users;
+  userId: string;
+  project: Project;
+  projectId: string;
+  createdAt?: Date;
+}
+
+
