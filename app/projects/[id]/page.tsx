@@ -75,43 +75,41 @@ const ProjectDetailsPage = async ({params}: Props) => {
                             </p>
                             <FrameworkDetailsList frameworks={project.frameworks}/>
                         </div>
-                        <div className="flex gap-10">
-                            <div>
+                        <div className="columns-2 ">
+                            <div className="">
                                 <p className="text-sm text-muted-foreground">
                                     Priority
                                 </p>
                                 <PrioritiesText priority={project.priority}/>
                             </div>
-                            <div className=" sm:grid-cols-none">
+                            <div className="">
                                 <p className="text-sm text-muted-foreground">
                                     Due Date
                                 </p>
-                                <p className="text-sm font-medium">
+                                <p className="text-sm font-medium ">
                                     {`${project.dueDate.toDateString()}`}
                                 </p>
                             </div>
                         </div>
-                        <div className="flex flex-col gap-3 sm:flex-row sm:gap-10">
-                            <div className="flex gap-10">
-                                <div className="">
-                                    <p className="text-sm text-muted-foreground">
-                                        Status
-                                    </p>
-                                    <Statues className="text-md" status={project.status}/>
-                                </div>
-                                <div className=" sm:grid-cols-none">
-                                    <p className="text-sm text-muted-foreground">
-                                        Budget
-                                    </p>
-                                    <div className="text-sm font-medium">
-                                        {project.budget ?
-                                            <p>${project.budget}</p> :
-                                            <p>unset</p>
-                                        }
-                                    </div>
+                        <div className="sm:columns-4 columns-2 gap-3 sm:gap-10">
+                            <div className="mb-4 sm:mb-0">
+                                <p className="text-sm text-muted-foreground">
+                                    Status
+                                </p>
+                                <Statues className="text-md" status={project.status}/>
+                            </div>
+                            <div className=" sm:grid-cols-none">
+                                <p className="text-sm text-muted-foreground">
+                                    Budget
+                                </p>
+                                <div className="text-sm font-medium">
+                                    {project.budget ?
+                                        <p>${project.budget}</p> :
+                                        <p>unset</p>
+                                    }
                                 </div>
                             </div>
-                            <div>
+                            <div className="mb-4 sm:mb-0">
                                 <p className="text-sm text-muted-foreground">
                                     Created
                                 </p>
@@ -119,14 +117,14 @@ const ProjectDetailsPage = async ({params}: Props) => {
                                     {formatTimeAgo(project.createdAt)}
                                 </p>
                             </div>
-                        </div>
-                        <div>
-                            <p className="text-sm text-muted-foreground">
-                                Updated
-                            </p>
-                            <p className="text-sm font-medium">
-                                {project.updatedAt ? formatTimeAgo(project.updatedAt) : "Not Updated"}
-                            </p>
+                            <div>
+                                <p className="text-sm text-muted-foreground">
+                                    Updated
+                                </p>
+                                <p className="text-sm font-medium">
+                                    {project.updatedAt ? formatTimeAgo(project.updatedAt) : "Not Updated"}
+                                </p>
+                            </div>
                         </div>
                     </div>
 
