@@ -16,10 +16,16 @@ export const NotificationToaster = () => {
     const onNotificationsReceived = ({items}) => {
         // @ts-ignore
         items.forEach((notification) => {
-            toast.info(notification.blocks[0].rendered, {id: notification.id});
+            const plainTextNotification = stripHtml(notification.blocks[0].rendered);
+            toast.info(plainTextNotification, {id: notification.id});
         });
 
         feedClient.markAsSeen(items);
+    };
+
+    // @ts-ignore
+    const stripHtml = (html) => {
+        return html.replace(/(<([^>]+)>)/gi, '');
     };
 
     useEffect(() => {
@@ -28,8 +34,8 @@ export const NotificationToaster = () => {
         return () =>
             feedClient.off("items.received.realtime", onNotificationsReceived);
     }, [feedClient]);
-    return null
 
+    return null;
 };
 
 export const NotificationsList = () => {
