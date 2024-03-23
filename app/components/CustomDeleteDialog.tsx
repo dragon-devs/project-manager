@@ -1,4 +1,3 @@
-// components/AlertDialog.js
 import React from 'react';
 import {
     AlertDialog,
@@ -20,6 +19,7 @@ interface CustomAlertDialogProps {
     confirmButtonLabel?: string;
     btnSize?: "default" | "sm" | "lg" | "icon" | null | undefined;
     title?: string;
+    className?: string;
     description?: string;
     isDeleting?: boolean;
     onConfirm: () => void;
@@ -29,6 +29,7 @@ const CustomAlertDialog: React.FC<CustomAlertDialogProps> = ({
                                                                  triggerButtonLabel,
                                                                  btnSize = 'default',
                                                                  confirmButtonLabel = 'Continue',
+                                                                 className = '',
                                                                  title = 'Are you absolutely sure?',
                                                                  description = 'This action cannot be undone. This will permanently delete this item.',
                                                                  isDeleting = false,
@@ -40,7 +41,7 @@ const CustomAlertDialog: React.FC<CustomAlertDialogProps> = ({
                 <Button
                     size={btnSize}
                     variant="destructive"
-                    className="gap-1"
+                    className={`${className} gap-1 h-full`}
                     disabled={isDeleting}
                 >
                     {triggerButtonLabel}

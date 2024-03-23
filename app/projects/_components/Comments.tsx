@@ -11,6 +11,7 @@ import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
 import {HeartIcon} from "@radix-ui/react-icons";
 import CommentStatues from "@/app/projects/_components/CommentStatus";
+import ProjectCommentActions from "@/app/projects/[id]/ProjectCommentActions";
 
 const Comments = async ({projectId}: { projectId: string }) => {
     const session = await getServerSession(authOptions);
@@ -46,7 +47,12 @@ const Comments = async ({projectId}: { projectId: string }) => {
                                     </div>
                                 </div>
                                 <div className="ml-auto">
-                                    <Roles className="bg-background" role={comment.user.role!}/>
+                                    <div className="flex gap-1 items-center ">
+                                        <Roles className="bg-background" role={comment.user.role!}/>
+                                        {session!.user!.role === 'ADMIN' || session!.user!.role === 'MODERATOR' || comment.user.id === session!.user!.id && (
+                                            <ProjectCommentActions commentId={comment.id}/>
+                                        )}
+                                    </div>
                                 </div>
                             </CardTitle>
                         </CardHeader>
