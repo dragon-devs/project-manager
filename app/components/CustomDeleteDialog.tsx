@@ -12,12 +12,10 @@ import {
 } from '@/components/ui/alert-dialog';
 import Spinner from '@/components/Spinner';
 import {TrashIcon} from "@radix-ui/react-icons";
-import {Button} from "@/components/ui/button";
 
 interface CustomAlertDialogProps {
     triggerButtonLabel?: string;
     confirmButtonLabel?: string;
-    btnSize?: "default" | "sm" | "lg" | "icon" | null | undefined;
     title?: string;
     className?: string;
     description?: string;
@@ -27,7 +25,6 @@ interface CustomAlertDialogProps {
 
 const CustomAlertDialog: React.FC<CustomAlertDialogProps> = ({
                                                                  triggerButtonLabel,
-                                                                 btnSize = 'default',
                                                                  confirmButtonLabel = 'Continue',
                                                                  className = '',
                                                                  title = 'Are you absolutely sure?',
@@ -38,15 +35,13 @@ const CustomAlertDialog: React.FC<CustomAlertDialogProps> = ({
     return (
         <AlertDialog>
             <AlertDialogTrigger asChild>
-                <Button
-                    size={btnSize}
-                    variant="destructive"
-                    className={`${className} gap-1 h-full`}
+                <button
+                    className={`${className} flex items-center gap-1`}
                     disabled={isDeleting}
                 >
                     {triggerButtonLabel}
                     {isDeleting ? <Spinner/> : <TrashIcon/>}
-                </Button>
+                </button>
             </AlertDialogTrigger>
             <AlertDialogContent>
                 <AlertDialogHeader>

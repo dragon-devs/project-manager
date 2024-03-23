@@ -47,11 +47,10 @@ const Comments = async ({projectId}: { projectId: string }) => {
                                     </div>
                                 </div>
                                 <div className="ml-auto">
-                                    <div className="flex gap-1 items-center ">
+                                    <div className="flex gap-1 items-center -mr-2 sm:-mr-0">
                                         <Roles className="bg-background" role={comment.user.role!}/>
-                                        {session!.user!.role === 'ADMIN' || session!.user!.role === 'MODERATOR' || comment.user.id === session!.user!.id && (
-                                            <ProjectCommentActions commentId={comment.id}/>
-                                        )}
+                                        <ProjectCommentActions comment={comment}/>
+
                                     </div>
                                 </div>
                             </CardTitle>

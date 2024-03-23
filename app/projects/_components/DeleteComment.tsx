@@ -27,9 +27,12 @@ const DeleteComment = ({commentId}: { commentId: string }) => {
     }
 
     return (
-        <CustomAlertDialog className="bg-background  p-2 text-red-500" isDeleting={deleting} btnSize="icon"
-                           onConfirm={deleteComment}/>
-
+        <CustomAlertDialog
+            className="flex justify-between w-full h-full p-2 hover:text-white font-medium text-red-500"
+            isDeleting={deleting}
+            triggerButtonLabel="Delete"
+            onConfirm={deleteComment}
+        />
     );
 };
 

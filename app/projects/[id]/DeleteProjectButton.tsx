@@ -24,7 +24,12 @@ const DeleteProjectButton = ({projectId}: { projectId: string }) => {
   }
 
   return (
-      <CustomAlertDialog isDeleting={deleting} triggerButtonLabel="Delete" onConfirm={deleteProject}/>
+      <CustomAlertDialog
+          isDeleting={deleting}
+          className="sm:w-fit px-2 justify-center hover:bg-destructive/90 text-white rounded-md p-1.5 font-medium bg-destructive"
+          triggerButtonLabel="Delete"
+          onConfirm={deleteProject}
+      />
 
   );
 };

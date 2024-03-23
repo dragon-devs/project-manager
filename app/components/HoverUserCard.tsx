@@ -9,7 +9,7 @@ export function HoverUserCard({user}: { user: Users }) {
     return (
         <HoverCard>
             <HoverCardTrigger asChild>
-                <div>{user.name}</div>
+                <div className="sm:w-auto truncate w-24">{user.name}</div>
             </HoverCardTrigger>
             <HoverCardContent className="w-auto">
                 <div className="flex justify-between space-x-4">
