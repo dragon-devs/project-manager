@@ -30,7 +30,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
     return (
         <div className="">
             <ProjectDetailsActions project={project}/>
-            <Card className="md:grid grid-cols-3 ">
+            <Card className="md:grid grid-cols-3 transition-all">
                 <Card className="h-[12rem] m-5 md:w-full flex p-3 md:h-auto bg-muted">
                     {project.assignedToUserId && (
                         <Link href={`/users/${project.assignedToUser!.id}`}>

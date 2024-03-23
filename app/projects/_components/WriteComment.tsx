@@ -4,15 +4,24 @@ import React, {useState} from 'react';
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
 import {Textarea} from "@/components/ui/textarea";
 import {Button} from "@/components/ui/button";
-import {Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select";
-import {commentStatuses} from "@/app/projects/_components/CommentStatus";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue
+} from "@/components/ui/select";
+import CommentStatues, {commentStatuses} from "@/app/projects/_components/CommentStatus";
 import axios from 'axios';
 import {useRouter} from "next/navigation";
 import {toast} from "sonner";
+import {CommentStatus} from "@prisma/client";
 
 const WriteComment = ({projectId}: { projectId: string }) => {
     const [content, setContent] = useState('');
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState(commentStatuses[0].value);
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
@@ -33,14 +42,11 @@ const WriteComment = ({projectId}: { projectId: string }) => {
         })
             .then(response => {
                 setLoading(false);
-                // console.log('Comment posted successfully:', response.data);
                 setContent('');
-                setStatus('');
                 router.refresh()
             })
             .catch(error => {
                 setLoading(false);
-                // console.error('Error posting comment:', error);
                 toast.error('Failed to post comment. Please try again.');
             });
     };
@@ -64,20 +70,21 @@ const WriteComment = ({projectId}: { projectId: string }) => {
                     <Button className="h-8 w-32 transition-all duration-500" onClick={handleComment}>
                         {loading ? 'Posting...' : 'Post Comment'}
                     </Button>
-                    <Select onValueChange={(value) => setStatus(value)}>
+                    <Select onValueChange={(value: CommentStatus) => setStatus(value)}>
                         <SelectTrigger className="w-32">
-                            <SelectValue defaultValue={status} placeholder="Select a tag">
+                            <SelectValue defaultValue={status} placeholder={<CommentStatues status={status}/>}>
                             </SelectValue>
                         </SelectTrigger>
                         <SelectContent className="w-40 capitalize" align="center" position="popper">
                             <SelectGroup>
+                                <SelectLabel>Tags</SelectLabel>
                                 {commentStatuses.map(status => (
                                     <SelectItem
                                         key={status.value}
                                         value={status.value}
                                         onClick={() => setStatus(status.value)}
                                     >
-                                        <span className="capitalize">{status.label}</span>
+                                        <CommentStatues status={status.value}/>
                                     </SelectItem>
                                 ))}
                             </SelectGroup>
