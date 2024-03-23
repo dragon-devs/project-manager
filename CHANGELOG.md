@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.5.4](https://github.com/dragon-devs/project-manager/compare/v0.5.3...v0.5.4) (2024-03-23)
+
+
+### Features
+
+* Add CommentStatus.tsx + fixed mobile view ([944afd4](https://github.com/dragon-devs/project-manager/commit/944afd44ead68807ee8a00cca2a47a0f35e43a19))
+* **Comments:** add authorizations to comments ([4b4192b](https://github.com/dragon-devs/project-manager/commit/4b4192b8aa3fe73b77fea2bf267360c1885c8691))
+* **Comments:** Now you can delete your comment and admin can delete all. ([0fa4f11](https://github.com/dragon-devs/project-manager/commit/0fa4f11e6a99e43238b27cf29d3194f518f17b52))
+* **comments:** Post comments ([5a04fed](https://github.com/dragon-devs/project-manager/commit/5a04fed1a613fadac750044277f5793d6b48aa4c))
+* **Like:** Like is now fully functional. like + unlike ([09e92ee](https://github.com/dragon-devs/project-manager/commit/09e92ee94e96663f67c5edd5f5972c5b408a23b1))
+
+
+### Bug Fixes
+
+* fixed bugs ([9ea62f9](https://github.com/dragon-devs/project-manager/commit/9ea62f92c06289d6f11bbf27ccd9ae96f5324e97))
+
 ### [0.5.3](https://github.com/dragon-devs/project-manager/compare/v0.5.2...v0.5.3) (2024-03-22)
 
 
