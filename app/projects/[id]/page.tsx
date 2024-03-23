@@ -10,6 +10,7 @@ import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
 import Link from "next/link";
 import moment from "moment/moment";
 import Comments from "@/app/projects/_components/Comments";
+import WriteComment from "@/app/projects/_components/WriteComment";
 
 interface Props {
     params: { id: string }
@@ -130,24 +131,30 @@ const ProjectDetailsPage = async ({params}: Props) => {
 
                 </CardContent>
             </Card>
-            <div className="mt-3 md:mt-5">
+            <div className="flex flex-col mt-3 md:mt-5 gap-3 sm:gap-5 transition-all">
                 <Card>
-                    <CardHeader className="flex p-2 px-3 sm:p-3 sm:px-6 border-b bg-muted rounded-t-md">
-                        <CardTitle className="sm:flex items-center gap-3 text-sm sm:text-sm">
-                            Comments
-                            <div className="text-xs sm:text-sm font-normal text-muted-foreground">
-                                List of comments and issues related to this project.
+                    <CardHeader className=" flex p-2 px-3 sm:p-3 sm:px-6 border-b bg-muted rounded-t-md">
+                        <CardTitle className="flex items-center justify-between gap-3 text-sm sm:text-sm">
+                            <div className="text-lg">
+                                Comments
                             </div>
+                            <Link
+                                className="text-xs sm:text-sm bg-primary text-primary-foreground rounded-md px-2 py-1 "
+                                href="#comment">
+                                Write a comment
+                            </Link>
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="p-3 sm:p-5">
                         {project.Comment.length > 0 ?
                             <Comments projectId={project.id}/>
-                            : <p className="text-lg font-semibold text-center p-5">No comments yet.</p>
+                            : <p className="text-lg font-semibold text-center p-5 border-b">No comments yet.</p>
                         }
                     </CardContent>
                 </Card>
-
+                <div id="comment">
+                    <WriteComment projectId={project.id}/>
+                </div>
             </div>
         </div>
 

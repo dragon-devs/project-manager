@@ -13,12 +13,13 @@ export async function POST(request: NextRequest) {
 
         const body = await request.json();
 
-        const {content, projectId} = body
+        const {content, status, projectId} = body
         const userId = session.user.id;
         try {
             const comment = await prisma.comment.create({
                 data: {
                     content,
+                    status,
                     project: {
                         connect: {id: projectId},
                     },
