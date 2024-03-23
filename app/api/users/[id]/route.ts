@@ -6,6 +6,9 @@ import {Prisma} from ".prisma/client";
 import PrismaClientValidationError = Prisma.PrismaClientValidationError;
 
 export async function GET(request: NextRequest, {params}: { params?: { id?: string } }) {
+  const session = await getServerSession(authOptions)
+  if (!session)
+    return NextResponse.json("Unauthorized", {status: 401})
   try {
     if (!params?.id) {
       return NextResponse.json({
@@ -14,8 +17,8 @@ export async function GET(request: NextRequest, {params}: { params?: { id?: stri
     }
 
     const user = await prisma.user.findUnique({
-      where: { id: params.id },
-      include: { accounts: true, assignedProjects: true }
+      where: {id: params.id},
+      include: {accounts: true, assignedProjects: true}
     });
 
     if (!user) {
@@ -126,10 +129,27 @@ export async function DELETE(
     return NextResponse.json("Forbidden!", {status: 403});
 
   try {
-    const user = await prisma.user.findUnique({where: {id: params.id}});
+    const user = await prisma.user.findUnique({
+      where: {id: params.id},
+      include: {Comment: true}
+    });
 
     if (!user)
       return NextResponse.json({error: "Invalid user"}, {status: 404});
+
+    await Promise.all(user.Comment.map(async (comment) => {
+      await prisma.like.deleteMany({
+        where: {commentId: comment.id}
+      });
+    }));
+
+    await prisma.comment.deleteMany({
+      where: {userId: user.id}
+    });
+
+    await prisma.like.deleteMany({
+      where: {userId: user.id}
+    });
 
     await prisma.user.delete({
       where: {id: user.id}

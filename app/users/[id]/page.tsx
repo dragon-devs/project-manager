@@ -22,6 +22,8 @@ const UserProfile = async ({params}: Props) => {
         include: {
             assignedProjects: true,
             accounts: true,
+            Comment: true,
+            Like: true,
         }
     })
     if (session && user!.id === session!.user!.id)
@@ -48,7 +50,7 @@ const UserProfile = async ({params}: Props) => {
                     </div>
                 </CardHeader>
                 <CardContent>
-                    <div className="mt-3">
+                    <div className="sm:flex justify-between items-center mt-3">
                         <div>
                             {user.accounts.map(acc => (
                                 <div className="flex" key={acc.id}>
@@ -59,6 +61,20 @@ const UserProfile = async ({params}: Props) => {
                                     </div>
                                 </div>
                             ))}
+                        </div>
+                        <div>
+                            <div className="flex items-center gap-2">
+                                <p className="text-sm text-muted-foreground">Total Comments</p>
+                                <ChevronRightIcon/>
+                                <div className="capitalize font-medium">{user.Comment.length}</div>
+                            </div>
+                        </div>
+                        <div>
+                            <div className="flex items-center gap-2">
+                                <p className="text-sm text-muted-foreground">Total Likes</p>
+                                <ChevronRightIcon/>
+                                <div className="capitalize font-medium">{user.Like.length}</div>
+                            </div>
                         </div>
                     </div>
                 </CardContent>
