@@ -22,8 +22,8 @@ const UserProfile = async ({params}: Props) => {
         include: {
             assignedProjects: true,
             accounts: true,
-            Comment: true,
-            Like: true,
+            comments: true,
+            likes: true,
         }
     })
     if (session && user!.id === session!.user!.id)
@@ -66,14 +66,14 @@ const UserProfile = async ({params}: Props) => {
                             <div className="flex items-center gap-2">
                                 <p className="text-sm text-muted-foreground">Total Comments</p>
                                 <ChevronRightIcon/>
-                                <div className="capitalize font-medium">{user.Comment.length}</div>
+                                <div className="capitalize font-medium">{user.comments.length}</div>
                             </div>
                         </div>
                         <div>
                             <div className="flex items-center gap-2">
                                 <p className="text-sm text-muted-foreground">Total Likes</p>
                                 <ChevronRightIcon/>
-                                <div className="capitalize font-medium">{user.Like.length}</div>
+                                <div className="capitalize font-medium">{user.likes.length}</div>
                             </div>
                         </div>
                     </div>

@@ -21,7 +21,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
         where: {id: params.id},
         include: {
             assignedToUser: true,
-            Comment: true
+            comments: true
         }
     });
     if (!project)
@@ -141,7 +141,7 @@ const ProjectDetailsPage = async ({params}: Props) => {
                     </Link>
                 </div>
                 <div>
-                    {project.Comment.length > 0 ?
+                    {project.comments.length > 0 ?
                         <Comments projectId={project.id}/>
                         : <p className="font-semibold text-center p-5 border-b">No comments yet.</p>
                     }

@@ -12,23 +12,32 @@ import authOptions from "@/app/auth/authOptions";
 import {ChatBubbleIcon, HeartIcon} from "@radix-ui/react-icons";
 import CommentStatues from "@/app/projects/_components/CommentStatus";
 import ProjectCommentsActions from "@/app/projects/[id]/ProjectCommentsActions";
+import {Comment} from "@/types";
 
 const Comments = async ({projectId}: { projectId: string }) => {
     const session = await getServerSession(authOptions);
-    const comments = await prisma.comment.findMany({
+    const comments: Comment[] = await prisma.comment.findMany({
         where: {
             projectId: projectId,
         },
         include: {
-            replies: true,
             user: true,
-            Like: {
+            likes: {
                 include: {
                     user: true,
                 },
             },
-
-        }
+            replies: {
+                include: {
+                    user: true,
+                    likes: {
+                        include: {
+                            user: true,
+                        },
+                    },
+                },
+            },
+        },
     })
 
     return (

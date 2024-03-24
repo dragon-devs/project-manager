@@ -131,13 +131,13 @@ export async function DELETE(
   try {
     const user = await prisma.user.findUnique({
       where: {id: params.id},
-      include: {Comment: true}
+      include: {comments: true}
     });
 
     if (!user)
       return NextResponse.json({error: "Invalid user"}, {status: 404});
 
-    await Promise.all(user.Comment.map(async (comment) => {
+    await Promise.all(user.comments.map(async (comment) => {
       await prisma.like.deleteMany({
         where: {commentId: comment.id}
       });

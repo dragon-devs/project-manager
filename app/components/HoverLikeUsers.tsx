@@ -5,7 +5,7 @@ import {Comment, Like} from "@/types";
 import Link from "next/link";
 
 const HoverLikeUsers = ({comment}: { comment: Comment }) => {
-    const likes = comment.Like || [];
+    const likes = comment.likes || [];
 
     return (
         <HoverCard>

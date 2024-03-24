@@ -7,9 +7,13 @@ import axios from "axios";
 import {toast} from "sonner";
 import {useRouter} from "next/navigation";
 
+interface LikeProps {
+    comment: Comment
+    userId: string
+}
 
-const Like = ({comment, userId}: { comment: Comment, userId: string }) => {
-    const [liked, setLiked] = useState(comment.Like.some((like: Like) => like.userId === userId));
+const Like: React.FC<LikeProps> = ({comment, userId}) => {
+    const [liked, setLiked] = useState(comment.likes.some((like: Like) => like.userId === userId));
 
     const router = useRouter();
     const handleLike = (id: string) => {

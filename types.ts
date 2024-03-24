@@ -1,4 +1,5 @@
-import {Frameworks, Priority, Role, Status, User} from "@prisma/client";
+import {CommentStatus, Frameworks, Priority, Role, Status, User} from "@prisma/client";
+
 
 export interface Project {
   id: string;
@@ -47,21 +48,24 @@ export interface Like {
 export interface Comment {
   id: string;
   content: string;
+  status: CommentStatus;
   user: Users;
   userId: string;
-  Like: Like[];
+  likes: Like[];
   projectId: string;
-  createdAt?: Date;
-  replies?: Reply[];
+  createdAt: Date;
+  replies: Reply[];
 }
 
 export interface Reply {
   id: string;
   content: string;
-  user: Users;
-  userId: string;
-  Like: Like[];
+  status: CommentStatus;
+  createdAt: Date;
+  updatedAt: Date;
   commentId: string;
-  createdAt?: Date;
+  userId: string;
+  user: Users;
+  likes: Like[];
 }
 
