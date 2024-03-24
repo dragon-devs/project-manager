@@ -8,18 +8,11 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="yirimgrb@tiny.db.elephantsql.com" uuid="91bbc78c-865b-4015-a55d-cf8beeee0269">
+    <data-source source="LOCAL" name="pm-verceldb" uuid="1879e569-8b31-4734-8cc0-be2c868e54d0">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://tiny.db.elephantsql.com/yirimgrb</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="ehcwfhgh@rain.db.elephantsql.com" uuid="8ef72f65-c26e-4328-b1ce-e0d7411a148a">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://rain.db.elephantsql.com/ehcwfhgh</jdbc-url>
+      <jdbc-url>jdbc:postgresql://ep-purple-lake-a1xyi7fe.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
