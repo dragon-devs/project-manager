@@ -1,4 +1,7 @@
 -- CreateEnum
+CREATE TYPE "CommentStatus" AS ENUM ('BUG', 'DOCUMENTATION', 'ENHANCEMENT', 'HELP_WANTED', 'QUESTION', 'REPLY');
+
+-- CreateEnum
 CREATE TYPE "Frameworks" AS ENUM ('REACTJS', 'NODEJS', 'NEXTJS', 'PYTHON', 'DJANGO', 'FLASK', 'FASTAPI', 'ASPDOTNET', 'TYPESCRIPT', 'JAVASCRIPT', 'CPLUSPLUS', 'CSHARP', 'RUST', 'JAVA', 'PHP', 'RUBY', 'GOLANG', 'SWIFT', 'KOTLIN', 'DART', 'ANGULAR', 'VUEJS', 'DOTNET', 'HTML', 'CSS', 'SQL', 'MYSQL', 'POSTGRESQL', 'SQLITE', 'SQLALCHEMY', 'MONGODB', 'C', 'R', 'SWIFTUI', 'BASH', 'PERL', 'JQUERY', 'SELENIUM', 'DOCKER', 'KUBERNETES', 'JENKINS', 'GITLAB', 'GITHUB', 'ANSIBLE', 'PROMETHEUS', 'GRAFANA', 'AWS', 'AZURE', 'GOOGLECLOUD', 'EXPRESSJS', 'SPRINGBOOT', 'FLUTTER', 'LARAVEL', 'REACTNATIVE');
 
 -- CreateEnum
@@ -73,6 +76,42 @@ CREATE TABLE "User"
 );
 
 -- CreateTable
+CREATE TABLE "Comment"
+(
+    "id"        TEXT            NOT NULL,
+    "content"   TEXT            NOT NULL,
+    "status"    "CommentStatus" NOT NULL DEFAULT 'QUESTION',
+    "createdAt" TIMESTAMP(3)    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3)    NOT NULL,
+    "projectId" TEXT            NOT NULL,
+    "userId"    TEXT            NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Reply"
+(
+    "id"        TEXT            NOT NULL,
+    "content"   TEXT            NOT NULL,
+    "status"    "CommentStatus" NOT NULL DEFAULT 'REPLY',
+    "createdAt" TIMESTAMP(3)    NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3)    NOT NULL,
+    "commentId" TEXT            NOT NULL,
+    "userId"    TEXT            NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Like"
+(
+    "id"        TEXT         NOT NULL,
+    "commentId" TEXT,
+    "userId"    TEXT         NOT NULL,
+    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "replyId"   TEXT,
+
+    CONSTRAINT "Like_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "Teams"
 (
     "id"          TEXT         NOT NULL,
@@ -117,6 +156,15 @@ CREATE UNIQUE INDEX "Session_sessionToken_key" ON "Session" ("sessionToken");
 CREATE UNIQUE INDEX "User_email_key" ON "User" ("email");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "Comment_id_key" ON "Comment" ("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Reply_id_key" ON "Reply" ("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Like_commentId_userId_key" ON "Like" ("commentId", "userId");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "VerificationToken_token_key" ON "VerificationToken" ("token");
 
 -- CreateIndex
@@ -139,6 +187,34 @@ ALTER TABLE "Account"
 -- AddForeignKey
 ALTER TABLE "Session"
     ADD CONSTRAINT "Session_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Comment"
+    ADD CONSTRAINT "Comment_projectId_fkey" FOREIGN KEY ("projectId") REFERENCES "Project" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Comment"
+    ADD CONSTRAINT "Comment_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Reply"
+    ADD CONSTRAINT "Reply_commentId_fkey" FOREIGN KEY ("commentId") REFERENCES "Comment" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Reply"
+    ADD CONSTRAINT "Reply_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Like"
+    ADD CONSTRAINT "Like_commentId_fkey" FOREIGN KEY ("commentId") REFERENCES "Comment" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Like"
+    ADD CONSTRAINT "Like_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Like"
+    ADD CONSTRAINT "Like_replyId_fkey" FOREIGN KEY ("replyId") REFERENCES "Reply" ("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "_members"

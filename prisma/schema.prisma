@@ -21,7 +21,7 @@ model Project {
   timeline         DateTime[]
   budget           String?
   assignedToUserId String?
-  assignedToUser   User?        @relation(fields: [assignedToUserId], references: [id])
+  assignedToUser   User?        @relation(fields: [assignedToUserId], references: [id], onDelete: SetNull)
   createdAt        DateTime     @default(now())
   updatedAt        DateTime     @updatedAt
   comments         Comment[]
@@ -79,9 +79,9 @@ model Comment {
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
   projectId String
-  project   Project       @relation(fields: [projectId], references: [id])
+  project   Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
   userId    String
-  user      User          @relation(fields: [userId], references: [id])
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   likes     Like[]
   replies   Reply[]       @relation("ReplyToComment")
 }
@@ -93,9 +93,9 @@ model Reply {
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
   commentId String
-  comment   Comment       @relation("ReplyToComment", fields: [commentId], references: [id])
+  comment   Comment       @relation("ReplyToComment", fields: [commentId], references: [id], onDelete: Cascade)
   userId    String
-  user      User          @relation(fields: [userId], references: [id])
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
   likes     Like[]
 }
 
@@ -110,12 +110,12 @@ enum CommentStatus {
 
 model Like {
   id        String   @id @default(uuid())
-  comment   Comment? @relation(fields: [commentId], references: [id])
+  comment   Comment? @relation(fields: [commentId], references: [id], onDelete: Cascade)
   commentId String?
-  user      User     @relation(fields: [userId], references: [id])
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
   createdAt DateTime @default(now())
-  reply     Reply?   @relation(fields: [replyId], references: [id])
+  reply     Reply?   @relation(fields: [replyId], references: [id], onDelete: Cascade)
   replyId   String?
 
   @@unique([commentId, userId])
