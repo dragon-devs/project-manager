@@ -8,7 +8,7 @@ import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
 
 
-const ProjectCommentActions = async ({comment}: { comment: Comment }) => {
+const ProjectCommentsActions = async ({comment}: { comment: Comment }) => {
     const session = await getServerSession(authOptions);
 
     return (
@@ -31,7 +31,7 @@ const ProjectCommentActions = async ({comment}: { comment: Comment }) => {
                                             <DeleteComment commentId={comment.id}/>
                                         </div>
                                         <Separator/>
-                                        <div className="hover:bg-blue-500 hover:text-white p-2">
+                                        <div className="hover:bg-blue-500 hover:text-white p-1.5 px-3">
                                             <div>Edit</div>
                                         </div>
                                         <Separator/>
@@ -39,11 +39,11 @@ const ProjectCommentActions = async ({comment}: { comment: Comment }) => {
                                 )}
                             </>
                         )}
-                        <div className={`${!session && "rounded-t-sm"} hover:bg-muted p-2`}>
+                        <div className={`${!session && "rounded-t-sm"} hover:bg-muted p-1.5 px-3`}>
                             <div>Report</div>
                         </div>
                         <Separator/>
-                        <div className="rounded-b-sm hover:bg-muted p-2">
+                        <div className="rounded-b-sm hover:bg-muted p-1.5 px-3">
                             <div>Share</div>
                         </div>
                     </div>
@@ -53,4 +53,4 @@ const ProjectCommentActions = async ({comment}: { comment: Comment }) => {
     );
 };
 
-export default ProjectCommentActions;
+export default ProjectCommentsActions;

@@ -18,6 +18,8 @@ import axios from 'axios';
 import {useRouter} from "next/navigation";
 import {toast} from "sonner";
 import {CommentStatus} from "@prisma/client";
+import {PaperPlaneIcon} from "@radix-ui/react-icons";
+import Spinner from "@/components/Spinner";
 
 const WriteComment = ({projectId}: { projectId: string }) => {
     const [content, setContent] = useState('');
@@ -67,8 +69,12 @@ const WriteComment = ({projectId}: { projectId: string }) => {
                     onChange={(e) => setContent(e.target.value)}
                 />
                 <div className="flex items-center justify-between">
-                    <Button className="h-8 w-32 transition-all duration-500" onClick={handleComment}>
-                        {loading ? 'Posting...' : 'Post Comment'}
+                    <Button disabled={loading} className="flex gap-2 h-8 w-32 transition-all duration-500"
+                            onClick={handleComment}>
+                        <p>
+                            Comment
+                        </p>
+                        {loading ? <Spinner/> : <PaperPlaneIcon className="w-4 h-4"/>}
                     </Button>
                     <Select onValueChange={(value: CommentStatus) => setStatus(value)}>
                         <SelectTrigger className="w-32">

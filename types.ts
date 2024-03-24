@@ -52,5 +52,16 @@ export interface Comment {
   Like: Like[];
   projectId: string;
   createdAt?: Date;
+  replies?: Reply[];
+}
+
+export interface Reply {
+  id: string;
+  content: string;
+  user: Users;
+  userId: string;
+  Like: Like[];
+  commentId: string;
+  createdAt?: Date;
 }
 

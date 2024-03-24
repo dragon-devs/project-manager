@@ -28,7 +28,7 @@ const DeleteComment = ({commentId}: { commentId: string }) => {
 
     return (
         <CustomAlertDialog
-            className="flex justify-between w-full h-full p-2 hover:text-white font-medium text-red-500"
+            className="flex justify-between w-full h-full p-1.5 px-3 hover:text-white font-medium text-red-500"
             isDeleting={deleting}
             triggerButtonLabel="Delete"
             onConfirm={deleteComment}

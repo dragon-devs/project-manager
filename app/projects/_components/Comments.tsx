@@ -9,9 +9,9 @@ import HoverLikeUsers from "@/app/components/HoverLikeUsers";
 import Like from "@/app/projects/_components/Like";
 import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
-import {HeartIcon} from "@radix-ui/react-icons";
+import {ChatBubbleIcon, HeartIcon} from "@radix-ui/react-icons";
 import CommentStatues from "@/app/projects/_components/CommentStatus";
-import ProjectCommentActions from "@/app/projects/[id]/ProjectCommentActions";
+import ProjectCommentsActions from "@/app/projects/[id]/ProjectCommentsActions";
 
 const Comments = async ({projectId}: { projectId: string }) => {
     const session = await getServerSession(authOptions);
@@ -20,12 +20,14 @@ const Comments = async ({projectId}: { projectId: string }) => {
             projectId: projectId,
         },
         include: {
+            replies: true,
             user: true,
             Like: {
                 include: {
                     user: true,
-                }
-            }
+                },
+            },
+
         }
     })
 
@@ -49,8 +51,7 @@ const Comments = async ({projectId}: { projectId: string }) => {
                                 <div className="ml-auto">
                                     <div className="flex gap-1 items-center -mr-2 sm:-mr-0">
                                         <Roles className="bg-background" role={comment.user.role!}/>
-                                        <ProjectCommentActions comment={comment}/>
-
+                                        <ProjectCommentsActions comment={comment}/>
                                     </div>
                                 </div>
                             </CardTitle>
@@ -59,16 +60,28 @@ const Comments = async ({projectId}: { projectId: string }) => {
                             {comment.content}
                         </CardContent>
                         <CardFooter className="flex justify-between items-center gap-2 pb-3 px-4">
-                            <div className="flex gap-2 items-center">
-                                {session?.user ? (
-                                    <Like comment={comment} userId={session.user.id}/>
-                                ) : <div
-                                    className="flex hover:bg-muted justify-center items-center border rounded-full p-1">
-                                    <HeartIcon className="h-4 w-4 text-primary"/>
+                            <div className="flex gap-3 items-center">
+                                <div className="flex items-center gap-1 cursor-pointer">
+                                    {session?.user ? (
+                                        <Like comment={comment} userId={session.user.id}/>
+                                    ) : <div
+                                        className="flex hover:bg-muted justify-center items-center border rounded-full p-1">
+                                        <HeartIcon className="h-4 w-4 text-primary"/>
+                                    </div>
+                                    }
+                                    <div>
+                                        <HoverLikeUsers comment={comment}/>
+                                    </div>
                                 </div>
-                                }
-                                <div>
-                                    <HoverLikeUsers comment={comment}/>
+                                <div className="flex gap-1 items-center cursor-pointer">
+                                    <div
+                                        className="flex gap-1 hover:bg-muted text-muted-foreground justify-center items-center border rounded-full p-1 px-1">
+                                        <p className="text-xs">Reply</p>
+                                        <ChatBubbleIcon className="h-4 w-4 text-primary"/>
+                                    </div>
+                                    <div>
+                                        {comment.replies.length}
+                                    </div>
                                 </div>
                             </div>
                             <div>
