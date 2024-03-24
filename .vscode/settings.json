@@ -1,0 +1,5 @@
+{
+  "editor.formatOnSave": true,
+  "diffEditor.experimental.showMoves": true,
+  "editor.formatOnPaste": true
+}

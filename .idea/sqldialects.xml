@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://E:/Databases/backup.sql" dialect="PostgreSQL" />
+    <file url="file://E:/Databases/elphent_backup.sql" dialect="Greenplum" />
+    <file url="file://E:/Databases/local_pm_backup_cm_like.sql" dialect="Greenplum" />
+    <file url="file://E:/Databases/pm_like.sql" dialect="Greenplum" />
+  </component>
+</project>
