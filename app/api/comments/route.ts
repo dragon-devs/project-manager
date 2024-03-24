@@ -13,8 +13,10 @@ export async function POST(request: NextRequest) {
 
         const body = await request.json();
 
-        const {content, status, projectId} = body
+        const {content, status, projectId, commentId} = body
         const userId = session.user.id;
+
+
         try {
             const comment = await prisma.comment.create({
                 data: {

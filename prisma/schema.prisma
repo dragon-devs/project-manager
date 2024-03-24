@@ -109,9 +109,9 @@ enum CommentStatus {
 }
 
 model Like {
-  id        String   @unique @default(uuid())
-  comment   Comment  @relation(fields: [commentId], references: [id])
-  commentId String
+  id        String   @id @default(uuid())
+  comment   Comment? @relation(fields: [commentId], references: [id])
+  commentId String?
   user      User     @relation(fields: [userId], references: [id])
   userId    String
   createdAt DateTime @default(now())

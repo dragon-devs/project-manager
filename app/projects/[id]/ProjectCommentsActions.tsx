@@ -3,12 +3,12 @@ import DeleteComment from "@/app/projects/_components/DeleteComment";
 import {Popover, PopoverContent, PopoverTrigger} from "@/components/ui/popover";
 import {DotsHorizontalIcon} from "@radix-ui/react-icons";
 import {Separator} from "@/components/ui/separator";
-import {Comment} from "@/types";
+import {Comment, Reply} from "@/types";
 import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
 
 
-const ProjectCommentsActions = async ({comment}: { comment: Comment }) => {
+const ProjectCommentsActions = async ({comment}: { comment: Comment | Reply }) => {
     const session = await getServerSession(authOptions);
 
     return (

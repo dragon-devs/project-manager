@@ -40,8 +40,11 @@ export interface Users {
 export interface Like {
   id: string;
   user: Users;
+  comment?: Comment[];
+  reply?: Reply[];
   userId: string;
-  commentId: string;
+  commentId?: string;
+  replyId?: string;
   createdAt?: Date;
 }
 

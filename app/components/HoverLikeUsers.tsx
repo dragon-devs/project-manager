@@ -1,12 +1,11 @@
 import React from 'react';
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card";
 import Image from "next/image";
-import {Comment, Like} from "@/types";
+import {Comment, Like, Reply} from "@/types";
 import Link from "next/link";
 
-const HoverLikeUsers = ({comment}: { comment: Comment }) => {
-    const likes = comment.likes || [];
-
+const HoverLikeUsers = ({comment, reply}: { comment?: Comment, reply?: Reply }) => {
+    const likes = reply ? reply.likes : comment!.likes;
     return (
         <HoverCard>
             <HoverCardTrigger asChild>

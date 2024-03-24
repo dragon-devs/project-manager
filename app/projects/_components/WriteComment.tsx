@@ -21,7 +21,7 @@ import {CommentStatus} from "@prisma/client";
 import {PaperPlaneIcon} from "@radix-ui/react-icons";
 import Spinner from "@/components/Spinner";
 
-const WriteComment = ({projectId}: { projectId: string }) => {
+const WriteComment = ({projectId, commentId}: { projectId: string, commentId?: string }) => {
     const [content, setContent] = useState('');
     const [status, setStatus] = useState(commentStatuses[0].value);
     const [loading, setLoading] = useState(false);
