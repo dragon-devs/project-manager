@@ -69,7 +69,7 @@ const WriteComment = ({projectId, commentId}: { projectId?: string, commentId?: 
             <CardContent className="p-2 space-y-2">
                 <Textarea
                     required
-                    className="h-24"
+                    className={commentId ? "h-20" : "h-24"}
                     placeholder="Add your comment here..."
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
