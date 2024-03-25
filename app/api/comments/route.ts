@@ -60,32 +60,42 @@ export async function DELETE(
         return NextResponse.json("Unauthorized", {status: 401});
 
     const body = await request.json();
-    const {commentId} = body;
+    const {commentId, replyId} = body;
 
     try {
-        // Find all likes associated with the comment
-        const likes = await prisma.like.findMany({
-            where: {
-                commentId: commentId,
-            },
-        });
-
-        // Delete each like associated with the comment
-        for (const like of likes) {
-            await prisma.like.delete({
+        let comment;
+        if (replyId) {
+            comment = await prisma.reply.findUnique({
                 where: {
-                    id: like.id,
+                    id: replyId
+                },
+            })
+
+            if (!comment)
+                return NextResponse.json({error: "Reply not found."}, {status: 404});
+
+            await prisma.reply.delete({
+                where: {
+                    id: replyId
+                }
+            })
+        } else {
+            comment = await prisma.comment.findUnique({
+                where: {
+                    id: commentId,
                 },
             });
+
+            if (!comment)
+                return NextResponse.json({error: "Comment not found."}, {status: 404})
+
+            await prisma.comment.delete({
+                where: {
+                    id: commentId,
+                },
+            });
+
         }
-
-        // Delete the comment
-        await prisma.comment.delete({
-            where: {
-                id: commentId,
-            },
-        });
-
         return NextResponse.json({}, {status: 200});
     } catch (error) {
         console.error("Error occurred while deleting comment and likes:", error);

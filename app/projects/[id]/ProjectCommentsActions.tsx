@@ -28,7 +28,8 @@ const ProjectCommentsActions = async ({comment}: { comment: Comment | Reply }) =
                                 {(session.user!.role === 'ADMIN' || comment.user.id === session.user!.id || comment.user.role !== 'ADMIN') && (
                                     <div>
                                         <div className="rounded-t-sm text-start gap-2 hover:bg-destructive/90">
-                                            <DeleteComment commentId={comment.id}/>
+                                            {"replyNumber" in comment ? <DeleteComment replyId={comment.id}/> :
+                                                <DeleteComment commentId={comment.id}/>}
                                         </div>
                                         <Separator/>
                                         <div className="hover:bg-blue-500 hover:text-white p-1.5 px-3">
