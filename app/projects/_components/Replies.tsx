@@ -56,7 +56,7 @@ const Replies = async ({comment}: { comment: Comment }) => {
                                 </CardFooter>
                             </Card>
                         </div>
-                        <div className="relative sm:ml-5 ml-0 flex flex-col gap-3 sm:gap-5 pt-0 z-20">
+                        <div className="relative pt-3 sm:pt-5 broder border-t-2 flex flex-col gap-3 sm:gap-5 z-20">
                             <div className="border-l -z-20 border-2 h-full absolute -top-5 left-5"/>
                             {comment.replies.map(reply => (
                                 <div key={reply.id}>
@@ -79,7 +79,8 @@ const Replies = async ({comment}: { comment: Comment }) => {
                                                 )
                                             }
                                             <div>
-                                                {reply.replyNumber}
+                                                <div
+                                                    className="font-extrabold text-muted-foreground/50 sm:text-lg">#{reply.replyNumber}</div>
                                             </div>
                                         </CardFooter>
                                     </Card>
