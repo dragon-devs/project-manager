@@ -24,9 +24,12 @@ const Replies = async ({comment}: { comment: Comment }) => {
                     </div>
                 </SheetTrigger>
                 <SheetContent className="w-full p-3 sm:p-5 xl:w-1/3 md:w-2/4 sm:max-w-none">
-                    <SheetHeader>
-                        <SheetTitle className="border-b pb-2">Replies</SheetTitle>
-                        <div>
+                    <div className="flex flex-col gap-3 sm:gap-5">
+                        <SheetHeader>
+                            <SheetTitle className="border-b pb-2">Replies</SheetTitle>
+                        </SheetHeader>
+
+                        <div className="relative z-30">
                             <Card>
                                 <CommentContent comment={comment}/>
                                 <CardFooter className="flex justify-between items-center gap-2 pb-3 px-4">
@@ -53,27 +56,36 @@ const Replies = async ({comment}: { comment: Comment }) => {
                                 </CardFooter>
                             </Card>
                         </div>
-                    </SheetHeader>
-                    <div>
-                        {comment.replies.map(reply => (
-                            <div key={reply.id}>
-                                <CommentContent comment={reply}/>
-                                {session?.user ?
-                                    <Like reply={reply} comment={comment} userId={session!.user!.id}/> :
-                                    (
-                                        <div className="flex items-center gap-1 cursor-pointer">
-                                            <div
-                                                className="flex hover:bg-muted justify-center items-center border rounded-full p-1">
-                                                <HeartIcon className="h-4 w-4 text-primary"/>
-                                            </div>
+                        <div className="relative sm:ml-5 ml-0 flex flex-col gap-3 sm:gap-5 pt-0 z-20">
+                            <div className="border-l -z-20 border-2 h-full absolute -top-5 left-5"/>
+                            {comment.replies.map(reply => (
+                                <div key={reply.id}>
+                                    <Card>
+                                        <CommentContent comment={reply}/>
+                                        <CardFooter className="flex justify-between items-center gap-2 pb-3 px-4">
+                                            {session?.user ?
+                                                <Like reply={reply} comment={comment} userId={session!.user!.id}/> :
+                                                (
+                                                    <div
+                                                        className="flex justify-between items-center gap-1 cursor-pointer">
+                                                        <div
+                                                            className="flex hover:bg-muted justify-center items-center border rounded-full p-1">
+                                                            <HeartIcon className="h-4 w-4 text-primary"/>
+                                                        </div>
+                                                        <div>
+                                                            {reply.likes.length}
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
                                             <div>
-                                                {reply.likes.length}
+                                                {reply.replyNumber}
                                             </div>
-                                        </div>
-                                    )
-                                }
-                            </div>
-                        ))}
+                                        </CardFooter>
+                                    </Card>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </SheetContent>
             </Sheet>

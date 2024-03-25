@@ -75,6 +75,7 @@ model User {
 model Comment {
   id        String        @unique @default(uuid())
   content   String
+  cmtNumber Int           @default(autoincrement())
   status    CommentStatus @default(QUESTION)
   createdAt DateTime      @default(now())
   updatedAt DateTime      @updatedAt
@@ -87,16 +88,17 @@ model Comment {
 }
 
 model Reply {
-  id        String        @unique @default(uuid())
-  content   String
-  status    CommentStatus @default(REPLY)
-  createdAt DateTime      @default(now())
-  updatedAt DateTime      @updatedAt
-  commentId String
-  comment   Comment       @relation("ReplyToComment", fields: [commentId], references: [id], onDelete: Cascade)
-  userId    String
-  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  likes     Like[]
+  id          String        @unique @default(uuid())
+  content     String
+  replyNumber Int           @default(autoincrement())
+  status      CommentStatus @default(REPLY)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  commentId   String
+  comment     Comment       @relation("ReplyToComment", fields: [commentId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likes       Like[]
 }
 
 enum CommentStatus {
@@ -218,6 +220,7 @@ enum Priority {
 enum Role {
   ADMIN
   MODERATOR
+  TESTER
   MEMBER
   VIEWER
 }

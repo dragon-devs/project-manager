@@ -51,6 +51,7 @@ export interface Like {
 export interface Comment {
   id: string;
   content: string;
+  cmtNumber: number;
   status: CommentStatus;
   user: Users;
   userId: string;
@@ -63,6 +64,7 @@ export interface Comment {
 export interface Reply {
   id: string;
   content: string;
+  replyNumber: number;
   status: CommentStatus;
   createdAt: Date;
   updatedAt: Date;

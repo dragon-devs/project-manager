@@ -1,5 +1,6 @@
 import React from 'react';
 import {EyeIcon, UserRoundCogIcon, UserRoundSearchIcon, UsersRoundIcon} from "lucide-react";
+import {GearIcon} from "@radix-ui/react-icons";
 
 export interface RolesOption {
     value: string;
@@ -37,6 +38,13 @@ export const roles: RolesOption[] = [
         description: "Access to read-only features",
         icon: <EyeIcon className="w-4 h-4"/>,
         className: "text-blue-500"
+    },
+    {
+        value: "TESTER",
+        label: "Tester",
+        description: "Access to testing features and settings",
+        icon: <GearIcon className="w-4 h-4"/>,
+        className: "text-purple-500"
     }
 ]
 

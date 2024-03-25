@@ -13,6 +13,7 @@ const CommentContent = ({comment}: { comment: Comment | Reply }) => {
             <CardHeader className="border-b bg-muted rounded-t-md p-2 px-4">
                 <CardTitle className="flex justify-between items-center gap-2 text-sm">
                     <div className="flex gap-1 sm:gap-2 items-center">
+
                         <Link className="hover:underline" href={`/users/${comment.user.id}`}>
                             <HoverUserCard user={comment.user!}/>
                         </Link>
@@ -30,6 +31,9 @@ const CommentContent = ({comment}: { comment: Comment | Reply }) => {
                 </CardTitle>
             </CardHeader>
             <CardContent className="p-2 px-4">
+                {"cmtNumber" in comment &&
+                    <div className="font-extrabold text-muted-foreground/50 sm:text-lg">#{comment.cmtNumber}</div>
+                }
                 {comment.content}
             </CardContent>
         </div>

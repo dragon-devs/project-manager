@@ -21,7 +21,7 @@ import {CommentStatus} from "@prisma/client";
 import {PaperPlaneIcon} from "@radix-ui/react-icons";
 import Spinner from "@/components/Spinner";
 
-const WriteComment = ({projectId, commentId}: { projectId: string, commentId?: string }) => {
+const WriteComment = ({projectId, commentId}: { projectId?: string, commentId?: string }) => {
     const [content, setContent] = useState('');
     const [status, setStatus] = useState(commentStatuses[0].value);
     const [loading, setLoading] = useState(false);
@@ -36,12 +36,18 @@ const WriteComment = ({projectId, commentId}: { projectId: string, commentId?: s
         if (loading) {
             return;
         }
+
         setLoading(true);
-        axios.post("/api/comments", {
+        const data = commentId ? {
+            commentId: commentId,
+            content: content,
+        } : {
             projectId: projectId,
             content: content,
             status: status
-        })
+        };
+
+        axios.post("/api/comments", data)
             .then(response => {
                 setLoading(false);
                 setContent('');
@@ -57,7 +63,7 @@ const WriteComment = ({projectId, commentId}: { projectId: string, commentId?: s
         <Card>
             <CardHeader className="flex p-2 px-3 sm:p-3 sm:px-6 border-b bg-muted rounded-t-md">
                 <CardTitle className="sm:flex items-center gap-3 text-sm sm:text-sm">
-                    Write a comment
+                    {commentId ? 'Reply' : 'Write a comment'}
                 </CardTitle>
             </CardHeader>
             <CardContent className="p-2 space-y-2">
@@ -72,11 +78,11 @@ const WriteComment = ({projectId, commentId}: { projectId: string, commentId?: s
                     <Button disabled={loading} className="flex gap-2 h-8 w-32 transition-all duration-500"
                             onClick={handleComment}>
                         <p>
-                            Comment
+                            {commentId ? 'Reply' : 'Comment'}
                         </p>
                         {loading ? <Spinner/> : <PaperPlaneIcon className="w-4 h-4"/>}
                     </Button>
-                    <Select onValueChange={(value: CommentStatus) => setStatus(value)}>
+                    {!commentId && <Select onValueChange={(value: CommentStatus) => setStatus(value)}>
                         <SelectTrigger className="w-32">
                             <SelectValue defaultValue={status} placeholder={<CommentStatues status={status}/>}>
                             </SelectValue>
@@ -95,7 +101,7 @@ const WriteComment = ({projectId, commentId}: { projectId: string, commentId?: s
                                 ))}
                             </SelectGroup>
                         </SelectContent>
-                    </Select>
+                    </Select>}
                 </div>
             </CardContent>
         </Card>
