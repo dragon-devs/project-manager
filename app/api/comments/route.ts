@@ -18,18 +18,33 @@ export async function POST(request: NextRequest) {
 
 
         try {
-            const comment = await prisma.comment.create({
-                data: {
-                    content,
-                    status,
-                    project: {
-                        connect: {id: projectId},
+            let comment;
+            if (commentId) {
+                comment = await prisma.reply.create({
+                    data: {
+                        content,
+                        comment: {
+                            connect: {id: commentId},
+                        },
+                        user: {
+                            connect: {id: userId},
+                        }
+                    }
+                })
+            } else {
+                comment = await prisma.comment.create({
+                    data: {
+                        content,
+                        status,
+                        project: {
+                            connect: {id: projectId},
+                        },
+                        user: {
+                            connect: {id: userId},
+                        },
                     },
-                    user: {
-                        connect: {id: userId},
-                    },
-                },
-            })
+                })
+            }
             return NextResponse.json(comment, {status: 201})
         } catch (error) {
             return NextResponse.json({message: 'Something went wrong'}, {status: 400})
