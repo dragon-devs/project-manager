@@ -36,7 +36,7 @@ export async function RecentProjects() {
                         {project.assignedToUser && <UserPopover user={project.assignedToUser!}/>}
                       </div>
                   ) : (
-                      <div className="mr-[42px]">sd</div>
+                      <div className="mr-[42px]"></div>
                   )}
                 </div>
             ))
