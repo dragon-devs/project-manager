@@ -15,8 +15,8 @@ interface LikeProps {
 }
 
 const Like: React.FC<LikeProps> = ({comment, userId, reply}) => {
-    const [liked, setLiked] = useState(reply ? reply.likes.some((like: Like) => like.userId === userId) : comment.likes.some((like: Like) => like.userId === userId));
-    const [likeCount, setLikeCount] = useState(reply ? reply.likes.length : comment.likes.length);
+    const [liked, setLiked] = useState(reply ? reply.likes!.some((like: Like) => like.userId === userId) : comment.likes!.some((like: Like) => like.userId === userId));
+    const [likeCount, setLikeCount] = useState(reply ? reply.likes!.length : comment.likes!.length);
 
 
     const router = useRouter();

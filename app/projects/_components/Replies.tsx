@@ -22,7 +22,7 @@ const Replies = async ({comment}: { comment: Comment }) => {
                         <ChatBubbleIcon className="h-4 w-4 text-primary"/>
                     </div>
                     <div>
-                        {comment.replies.length}
+                        {comment.replies!.length}
                     </div>
                 </SheetTrigger>
                 <SheetContent className="w-full p-3 sm:p-5 xl:w-1/3 md:w-2/4 sm:max-w-none">
@@ -38,19 +38,7 @@ const Replies = async ({comment}: { comment: Comment }) => {
                                             <CardFooter className="flex justify-between items-center gap-2 pb-3 px-4">
                                                 <div className="flex gap-3 items-center">
                                                     <div className="flex items-center gap-1 cursor-pointer">
-                                                        {session?.user ? (
-                                                                <Like comment={comment} userId={session.user!.id}/>
-                                                            ) :
-                                                            <div className="flex items-center gap-1 cursor-pointer">
-                                                                <div
-                                                                    className="flex hover:bg-muted justify-center items-center border rounded-full p-1">
-                                                                    <HeartIcon className="h-4 w-4 text-primary"/>
-                                                                </div>
-                                                                <div>
-                                                                    {comment.likes.length}
-                                                                </div>
-                                                            </div>
-                                                        }
+
                                                     </div>
                                                 </div>
                                                 <div>
@@ -62,7 +50,7 @@ const Replies = async ({comment}: { comment: Comment }) => {
                                     <div
                                         className="relative pt-3 sm:pt-5 broder border-t-2 flex flex-col gap-3 sm:gap-5 z-20">
                                         <div className="border-l -z-20 border-2 h-full absolute -top-5 left-5"/>
-                                        {comment.replies.map(reply => (
+                                        {comment.replies!.map(reply => (
                                             <div key={reply.id}>
                                                 <Card>
                                                     <CommentContent comment={reply}/>
@@ -79,7 +67,7 @@ const Replies = async ({comment}: { comment: Comment }) => {
                                                                         <HeartIcon className="h-4 w-4 text-primary"/>
                                                                     </div>
                                                                     <div>
-                                                                        {reply.likes.length}
+                                                                        {reply.likes!.length}
                                                                     </div>
                                                                 </div>
                                                             )
@@ -92,10 +80,7 @@ const Replies = async ({comment}: { comment: Comment }) => {
                                                 </Card>
                                             </div>
                                         ))}
-
                                     </div>
-
-
                                 </div>
                             </ScrollArea>
                         </div>

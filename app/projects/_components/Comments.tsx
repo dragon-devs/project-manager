@@ -55,7 +55,7 @@ const Comments = async ({projectId}: { projectId: string }) => {
                                             <HeartIcon className="h-4 w-4 text-primary"/>
                                         </div>
                                         <div>
-                                            {comment.likes.length}
+                                            {comment.likes!.length}
                                         </div>
                                     </div>
                                     }
