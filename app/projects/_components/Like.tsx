@@ -23,11 +23,11 @@ const Like: React.FC<LikeProps> = ({comment, userId, reply}) => {
     const handleLike = () => {
         if (!liked) {
             setLiked(true);
+            setLikeCount(prevCount => prevCount + 1);
             const likeData = reply ? {commentId: comment.id, replyId: reply.id} : {commentId: comment.id};
             axios.post("/api/likes", likeData)
                 .then(() => {
                     setLiked(true);
-                    setLikeCount(prevCount => prevCount + 1);
                     router.refresh();
                 })
                 .catch((e) => {
@@ -41,6 +41,7 @@ const Like: React.FC<LikeProps> = ({comment, userId, reply}) => {
                 });
         } else {
             setLiked(false);
+            setLikeCount(prevCount => prevCount - 1);
             axios.delete("/api/likes", {
                 data: {
                     commentId: comment.id,
@@ -49,7 +50,6 @@ const Like: React.FC<LikeProps> = ({comment, userId, reply}) => {
             })
                 .then((data) => {
                     setLiked(false);
-                    setLikeCount(prevCount => prevCount - 1);
                     router.refresh();
                 })
                 .catch(() => {

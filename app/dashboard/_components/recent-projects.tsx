@@ -18,7 +18,7 @@ export async function RecentProjects() {
 
   return (
       <div className="space-y-5">
-        {projects.length === 0 ? ( // Check if there are no projects
+        {projects.length === 0 ? (
             <div>No recent projects available.</div>
         ) : (
             projects.map((project: Project) => (
@@ -26,7 +26,7 @@ export async function RecentProjects() {
                   <div className="mr-2 space-y-1">
                     <Link href={`/projects/${project.id}`}>
                       <div
-                          className="hover:underline text-sm font-medium w-40 leading-none truncate ...">{project.name}</div>
+                          className="hover:underline text-sm font-medium w-40 leading-none truncate">{project.name}</div>
                     </Link>
                     <div className="text-sm text-muted-foreground"><Statues status={project.status}/></div>
                   </div>
