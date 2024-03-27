@@ -1,15 +1,24 @@
+// HoverLikeUsers.tsx
+
 import React from 'react';
 import {HoverCard, HoverCardContent, HoverCardTrigger} from "@/components/ui/hover-card";
 import Image from "next/image";
 import {Comment, Like, Reply} from "@/types";
 import Link from "next/link";
 
-const HoverLikeUsers = ({comment, reply}: { comment?: Comment, reply?: Reply }) => {
+interface HoverLikeUsersProps {
+    likesCount: number;
+    comment?: Comment;
+    reply?: Reply;
+}
+
+const HoverLikeUsers: React.FC<HoverLikeUsersProps> = ({likesCount, comment, reply}) => {
     const likes = reply ? reply.likes : comment!.likes;
+
     return (
         <HoverCard>
             <HoverCardTrigger asChild>
-                <div className="hover:underline cursor-pointer">{likes.length}</div>
+                <div className="hover:underline cursor-pointer">{likesCount}</div>
             </HoverCardTrigger>
             <HoverCardContent className="w-auto p-0">
                 {likes.map((like: Like) => (

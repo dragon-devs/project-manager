@@ -16,6 +16,8 @@ interface LikeProps {
 
 const Like: React.FC<LikeProps> = ({comment, userId, reply}) => {
     const [liked, setLiked] = useState(reply ? reply.likes.some((like: Like) => like.userId === userId) : comment.likes.some((like: Like) => like.userId === userId));
+    const [likeCount, setLikeCount] = useState(reply ? reply.likes.length : comment.likes.length);
+
 
     const router = useRouter();
     const handleLike = () => {
@@ -25,10 +27,12 @@ const Like: React.FC<LikeProps> = ({comment, userId, reply}) => {
             axios.post("/api/likes", likeData)
                 .then(() => {
                     setLiked(true);
+                    setLikeCount(prevCount => prevCount + 1);
                     router.refresh();
                 })
                 .catch((e) => {
                     setLiked(false);
+                    setLikeCount(prevCount => prevCount - 1);
                     if (reply) {
                         toast.error("Unable to like this reply comment.");
                     } else {
@@ -36,6 +40,7 @@ const Like: React.FC<LikeProps> = ({comment, userId, reply}) => {
                     }
                 });
         } else {
+            setLiked(false);
             axios.delete("/api/likes", {
                 data: {
                     commentId: comment.id,
@@ -44,9 +49,12 @@ const Like: React.FC<LikeProps> = ({comment, userId, reply}) => {
             })
                 .then((data) => {
                     setLiked(false);
+                    setLikeCount(prevCount => prevCount - 1);
                     router.refresh();
                 })
                 .catch(() => {
+                    setLiked(true);
+                    setLikeCount(prevCount => prevCount + 1);
                     toast.error("Unable to unlike this comment.");
                 });
         }
@@ -65,11 +73,7 @@ const Like: React.FC<LikeProps> = ({comment, userId, reply}) => {
                 )}
             </div>
             <div>
-                {reply ? (
-                    <HoverLikeUsers reply={reply}/>
-                ) : (
-                    <HoverLikeUsers comment={comment}/>
-                )}
+                <HoverLikeUsers likesCount={likeCount} reply={reply} comment={comment}/>
             </div>
         </div>
     );
