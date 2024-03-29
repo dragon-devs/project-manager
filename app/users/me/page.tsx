@@ -3,7 +3,7 @@ import {getServerSession} from "next-auth";
 import authOptions from "@/app/auth/authOptions";
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import {ChevronRightIcon} from "@radix-ui/react-icons";
+import {ArrowRightIcon, ChevronRightIcon} from "@radix-ui/react-icons";
 import ProjectCard from "@/app/components/ProjectCard";
 import prisma from "@/prisma/client";
 import Link from "next/link";
@@ -69,9 +69,14 @@ const MyProfile = async () => {
                   <CardTitle>Admin Control Panel</CardTitle>
                   <CardDescription>Reserved for administrators only, providing full control.</CardDescription>
                 </CardHeader>
-                <CardContent className="">
-                  <div className="font-bold">
-                    <Link href="/users">All Users Details</Link>
+                <CardContent>
+                  <div className="flex flex-col gap-3 font-bold">
+                    <div className="flex items-center gap-2 hover:underline focus:underline"><ArrowRightIcon/>
+                      <Link href="/users">All Users Details</Link>
+                    </div>
+                    <div className="flex items-center gap-2 hover:underline focus:underline"><ArrowRightIcon/>
+                      <Link href="/admin">Visitors Analytics</Link>
+                    </div>
                   </div>
                 </CardContent>
               </Card>

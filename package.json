@@ -10,7 +10,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tremor/react": "^3.15.0",
+    "@upstash/redis": "^1.29.0",
     "@faker-js/faker": "^8.4.0",
+    "react-country-flag": "^3.1.0",
     "@hookform/resolvers": "^3.3.4",
     "@knocklabs/node": "^0.6.4",
     "@knocklabs/react": "^0.2.0",

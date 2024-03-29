@@ -128,7 +128,6 @@ const ProjectDetailsPage = async ({params}: Props) => {
                             </div>
                         </div>
                     </div>
-
                 </CardContent>
             </Card>
             <div className="flex flex-col mt-3 md:mt-5 gap-3 sm:gap-5 transition-all">
