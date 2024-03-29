@@ -23,7 +23,7 @@ import Spinner from "@/components/Spinner";
 
 const WriteComment = ({projectId, commentId}: { projectId?: string, commentId?: string }) => {
     const [content, setContent] = useState('');
-    const [status, setStatus] = useState(commentStatuses[0].value);
+    const [status, setStatus] = useState(commentStatuses[0]!.value);
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
