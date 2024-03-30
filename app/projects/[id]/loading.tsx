@@ -1,7 +1,8 @@
 import React from 'react';
-import {Card, CardContent} from "@/components/ui/card";
+import {Card, CardContent, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Skeleton} from "@/components/ui/skeleton";
 import {DotsVerticalIcon} from "@radix-ui/react-icons";
+import Link from "next/link";
 
 const ProjectDetailsPageSkeleton = () => {
   return (
@@ -105,6 +106,50 @@ const ProjectDetailsPageSkeleton = () => {
 
           </CardContent>
         </Card>
+        <div className="flex flex-col mt-3 md:mt-5 gap-3 sm:gap-5 transition-all">
+          <div className="flex items-center justify-between">
+            <p className="font-bold text-lg">Comments</p>
+            <Link
+                className="text-xs sm:text-sm bg-primary text-primary-foreground rounded-md px-2 py-1 "
+                href="#comment">
+              Write a comment
+            </Link>
+          </div>
+          <div>
+            <Card>
+              <CardHeader className="border-b bg-muted rounded-t-md p-2 px-4">
+                <CardTitle className="flex justify-between items-center gap-2 text-sm">
+                  <div className="flex gap-1 sm:gap-2 items-center">
+                    <div className="flex gap-1 font-normal text-xs sm:text-sm text-muted-foreground">
+                      <Skeleton className="h-5 w-32"/>
+                    </div>
+                  </div>
+                  <div className="ml-auto">
+                    <div className="flex gap-1 items-center -mr-2 sm:-mr-0">
+                      <Skeleton className="h-5 w-32 "/>
+                    </div>
+                  </div>
+                </CardTitle>
+              </CardHeader>
+              <CardFooter className="flex justify-between items-center gap-2 pb-3 px-4">
+                <div className="flex flex-col gap-3">
+                  <div>
+                    <Skeleton className="h-5 mt-4 w-10 "/>
+                  </div>
+                  <div className="gap-1 cursor-pointer">
+                    <Skeleton className="h-3 w-full mx-auto"/>
+
+                  </div>
+                </div>
+                <div>
+                </div>
+              </CardFooter>
+            </Card>
+
+          </div>
+          <div id="comment">
+          </div>
+        </div>
       </div>
   );
 };
