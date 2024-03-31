@@ -16,7 +16,6 @@ const ProjectDetailsPageSkeleton = () => {
             <Skeleton className="h-9 w-[9rem] mb-5"/>
             <Skeleton className="h-9 w-24 mb-5"/>
             <Skeleton className="h-9 w-20 mb-5"/>
-
           </div>
           <div className="sm:hidden">
             <DotsVerticalIcon className="w-5 m-2 -mt-3 h-5 animate-pulse text-primary/50"/>
@@ -34,7 +33,6 @@ const ProjectDetailsPageSkeleton = () => {
                   <Skeleton className="h-3.5 w-56 mt-1.5"/>
                 </p>
               </div>
-
               <div>
                 <p className="text-sm text-muted-foreground ">
                   Description
@@ -54,7 +52,6 @@ const ProjectDetailsPageSkeleton = () => {
                   Frameworks
                 </p>
                   <Skeleton className="h-3.5 w-64 mt-1.5"/>
-
               </div>
               <div className="flex gap-10">
                 <div>
@@ -89,7 +86,6 @@ const ProjectDetailsPageSkeleton = () => {
                   </p>
                   <p className="text-sm font-medium">
                   <Skeleton className="h-3.5 w-56 mt-1.5"/>
-
                   </p>
                 </div>
               </div>
@@ -138,7 +134,6 @@ const ProjectDetailsPageSkeleton = () => {
                   </div>
                   <div className="gap-1 cursor-pointer">
                     <Skeleton className="h-3 w-full mx-auto"/>
-
                   </div>
                 </div>
                 <div>
