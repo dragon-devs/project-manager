@@ -11,7 +11,6 @@ import Link from "next/link";
 import moment from "moment/moment";
 import Comments from "@/app/projects/_components/Comments";
 import WriteComment from "@/app/projects/_components/WriteComment";
-import delay from "delay";
 
 interface Props {
     params: { id: string }
@@ -27,7 +26,6 @@ const ProjectDetailsPage = async ({params}: Props) => {
     });
     if (!project)
         return notFound();
-    await delay(3000)
     return (
         <div className="">
             <ProjectDetailsActions project={project}/>

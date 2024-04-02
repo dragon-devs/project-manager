@@ -8,7 +8,6 @@ import {getServerSession} from "next-auth";
 import DeleteButton from "@/app/users/(admin-users)/DeleteButton";
 import AssigneeSelectRole from "@/app/users/(admin-users)/AssigneeSelectRole";
 import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
-import delay from "delay";
 
 
 const UsersPage = async () => {
@@ -40,7 +39,6 @@ const UsersPage = async () => {
         }
     );
 
-    await delay(3000)
     return (
         <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 sm:gap-5 gap-3">
             {users.map(user => (

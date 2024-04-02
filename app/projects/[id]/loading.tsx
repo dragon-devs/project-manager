@@ -121,20 +121,17 @@ const ProjectDetailsPageSkeleton = () => {
                     </div>
                   </div>
                   <div className="ml-auto">
-                    <div className="flex gap-1 items-center -mr-2 sm:-mr-0">
+                    <div className="flex gap-1 items-center ">
                       <Skeleton className="h-5 w-32 "/>
                     </div>
                   </div>
                 </CardTitle>
               </CardHeader>
-              <CardFooter className="flex justify-between items-center gap-2 pb-3 px-4">
-                <div className="flex flex-col gap-3">
-                  <div>
-                    <Skeleton className="h-5 mt-4 w-10 "/>
-                  </div>
-                  <div className="gap-1 cursor-pointer">
-                    <Skeleton className="h-3 w-full mx-auto"/>
-                  </div>
+              <CardFooter className="pl-4">
+                <div className="">
+                  <Skeleton className="h-5 mt-4 w-10 "/>
+                  <Skeleton className="h-3 w-96 mt-2 mx-auto"/>
+                  <Skeleton className="h-5 w-20 mt-2 rounded-full "/>
                 </div>
                 <div>
                 </div>
