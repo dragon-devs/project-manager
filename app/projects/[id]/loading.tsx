@@ -130,7 +130,7 @@ const ProjectDetailsPageSkeleton = () => {
               <CardFooter className="pl-4">
                 <div className="">
                   <Skeleton className="h-5 mt-4 w-10 "/>
-                  <Skeleton className="h-3 w-96 mt-2 mx-auto"/>
+                  <Skeleton className="h-3 w-60 mt-2 mx-auto"/>
                   <Skeleton className="h-5 w-20 mt-2 rounded-full "/>
                 </div>
                 <div>
