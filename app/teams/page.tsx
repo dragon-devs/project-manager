@@ -9,34 +9,34 @@ import TeamForm from "@/app/teams/_components/TeamForm";
 import DeleteTeamButton from "@/app/teams/DeleteTeamButton";
 
 const TeamsPage = async () => {
-    const teams = await prisma.teams.findMany(
-        {
-            include: {members: true},
-            orderBy: {
-                createdAt: 'desc',
-            }
-        }
-    )
-    const users = await prisma.user.findMany()
-
-    return (
-        <div className="space-y-3 sm:space-y-5">
-            <CreateNewTeam/>
-            {teams.length === 0 ? ( // Check if there are no teams
-                <div className="flex justify-center items-center ">
-                    <p>No teams available.</p>
-                </div>
-            ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-5">
-              {teams.map((team) => (
-                  <Card key={team.id}>
-                    <CardHeader>
-                      <div className="flex justify-between">
-                        <div className="">
-                          <CardTitle className="">{team.name}</CardTitle>
-                          <CardDescription className="mt-2">{team.description}</CardDescription>
-                        </div>
-                        <div className="flex flex-col">
+  const teams = await prisma.teams.findMany(
+    {
+      include: {members: true},
+      orderBy: {
+        createdAt: 'desc'
+      }
+    }
+  )
+  const users = await prisma.user.findMany()
+  
+  return (
+    <div className="space-y-3 sm:space-y-5">
+      <CreateNewTeam/>
+      {teams.length === 0 ? ( // Check if there are no teams
+        <div className="flex justify-center items-center ">
+          <p>No teams available.</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-5">
+          {teams.map((team) => (
+            <Card key={team.id}>
+              <CardHeader>
+                <div className="flex justify-between">
+                  <div className="">
+                    <CardTitle className="">{team.name}</CardTitle>
+                    <CardDescription className="mt-2">{team.description}</CardDescription>
+                  </div>
+                  <div className="flex flex-col">
                           <TeamForm
                               users={users}
                               team={team}

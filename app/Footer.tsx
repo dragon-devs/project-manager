@@ -1,6 +1,5 @@
 import React from 'react';
 import Container from "@/components/Container";
-import WhatsappLink from "@/components/WhatsappLink";
 import {Separator} from "@/components/ui/separator";
 import GithubLink from "@/components/GithubLink";
 import Link from "next/link";
@@ -14,7 +13,6 @@ const Footer = () => {
               Built & Designed by <Link className="hover:underline text-foreground" href="https://github.com/dragon-devs/project-manager">dragon-devs</Link> © 2024 <Separator orientation="vertical" className="h-5"/>
             </div>
             <div className="flex gap-3 justify-center">
-              <WhatsappLink/>
               <GithubLink username="dragon-devs"/>
             </div>
           </div>
