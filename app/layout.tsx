@@ -27,7 +27,8 @@ export default async function RootLayout({children,}: Readonly<{
         const knockClient = new Knock(process.env.KNOCK_API_KEY);
         const knockUser = await knockClient.users.identify(session!.user!.id, {
             name: session!.user!.name!,
-            email: session!.user!.email!
+            email: session!.user!.email!,
+            avatar: session!.user!.image!
         })
     }
     return (

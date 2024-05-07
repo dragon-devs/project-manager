@@ -1,22 +1,31 @@
 import {NextRequest, NextResponse} from "next/server";
 import {patchTeamsSchema} from "@/app/validationSchema";
 import prisma from "@/prisma/client";
+import {Knock} from "@knocklabs/node";
+import {getServerSession} from "next-auth";
+import authOptions from "@/app/auth/authOptions";
+
+const knock = new Knock(process.env.KNOCK_API_KEY)
 
 export async function PATCH(
-    request: NextRequest,
-    {params}: { params: { id: string } }
+  request: NextRequest,
+  {params}: { params: { id: string } }
 ) {
     try {
+        const session = await getServerSession(authOptions)
+        if (!session)
+            return NextResponse.json({}, {status: 401})
+        
         const body = await request.json();
-
+        
         const validation = patchTeamsSchema.safeParse(body);
         if (!validation.success) {
             return NextResponse.json(
-                {
-                    error: `Validation Failed`,
-                    details: validation.error.errors
-                },
-                {status: 400}
+              {
+                  error: `Validation Failed`,
+                  details: validation.error.errors
+              },
+              {status: 400}
             );
         }
 
@@ -60,7 +69,7 @@ export async function PATCH(
             industry: body.industry,
             rating: body.rating
         };
-
+        
         const updatedTeam = await prisma.teams.update({
             where: {
                 id: teamId
@@ -70,7 +79,19 @@ export async function PATCH(
                 members: true // Include the updated members
             }
         });
-
+        body.members.map(async (m: any) => (
+          await knock.notify('add-in-team', {
+              actor: session.user!.id,
+              recipients: [m.id],
+              data: {
+                  team: {
+                      name: body.name
+                  }
+              }
+          })
+        ))
+        
+        
         return NextResponse.json(updatedTeam, {status: 200});
     } catch (error) {
         console.error(error);
