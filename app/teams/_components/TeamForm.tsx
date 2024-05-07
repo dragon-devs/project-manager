@@ -62,6 +62,7 @@ const TeamForm = ({team, users}: TeamFormProps) => {
         try {
             const isValid = await form.trigger();
             setIsSubmitting(true);
+            console.log(data)
 
             if (isValid) {
                 if (team) {
